@@ -1,0 +1,84 @@
+#set ( $month_name = ["Jan", "Feb", "Mac", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] )  
+
+
+<br/>
+<div style="padding:10px;font-weight:bold;font-size:12pt">
+	Year: $!year
+</div>
+<table class="table" style="width:100%" cellpadding="2">
+	<tr style="background:#494945;height:35px">
+		
+		<td style="width:120px;color:#FFFFFF" align="">Date</td>
+		<td style="width:150px;color:#FFFFFF" align="">Account No.</td>
+		<td style="color:#FFFFFF" align="">Description</td>
+		<td style="width:150px;color:#FFFFFF" align="right">Amount</td>
+		<td style="width:50px;color:#FFFFFF" align=""></td>
+		
+	</tr>
+	#set ( $cnt = 0 )
+	<td colspan="5" style="font-weight:bold">
+		List of Assets
+	</td>
+	#foreach( $t in $assets )
+		#set ( $cnt = $cnt + 1 )
+		#if ( $cnt % 2 == 1 ) #set ( $bgcolor = "#F9F2B8" ) #else #set ( $bgcolor = "#F4F3ED" ) #end
+		<tr style="background:$bgcolor;cursor:pointer">
+
+			<td align="">$df.format($t.entryItem.date)</td>
+			<td>$!t.account.number</td>
+			<td>$util.putLineBreak($t.entryItem.description)</td>
+			<td align="right">$nf.format($!t.amount)</td>
+			<td></td>
+			
+		</tr>
+	#end
+	<tr style="">
+	<td colspan="3" style="font-weight:bold;border-top:1px solid #000;border-bottom:1px solid #000;" align="right">
+		Total Assets
+	</td>
+	<td style="font-weight:bold;border-top:1px solid #000;border-bottom:1px solid #000;" align="right">$nf.format($!totalAssets)</td>
+	<td style="font-weight:bold;border-top:1px solid #000;border-bottom:1px solid #000;"></td>
+	</tr>
+	
+	#set ( $cnt = 0 )
+	<td colspan="5" style="font-weight:bold">
+		<br/>
+		List of Liabilities
+	</td>
+	#foreach( $t in $liabilities )
+		#set ( $cnt = $cnt + 1 )
+		#if ( $cnt % 2 == 1 ) #set ( $bgcolor = "#F9F2B8" ) #else #set ( $bgcolor = "#F4F3ED" ) #end
+		<tr style="background:$bgcolor;cursor:pointer">
+
+			<td align="">$df.format($t.entryItem.date)</td>
+			<td>$!t.account.number</td>
+			<td>$util.putLineBreak($t.entryItem.description)</td>
+			<td align="right">$nf.format($!t.amount)</td>
+			<td></td>
+			
+		</tr>
+	#end
+	<tr style="">
+	<td colspan="3" style="font-weight:bold;border-top:1px solid #000;border-bottom:1px solid #000;" align="right">
+		Total Lialibilites
+	</td>
+	<td style="font-weight:bold;border-top:1px solid #000;border-bottom:1px solid #000;" align="right">$nf.format($!totalLiabilities)</td>
+	<td style="font-weight:bold;border-top:1px solid #000;border-bottom:1px solid #000;"></td>
+	</tr>
+	
+	<tr style="">
+	<td colspan="3" style="font-weight:bold;border-top:1px solid #000;border-bottom:1px solid #000;" align="right">
+		Balance
+	</td>
+	<td style="font-weight:bold;border-top:1px solid #000;border-bottom:1px solid #000;" align="right">$nf.format($!totalBalance)</td>
+	<td style="font-weight:bold;border-top:1px solid #000;border-bottom:1px solid #000;"></td>
+	</tr>
+	
+	
+</table>
+
+
+<script>
+$('params').style.display='none';
+$('result').style.display='block';
+</script>

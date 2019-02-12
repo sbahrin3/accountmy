@@ -1,0 +1,103 @@
+
+#set ( $AppTitle = "ACCOUNT.MY" )
+
+<link rel="stylesheet" href="../app_busim/style.css" type="text/css" media="screen" />
+
+<div id="myLogo">
+	##<img src="../img2/ikasicon.png">
+</div>
+
+<div id="divTopBar">
+<table width="100%" style="height:30px"><tr><td align="left">
+<span class="topBar" id="greetingTitle" style="padding:10px">
+#if ( $user )
+	$AppTitle / $user.name
+#else
+$AppTitle / Please Sign In.
+#end
+</span>
+</td></tr></table>
+</div>
+
+<div id="divTopMenu">
+#if ( $user )
+	#parse("app/top-menu.vm")
+#else
+	#parse("app/login.vm")
+#end
+</div>
+
+<div id="divMainFrame">
+
+
+	<iframe id="mainframe" name="mainframe" style="overflow-x: hidden; overflow-y: hidden;" frameborder="0"
+	#if ( $user )
+		src ="../app/fwd.busim.module.WelcomeModule"
+	#else
+		src ="../app/lebah.app.HelloWorld"
+	#end	
+	width="100%" height="100%">
+	
+	</iframe>
+
+
+</div>
+
+<div id="divBottomBar">
+	#parse("app/bottom-menu.vm")
+</div>
+
+<div id="div_input" class="shadow"></div>
+<div id="div_ontop"></div>
+
+
+<script>
+function loginInputKey(e, el) {
+	var keynum;
+	if (window.event) keynum = e.keyCode;
+	else if (e.which) keynum = e.which;
+	if ( keynum == 13 ) {
+		if ( el.id == "username" ) {
+			$('password').focus();
+		} else if ( el.id == "password" ) {
+			$('login-button').focus();
+		}
+	}
+}
+
+function resetMenu() {
+	$('m_company').className="menu";
+	$('m_account').className="menu";
+	
+	$('m_customer').className="menu";
+	$('m_supplier').className="menu";
+	
+	$('m_sales').className="menu";
+	$('m_purchases').className="menu";
+	
+	$('m_stock').className="menu";
+	
+	$('menu_company').style.visibility="hidden";
+	$('menu_account').style.visibility="hidden";
+	
+	$('menu_receipt').style.visibility="hidden";
+	
+	$('menu_customer').style.visibility="hidden";
+	$('menu_supplier').style.visibility="hidden";
+	
+	$('menu_sales').style.visibility="hidden";
+	$('menu_purchases').style.visibility="hidden";
+	
+	$('menu_stock').style.visibility="hidden";
+
+
+}
+function gourl(url) {
+	resetMenu();
+	top.frames['mainframe'].location.href = url;
+}
+function gourl2(url) {
+	top.frames['mainframe'].location.href = url;
+}
+
+</script>

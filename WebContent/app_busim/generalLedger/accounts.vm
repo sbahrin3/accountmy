@@ -1,0 +1,57 @@
+#set ( $month_name = ["Jan", "Feb", "Mac", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] )  
+<table style="width:100%">
+	<tr style="height:40px">
+		<td style="width:150px" align="right">Account</td><td style="width:10px">:</td>
+		<td colspan="4">
+		
+			<select id="accountId" name="accountId" class="form-control" style="width:280px">
+				<option value=""></option>
+				#set ( $temp = "" )
+				#foreach( $a in $accounts )
+					#if ( $temp != $a.type.name )
+						<option value="">--- $a.type.name ---</option>
+						#set ( $temp = $a.type.name )
+					#end
+					<option value="$a.id" #if ( $a.id == $selectAccountId ) selected #end>$a.number $a.title</option>
+				#end
+			</select>
+		
+		</td>
+	</tr>
+	<tr style="height:40px">
+		<td align="right">Year</td><td>:</td>
+		<td style="width:100px">
+		
+			<select id="year" name="year" class="form-control">
+				#foreach( $y in [$year1..$year2] )
+					<option value="$y" #if ( $selectYear == $y ) selected #end>$y</option>
+				#end
+			</select>
+		
+		</td>
+		<td style="width:80px" align="right">Month:&nbsp;</td>
+		<td style="width:100px">
+		
+			<select id="month" name="month" class="form-control">
+				<option value="99">- All -</option>
+				#foreach( $m in [0..11] )
+					<option value="$m" #if ( $selectMonth == $m ) selected #end>$month_name.get($m)</option>
+				#end
+			</select>
+		
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td></td><td></td>
+		<td>
+			<a href="javascript:void(0)" class="btn btn-success" onclick="doDivAjaxCall3$formname('formData','getAccount','companyId=$!company.id')">Get Report</a>
+		</td>
+	</tr>
+</table>
+
+<script>
+$('buttonBack').style.display="none";
+</script>
+
+

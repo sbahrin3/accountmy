@@ -1,0 +1,19 @@
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('formData','newProduct','')">new</a>
+</div>
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('list','find','')">find..</a>
+</div>
+
+<div>
+<table width="800px">
+	<tr><td style="width:150px">Find:</td><td style="width:10px">:</td><td><input type="text" name="findValue"></td></tr>
+</table>
+</div>
+
+<br/><br/>
+<div id="list" style="background:#f7f7f7;">
+	#parse("app_busim/product/list.vm")
+</div>
+			
+		

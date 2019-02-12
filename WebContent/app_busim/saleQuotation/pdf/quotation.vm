@@ -1,0 +1,94 @@
+<style>
+td, div {
+	font-family:arial;
+	font-size:12pt;
+}
+</style>
+
+<div style="padding:10px;">
+
+<b>IKAS CONSULTING SDN BHD</b><br/><br/>
+$company_address
+
+</div>
+
+<br/>
+
+<table style="width:100%" cellspacing="0"><tr><td style="width:50%;padding:10px;border-left:1px solid #000;border-right:1px solid #000;border-top:1px solid #000;border-bottom:1px solid #000" >
+
+
+
+
+<table style="width:100%">
+	<tr>
+		<td style="font-weight:bold">
+			Quotation For:
+		</td>
+	</tr>
+	<tr>
+		<td>
+			$!customer.contactName<br/>
+			$customer.name<br/><br/>
+			$!address<br/>
+		</td>
+	</tr>
+</table>
+
+
+</td><td style="width:50%;padding:10px;border-right:1px solid #000;border-top:1px solid #000;border-bottom:1px solid #000" >
+
+
+<table style="width:100%">
+	<tr style="height:30px">
+		<td style="width:100px" align="right">Quotation No.</td><td style="width:10px">:</td>
+		<td>$!quotation.refNo</td>
+	</tr>
+	<tr style="height:30px">
+		<td align="right">Term</td><td>:</td>
+		<td>$quotation.term.name days</td>
+	</tr>
+	<tr style="height:30px">
+		<td align="right">Date</td><td>:</td>
+		<td>$df.format($date)</td>
+	</tr>
+</table>	
+
+
+</td></tr>
+</table>
+
+
+<br/><br/>
+
+<div style="padding:5px;border:1px solid #000">
+<table style="width:100%;" cellpadding="0" cellspacing="0">
+	<tr style="height:45px">
+		<td style="width:20px;border-bottom:2px solid #000;" ></td>
+		<td style="width:100px;border-bottom:2px solid #000;font-weight:bold" >Code</td>
+		<td style="border-bottom:2px solid #000;font-weight:bold" >Description</td>
+		<td style="width:100px;border-bottom:2px solid #000;font-weight:bold" align="center">Quantity</td>
+		<td style="width:100px;border-bottom:2px solid #000;font-weight:bold" align="center">UOM</td>
+		<td style="width:100px;border-bottom:2px solid #000;font-weight:bold" align="right">Unit Price</td>
+		<td style="width:100px;border-bottom:2px solid #000;font-weight:bold" align="right">Sub Total</td>
+	</tr>
+#set ( $r = 0 )
+#if ( $quotation )
+	#foreach( $i in $quotation.items )
+		#set ( $r = $r + 1 )
+    	<tr style="height:35px">
+    		<td style="border-bottom:1px solid #000" >$r. </td>
+			<td style="border-bottom:1px solid #000"  >$!i.code</td>
+    		<td style="border-bottom:1px solid #000" >$!i.remark</td>            		
+			<td style="border-bottom:1px solid #000"  align="center">$!i.quantity</td>
+    		<td style="border-bottom:1px solid #000"  align="center">$!i.measurementUnit</td>
+    		<td style="border-bottom:1px solid #000"  align="right">$nf.format($i.unitPrice)</td>
+    		<td style="border-bottom:1px solid #000"  align="right">$nf.format($i.subTotal)</td>
+		</tr>
+
+
+	#end
+#end
+
+</table>
+</div>
+

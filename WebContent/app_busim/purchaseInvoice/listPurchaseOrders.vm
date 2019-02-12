@@ -1,0 +1,53 @@
+<div class="subTitle">Select a Purchase Order to Create a Purchase Invoice</div>
+
+
+<table style="width:100%">
+	<tr style="height:35px;background:#CCC">
+		<td style="width:40px"></td>
+		<td>Customer</td>
+		<td style="width:120px">Ref No</td>
+		<td style="width:100px">Date</td>
+		<td style="width:50px" align="center">Term</td>
+		<td style="width:100px" align="right">Total</td>
+		<td style="width:100px" align="center">Status</td>		
+		<td style="width:30px"></td>
+	</tr>
+	#set ( $cnt = 0 )
+	#foreach( $q in $purchaseOrders )
+	#set ( $cnt = $cnt + 1 )
+	#if ( $cnt % 2 == 0 ) #set ( $bgcolor = "#FCF8DE" ) #else #set ( $bgcolor = "#FFFFFF") #end
+	<tr style="height:35px;background:$bgcolor">
+		<td>$cnt.</td>
+		<td>$q.supplier.name</td>
+		<td>$q.refNo</td>
+		<td>#if ( $q.date ) $df.format($q.date) #end</td>
+		<td align="center">$!q.term.name</td>
+		<td align="right">$nf.format($q.netPrice)</td>
+		#set ( $total = 0 )
+		#foreach( $i in $q.items)
+			#if ( $i.inInvoice ) 
+				#set ( $total = $total + 1 )
+			#end
+		#end
+		<td align="center">
+		#if ( $total == 0 )
+			-
+		#elseif ( $total < $q.items.size() )
+			Invoice partly
+		#elseif ( $total == $q.items.size() )
+			Invoice completed
+		#end
+		</td>
+		<td style="cursor:pointer" #if ( $total < $q.items.size() ) onclick="doDivAjaxCall$formname('formData','newPurchaseInvoice','purchaseOrderId=$!q.id')" #end align="center">#if ( $total < $q.items.size() ) <img src="../img/edit.gif"> #end</td>
+	</tr>
+	#end
+</table>
+	
+#if ( $purchaseOrders.size() == 0 )
+	
+<div style="font-family:arial, Helvetica, sans-serif; font-size:10pt;  padding:10px; -moz-border-radius: 8px; border-radius: 8px;border:2px dotted #000000;" >
+	<table style="width:100%"><tr><td align="center">
+	Please create a Purchase Order first.
+	</td></tr></table>
+</div>
+#end

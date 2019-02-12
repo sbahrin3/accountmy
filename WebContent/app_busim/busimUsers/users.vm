@@ -1,0 +1,36 @@
+<div style="padding:10px;text-align:right">
+	<button type="button" class="btn btn-default" onclick="doDivAjaxCall$formname('formData','editUser','userId=')">Add New User</button>
+</div>
+
+<table class="table">
+	<tr>
+		<th>
+			#
+		</th>
+		<th>
+			Name
+		</th>
+		<th>
+			Login
+		</th>
+		<th>
+		</th>
+	</tr>
+	#foreach ( $u in $users )
+	<tr>
+		<td>
+			$velocityCount.
+		</td>
+		<td>
+			$u.name
+		</td>
+		<td>
+			$u.login
+		</td>
+		<td style="text-align:right">
+			<button type="button" class="btn btn-primary btn-sm" onclick="doDivAjaxCall$formname('formData','editUser','userId=$!u.id')">Edit</button>
+			<button type="button" class="btn btn-danger btn-sm" onclick="if ( !confirm('Delete this user?') ) return; doDivAjaxCall$formname('formData','deleteUser','userId=$!u.id')">Delete</button>
+		</td>
+	</tr>
+	#end
+</table>

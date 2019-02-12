@@ -1,0 +1,33 @@
+
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('formData','listQuotation','customerId=$!customer.id')">list</a>
+</div>
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('formData','newQuotation','customerId=$!customer.id')">new</a>
+</div>
+<div class="subTitle">
+	List of Quotation
+</div>
+<table style="width:100%">
+<tr style="background:#ccc;height:30px">
+	<td style="width:20px"></td>
+	<td style="width:100px" align="center">No</td>
+	<td style="" align="center">Customer</td>
+	<td style="width:100px" align="center">Date</d>
+	<td style="width:100px" align="center">Term</td>
+	<td style="width:100px" align="center">Total</td>
+</tr>
+#set ( $cnt = 0 )
+#foreach( $q in $quotations )
+	#set ( $cnt = $cnt + 1 )
+	#if ( $cnt % 2 == 0 ) #set ( $bgcolor = "#EFEDED" ) #else #set ( $bgcolor = "#FFFFFF") #end
+	<tr style="height:30px;background:$bgcolor">
+		<td>$cnt.</td>
+		<td style="cursor:pointer;" onclick="doDivAjaxCall$formname('formData','edit','quotationId=$!q.id')">$q.refNo</td>
+		<td>$q.customer.name</td>
+		<td align="center">$df.format($q.date)</d>
+		<td align="center">$!q.term.name</td>
+		<td align="center">$nf.format($q.netPrice)</td>
+	</tr>
+#end
+</table>

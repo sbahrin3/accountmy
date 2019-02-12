@@ -1,0 +1,276 @@
+<div id="div_ontop"></div>
+
+#set ( $status = "" )
+#set ( $disabled = "" )
+#if ( $deliveryOrder.id == "" )
+	<div class="subTitle">Create New Delivery Order</div>
+#else
+		#set ( $cntInInvoice = 0 )
+		#foreach( $i in $deliveryOrder.items)
+			#if ( $i.inInvoice ) 
+				#set ( $cntInInvoice = $cntInInvoice + 1 )
+			#end
+		#end
+		#if ( $cntInInvoice > 0 )
+			#set ( $disabled = "disabled" )
+			#set ( $status = "partial" )
+		#end
+		#if ( $cntInInvoice == $deliveryOrder.items.size() ) 
+			#set ( $status = "completed" )
+		#end
+#end
+
+#if ( $status == "completed" )
+<div class="form-status">Status: Completed</div>
+#end
+
+<table style="width:100%"><tr><td style="width:50%;padding:10px" valign="top">
+##START
+<table style="width:100%">
+	<tr><td style="width:100px" align="right">D/O No.</td><td style="width:10px">:</td><td><input class="form-control" name="deliveryOrderNo" value="$!deliveryOrder.refNo" placeholder="&lt;&lt;Create New&gt;&gt;" $disabled></td></tr>
+
+	<tr>
+		<td align="right">Quotation No</td><td>:</td><td><input class="form-control" name="quotationNo" id="quotationNo" value="$!deliveryOrder.quotation.refNo" readonly></td>
+	</tr>
+	
+	<tr><td align="right">Term</td><td>:</td>
+		<td>
+        <select name="termId" class="form-control" $disabled>
+        	<option value=""></option>
+        	#foreach( $t in $terms )
+        		<option value="$t.id" #if ( $deliveryOrder && $t.id == $deliveryOrder.term.id ) selected #end>$t.name</option>
+        	#end
+        </select>
+        
+		</td>
+	</tr>
+
+	
+	<tr>
+		<td align="right">Ref/PO No</td><td>:</td><td><input class="form-control" name="customerPurchaseNo" id="customerPurchaseNo" value="$!deliveryOrder.customerPurchaseNo" $disabled></td>
+	</tr>	
+
+	<tr>
+		<td align="right">Date</td><td>:</td><td><input class="form-control" style="width:100px" name="deliveryOrderDate" id="deliveryOrderDate" #if ( $date ) value="$df.format($date)" #end $disabled></td>
+	</tr>
+	
+
+</table>
+##END
+</td><td style="width:50%;padding:10px" valign="top">
+##START
+
+<table style="width:100%">
+	<tr><td style="width:100px" align="right">Customer</td><td style="width:10px">:</td><td><input class="form-control" value="$customer.name" readonly></td></tr>
+	<tr><td valign="top" align="right">Address</td><td valign="top">:</td><td valign="top"><textarea class="form-control" style="height:70px" readonly>$address</textarea></td></tr>
+
+	<tr><td style="width:100px" align="right">Attention</td><td style="width:10px">:</td><td><input class="form-control" value="$!customer.contactName" readonly></td></tr>
+	<tr><td style="width:100px" align="right">Tel/Fax</td><td style="width:10px">:</td>
+		<td>
+			<input class="form-control" value="$!customer.telephone / $!customer.fax" readonly>
+        </td>
+
+	</tr>
+</table>
+##END	
+</td></tr></table>
+<table style="width:100%" cellpadding="0" cellspacing="0">
+	<tr style="background:#E8E3E3;height:30px">
+		<td style="width:30px" align="center">#</td>
+		<td style="width:150px" align="center">Item Code</td>
+		<td style="" align="center">Description</td>
+		<td style="width:100px" align="center">Quantity</td>
+		<td style="width:100px" align="center">UOM</td>
+		<td style="width:100px" align="center">Unit Price</td>
+		<td style="width:100px" align="center">Sub Total</td>
+		<td style="width:20px">&nbsp;</td>
+	</tr>
+</table>
+
+#set ( $r = 0 )
+#if ( $deliveryOrder )
+	#foreach( $i in $deliveryOrder.items )
+		#set ( $r = $r + 1 )
+		#set ( $readonly = "" )
+		#if ( $i.inInvoice ) 
+			#set ( $readonly = "readonly" )
+		#end
+        <div id="quotItem_$r" >
+            <table style="width:100%" cellpadding="0" cellspacing="0">
+            	<tr>
+            		<td style="width:30px;padding-top:5px;border-bottom:1px dotted #ccc" valign="top">
+						$r.
+						<input type="hidden" id="itemId_$r" name="itemId_$r" value="$!i.id">
+						<input type="hidden" id="quotationItemId_$r" name="quotationItemId_$r" value="$!i.quotationItem.id">
+					</td>
+            		<td style="width:150px"  valign="top"><input name="code_$r" id="code_$r" value="$!i.code" class="textrow" style="width:150px" onfocus="selectItemNo($r)" #if ( $i.item ) readonly #end></td>
+            		
+            		<td style="" valign="top">
+        				<div id="t2_$r" style="display:none;">
+                            <textarea id="name2_$r" name="name2_$r" style="width:100%" onfocus="t2focus($r)" onblur="tblur($r)" $readonly>$!i.remark</textarea>
+        				</div>
+        				
+        				<div id="t_$r" style="display:block">
+        					<input id="name_$r" name="name_$r" class="textrow" value="$!i.description" onfocus="tfocus($r)" $readonly>
+        				</div>
+        
+        			</td>            		
+					<td style="width:100px"  valign="top"><input name="quantity_$r" id="quantity_$r" value="$!i.quantity" onchange="calcSubTotal($r)" class="textrow" style="width:100px;text-align:center" $readonly></td>
+            		<td style="width:100px"  valign="top"><input name="uom_$r" id="uom_$r" value="$!i.measurementUnit" class="textrow" style="width:100px;text-align:center" $readonly></td>
+            		<td style="width:100px"  valign="top"><input name="price_$r" id="price_$r" #if ( $i.unitPrice ) value="$nf.format($i.unitPrice)"  onchange="calcSubTotal($r)" #end class="textrow" style="width:100px;text-align:right" $readonly></td>
+            		<td style="width:100px"  valign="top"><input name="subTotal_$r" id="subTotal_$r" #if ( $i.subTotal ) readonly value="$nf.format($i.subTotal)" #end class="textrow" style="width:100px;text-align:right" readonly></td>
+					<td style="width:20px;padding-top:5px;border-bottom:1px dotted #ccc;cursor:pointer" align="center" valign="top" #if ( !$i.inInvoice ) onclick="deleteConfirm($r)" #end>#if ( !$i.inInvoice ) x #end</td>
+				</tr>
+            </table>
+        </div>
+		<div id="confirm_$r" class="confirmBox">
+			<table style="width:100%"><tr><td align="center">
+			Delete item row no. $r<br/>
+			Are you sure?
+			<a href="javascript:void(0)" onclick="deleteItem($r)">Yes</a> /
+			<a href="javascript:void(0)" onclick="deleteItemCancel($r)">No</a>
+			</td></tr></table>
+		</div>
+	#end
+#end
+
+#if ( $r == 0 ) #set ( $r = 1 ) #end
+#foreach( $r in [$r..10])
+<div id="quotItem_$r" style="display:none" >
+    <table style="width:100%" cellpadding="0" cellspacing="0">
+    	<tr>
+    		<td style="width:30px;padding-top:5px;border-bottom:1px dotted #ccc" valign="top">
+				$r.
+			<input type="hidden" id="itemId_$r" name="itemId_$r" value="">
+			<input type="hidden" id="quotationItemId_$r" name="quotationItemId_$r" value="">
+				
+			</td>
+    		<td style="width:150px"  valign="top"><input name="code_$r" id="code_$r" class="textrow" style="width:150px" onfocus="selectItemNo($r)"></td>
+    		<td style="" valign="top">
+				<div id="t2_$r" style="display:none;">
+                    <textarea id="name2_$r" name="name2_$r" style="width:100%" onfocus="t2focus($r)" onblur="tblur($r)"></textarea>
+				</div>
+				
+				<div id="t_$r" style="display:block">
+					<input id="name_$r" name="name_$r" class="textrow" onfocus="tfocus($r)")>
+				</div>
+
+			</td>
+    		<td style="width:100px"  valign="top"><input name="quantity_$r" id="quantity_$r" onchange="calcSubTotal($r)" class="textrow" style="width:100px;text-align:center"></td>
+    		<td style="width:100px"  valign="top"><input name="uom_$r" id="uom_$r" class="textrow" style="width:100px;text-align:center"></td>
+    		<td style="width:100px"  valign="top"><input name="price_$r" id="price_$r" onchange="calcSubTotal($r)" class="textrow" style="width:100px;text-align:right"></td>
+    		<td style="width:100px"  valign="top"><input name="subTotal_$r" id="subTotal_$r" readonly class="textrow" style="width:100px;text-align:right"></td>
+			<td style="width:20px;padding-top:5px;;border-bottom:1px dotted #ccc;cursor:pointer" align="center" valign="top" onclick="deleteConfirm($r)">x</td>
+		</tr>
+    </table>
+</div>
+
+<div id="confirm_$r" class="confirmBox">
+	<table style="width:100%"><tr><td align="center">
+	Delete item row no. $r<br/>
+	Are you sure?
+	<a href="javascript:void(0)" onclick="deleteItem($r)">Yes</a> /
+	<a href="javascript:void(0)" onclick="deleteItemCancel($r)">No</a>
+	</td></tr></table>
+</div>
+		
+#end
+<br/>
+<div>
+<table align="right">
+	<tr>
+		<td style="width:120px"></td>
+		<td style="width:50px">
+			
+		</td>
+		<td style="width:150px" align="right">
+			Total Price :
+		</td>
+		<td style="width:100px">
+			<input class="form-control" style="text-align:right" readonly #if ( $deliveryOrder.totalPrice ) value="$nf.format($!deliveryOrder.totalPrice)" #end>
+		</td>
+	</tr>
+	<tr>
+		<td style="width:120px"></td>
+		<td style="width:50px">
+			
+		</td>
+		<td style="width:150px" align="right">
+			Discount Amount :
+		</td>
+		<td style="width:120px">
+			<input class="form-control" style="text-align:right" readonly #if ( $deliveryOrder.discountPrice ) value="$nf.format($!deliveryOrder.discountPrice)" #end>
+		</td>
+	</tr>	
+	<tr>
+		<td style="width:120px">Discount (%):</td>
+		<td style="width:100px">
+			<input class="form-control" style="text-align:right" name="discount" id="discount" value="$!deliveryOrder.discount">
+		</td>
+		<td style="width:150px" align="right">
+			Net Price :
+		</td>
+		<td style="width:100px">
+			<input class="form-control" style="text-align:right" readonly #if ( $deliveryOrder.netPrice ) value="$nf.format($!deliveryOrder.netPrice)" #end>
+		</td>
+	</tr>
+</table>
+
+<div id="confirmDelete" class="confirmBox">
+	<table style="width:100%"><tr><td align="center">
+	Delete this Delivery Order.<br/>
+	Are you sure?
+	<a href="javascript:void(0)" onclick="deleteDeliveryOrder('$!deliveryOrder.id')">Yes</a> /
+	<a href="javascript:void(0)" onclick="deleteDeliveryOrderCancel()">No</a>
+	</td></tr></table>
+</div>
+
+</div>
+
+#if ( $status != "completed" )
+<div style="float:left">
+	<a href="javascript:void(0)" class="btn btn-warning" onclick="addRow();">+</a>
+</div>
+#end
+
+<br/><br/><br/><br/><br/><br/><br/>
+
+
+#if ( $status != "completed" && $deliveryOrder.id != "" )
+<div style="float:right">
+	<a href="javascript:void(0)" class="btn btn-danger" onclick="confirmDelete('$!deliveryOrder.id')">Delete</a>
+</div>
+#end
+#** 
+<div style="float:right">
+	<a href="javascript:void(0)" class="btn btn-primary" onclick="doDivAjaxCall$formname('formData','listDeliveryOrders','customerId=$!customer.id')">List</a>
+</div>
+**#
+
+<div style="float:right;">
+	&nbsp;&nbsp;&nbsp;
+</div>
+
+
+#if ( $status != "completed" )
+<div style="float:right">
+	<a href="javascript:void(0)" class="btn btn-success" onclick="doDivAjaxCall$formname('formData','save','customerId=$!customer.id&quotationId=$!quotation.id&deliveryOrderId=$!deliveryOrder.id')">Save</a>
+</div>
+#end
+
+
+
+
+
+<div id="listItems" class="shadow"></div>
+<div id="calcSubTotal"></div>
+
+<script>
+resetRow();
+#if ( $deliveryOrder )
+	setRows($deliveryOrder.items.size());
+#end
+new datepickr('deliveryOrderDate', {
+	'dateFormat': 'd-m-Y'
+});
+</script>

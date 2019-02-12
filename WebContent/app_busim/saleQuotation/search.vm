@@ -1,0 +1,34 @@
+<div class="subTitle">Create New Quotation</div>
+<div style="padding:10px">
+	
+<div style="float:right">
+</div>
+<table style="width:100%">
+	<tr>
+		<td style="width:120px" align="right">Customer</td><td style="width:10px">:</td>
+		<td>
+            <select name="customerId" class="form-control" onchange="doDivAjaxCall$formname('formData','newQuotation','')">
+            	<option value="- Select Customer -"></option>
+            	#foreach( $c in $customers )
+            		<option value="$c.id">$c.code - $c.name</option>
+            	#end
+            </select>
+			
+		</td>
+		<td style="width:150px">
+			&nbsp;
+			<a href="javascript:void(0)" class="btn btn-success" onclick="doDivAjaxCall$formname('formData','newQuotation','')">Create Quotation</a>
+		
+		</td>
+	</tr>
+</table>
+
+</div>
+	
+<br/><br/>
+
+<div style="float:right;margin-right:5px;margin-top:7px">
+	<a href="javascript:void(0)" class="btn btn-default" onclick="doDivAjaxCall$formname('formData','listAllQuotations','')">List Quotations</a>
+</div>
+
+

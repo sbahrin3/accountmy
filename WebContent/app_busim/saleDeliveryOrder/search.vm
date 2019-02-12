@@ -1,0 +1,10 @@
+<div style="float:right;margin-right:5px;margin-top:7px">
+	<a href="javascript:void(0)" class="btn btn-default" onclick="doDivAjaxCall$formname('list','listQuotations','')">Create new D/O</a>
+</div>
+<div style="float:right;margin-right:5px;margin-top:7px">
+	<a href="javascript:void(0)" class="btn btn-default" onclick="doDivAjaxCall$formname('list','listDeliveryOrders','')">List Delivery Orders</a>
+</div>
+<br/>
+<div id="list">
+#parse("app_busim/saleDeliveryOrder/listDeliveryOrders.vm")
+</div>

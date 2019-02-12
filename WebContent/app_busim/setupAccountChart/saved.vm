@@ -1,0 +1,4 @@
+<script>
+$('divResult').style.display="block";
+</script>
+Data Successfully Saved.

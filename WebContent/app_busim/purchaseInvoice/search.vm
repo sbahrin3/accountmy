@@ -1,0 +1,10 @@
+<div style="float:right;margin-right:5px;margin-top:7px">
+	<a href="javascript:void(0)" class="menu-button" onclick="doDivAjaxCall$formname('list','listPurchaseOrders','')">Create new Purchase Invoice</a>
+</div>
+<div style="float:right;margin-right:5px;margin-top:7px">
+	<a href="javascript:void(0)" class="menu-button" onclick="doDivAjaxCall$formname('list','listPurchaseInvoices','')">List Purchase Invoices</a>
+</div>
+
+<div id="list">
+#parse("app_busim/purchaseInvoice/listPurchaseInvoices.vm")
+</div>

@@ -1,0 +1,9 @@
+#** 
+#if ( $user.roleName == "pos" )
+	#parse("app/top-menu-pos.vm")
+#else
+	#parse("app/top-menu-normal.vm")
+#end
+**#
+
+#parse("app/top-menu-acct-only.vm")

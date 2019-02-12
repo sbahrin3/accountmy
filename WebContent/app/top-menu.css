@@ -1,0 +1,6 @@
+#topnav {display:block; height:48px; padding:0 45px 0 45px;}
+ul {list-style:none;}
+#topnav ul {display:block; height:42px; float:left;}
+#topnav ul li { display:inline; font:bold 14px "Trebuchet MS", Arial, Helvetica, sans-serif; text-shadow:#000 1px 1px 1px;}
+#topnav ul li a {display:block; float:left; color:#EAE3E3; text-decoration:none; height:34px; padding:8px 15px 0 15px;}
+#topnav ul li a:hover, #topnav ul li.active a {background:url(../img2/menuhover.png) center 1px no-repeat; color:#fff;}

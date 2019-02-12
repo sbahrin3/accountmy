@@ -1,0 +1,35 @@
+<div class="subTitle">Create New Purchase Order</div>
+<div style="padding:10px">
+	
+
+<table style="width:100%">
+	<tr>
+		<td style="width:120px" align="right">Select Supplier</td><td style="width:10px">:</td>
+		<td>
+			
+            <select class="form-control" name="supplierId" onchange="doDivAjaxCall$formname('formData','newPurchaseOrder','')">
+            	<option value=""></option>
+            	#foreach( $c in $suppliers )
+            		<option value="$c.id">$c.code - $c.name</option>
+            	#end
+            </select>
+           
+			
+		</td>
+		<td style="width:100px">
+			&nbsp;
+			<a href="javascript:void(0)" class="btn btn-success" onclick="doDivAjaxCall$formname('formData','newPurchaseOrder','')">Get</a>
+		</td>
+	</tr>
+</table>
+
+</div>
+	
+<br/><br/>
+
+<div style="float:right;margin-right:5px;margin-top:7px">
+	<a href="javascript:void(0)" class="btn btn-default" onclick="doDivAjaxCall$formname('formData','listAll','')">List Purchase Orders</a>
+</div>
+
+
+

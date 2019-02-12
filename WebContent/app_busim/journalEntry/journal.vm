@@ -1,0 +1,55 @@
+
+<div style="float:right;padding:2px">
+	<a href="javascript:void(0)" class="btn btn-primary" onclick="doDivAjaxCall$formname('formData','list','companyId=$!company.id')">Back</a>
+</div>
+
+#if ( $journal )
+    <div style="float:right;padding:2px">
+    	<a href="javascript:void(0)" class="btn btn-danger" onclick="if ( !confirm('Delete?') ) return; doDivAjaxCall$formname('formData','delete','companyId=$!company.id&journalId=$!journal.id')">Del</a>
+    </div>
+#end
+
+<div style="float:right;padding:2px">
+	<a href="javascript:void(0)" class="btn btn-success" onclick="if ( !checkField() ) return; doDivAjaxCall$formname('formData','save','companyId=$!company.id&journalId=$!journal.id')">Save</a>
+</div>
+
+#if ( $dataSaved )
+<div id="divMessage" style="">Data Successfully Saved.</div>
+#end
+<table style="width:100%">
+<tr>
+	<td style="width:150px" >Ref.</td>
+	<td style="width:20px">:</td>
+	<td style="">
+		<input readonly class="form-control" id="code" name="code" value="$!journal.code">
+	</td>
+</tr>
+<tr style="display:none">
+	<td style="" >Date</td>
+	<td style="">:</td>
+	<td style="">
+		<input readonly class="form-control" id="journalDate" name="journalDate" #if ( $journal.date ) value="$df.format($journal.date)" #else value=""  #end>
+	</td>
+	
+</tr>
+<tr>
+	<td>Description</td>
+	<td>:</td>
+	<td>
+		<input class="form-control" id="description" id="description" name="description" value="$!journal.description">
+	</td>
+</tr>
+</table>
+<br/>
+#if ( $journal )
+<div id="items">
+	#parse("app_busim/journalEntry/items.vm")
+</div>
+#end
+
+
+<script type="text/javascript">
+	new datepickr('journalDate', {
+		'dateFormat': 'd-m-Y'
+	});
+</script>

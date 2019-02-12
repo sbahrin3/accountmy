@@ -1,0 +1,25 @@
+
+<div>
+<table width="100%">
+	<tr>
+		<td style="width:120px">Bank Name</td><td style="width:10px">:</td>
+		<td>
+			<input class="form-control" name="findName">
+		</td>
+		<td style="width:200px">
+			&nbsp;
+			<a href="javascript:void(0)" class="btn btn-success" onclick="doDivAjaxCall$formname('list','find','')">Find..</a>
+			<a href="javascript:void(0)" class="btn btn-warning" onclick="doDivAjaxCall$formname('formData','newBank','')">Add New</a>
+			
+			
+		</td>
+	</tr>
+</table>
+</div>
+
+<br/><br/>
+<div id="list" style="background:#f7f7f7;">
+	#parse("app_busim/bank/list.vm")
+</div>
+			
+		

@@ -1,0 +1,64 @@
+<div id="div_ontop"></div>
+
+<div class="subTitle">
+	List of Purchase Orders
+</div>
+<table style="width:100%">
+<tr style="background:#ccc;height:35px">
+	<td style="width:20px"></td>
+	<td style="width:100px" align="center">No</td>
+	<td style="" align="center">Supplier</td>
+	<td style="width:100px" align="center">Date</d>
+	
+	<td style="width:100px" align="center">Total</td>
+	<td style="width:100px" align="center">Status</td>
+	<td style="width:20px">&nbsp;</td>
+	##<td style="width:20px">&nbsp;</td>
+</tr>
+#set ( $cnt = 0 )
+#foreach( $q in $purchaseOrders )
+	#set ( $cnt = $cnt + 1 )
+	#if ( $cnt % 2 == 0 ) #set ( $bgcolor = "#EFEDED" ) #else #set ( $bgcolor = "#FFFFFF") #end
+	<tr style="height:35px;background:$bgcolor">
+		<td>$cnt.</td>
+		<td style="cursor:pointer;" onclick="doDivAjaxCall$formname('formData','edit','purchaseOrderId=$!q.id')">$q.refNo</td>
+		<td>$q.supplier.name</td>
+		<td align="center">$df.format($q.date)</d>
+		
+		<td align="center">$nf.format($q.netPrice)</td>
+		
+		#set ( $cntInInvoice = 0 )
+		#foreach( $i in $q.items)
+			#if ( $i.inInvoice ) 
+				#set ( $cntInInvoice = $cntInInvoice + 1 )
+			#end
+		#end
+		#if ( $cntInInvoice > 0 )
+			<td align="center">Completed</td>
+		#else
+			<td align="center"></td>
+		#end
+		
+		
+		<td align="center" style="cursor:pointer" onclick="doDivAjaxCall$formname('formData','edit','purchaseOrderId=$!q.id')"><img src="../img/edit.gif"></td>
+		##<td align="center" style="cursor:pointer" onclick="deletePurchaseOrderConfirm('$q.id')"><img src="../img/trash.gif"></td>
+	</tr>
+#end
+</table>
+	
+##Confirmations for delete purchaseOrders
+#foreach( $q in $purchaseOrders )
+<div id="confirmDeletePurchaseOrder_${q.id}" class="confirmBox">
+	<table style="width:100%"><tr><td align="center">
+	Delete Purchase Order No. $q.refNo<br/>
+	Are you sure?
+	<a href="javascript:void(0)" onclick="deletePurchaseOrder('$q.id')">Yes</a> /
+	<a href="javascript:void(0)" onclick="deletePurchaseOrderCancel('$q.id')">No</a>
+	</td></tr></table>
+</div>	
+	
+#end
+
+
+	
+

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style type="text/css" media="print">
+
+@page { size: 21cm 29.7cm ;
+		margin-left: 1.5cm; 
+		margin-right:1.5cm;
+		margin-top:1.5cm; 
+		margin-bottom:1.5cm;
+			
+    @top-center {
+    	content: element(current);
+    }
+    @bottom-right {
+    	content: element(footer);
+    }
+
+}
+
+
+#page-header {
+	#display: inline;
+}
+
+
+#footer {
+    position: running(footer);
+    text-align: center;
+	font-family:arial, helvetica;
+	font-size:9pt;
+}
+
+
+#pagenumber:before {
+    content: counter(page);
+}
+
+#pagecount:before {
+    content: counter(pages);
+}
+
+table {
+    -fs-table-paginate: paginate;
+}
+        
+table tr{
+    page-break-inside:avoid;
+}        
+        
+td {
+	font-family:arial;font-size:10pt;
+} 
+
+div {
+  	font-family: arial;   
+	font-size:10pt
+} 
+
+
+
+</style>
+
+</head>
+<body style="margin:0px;padding:0px">
+	
+ 
+	<div style="-fs-page-sequence: start; page-break-before: always">
+		<div style="position: running(current);">
+			<div id="page-header" style="margin-top:1.0cm;text-align:right">
+				
+			</div>
+		</div>
+		
+		
+		<div id="footer" style="font-family:verdana,helvetica,arial,sans-serif;font-size:9pt">
+			##Page <span id="pagenumber"></span> of <span id="pagecount"></span>
+		</div>
+
+		##MAIN CONTENT
+		<div style="padding:10px">
+			#parse("app_busim/saleQuotation/pdf/quotation.vm")
+		</div>
+
+	</div>
+
+</body>
+</html>

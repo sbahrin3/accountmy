@@ -1,0 +1,86 @@
+<div style="background:#fff;">
+	<table id="dragHandle" width="100%" style="height:30px;cursor:pointer;">
+		<tr>
+		<td style="">
+		<div id="numTitle" style="font-family:Arial, Helvetica, sans-serif; font-size:18pt; font-weight:bold;text-align:center"></div>
+		</td>
+		<td align="right">
+		<a href="javascript:void(0)" onclick="$('divKey').style.display='none';"><img src="../img2/close.png"></a>
+		</td></tr>
+	</table>
+</div>
+
+<input type="hidden" id="numValue" name="numValue" onchange="$('numDisplay').innerHTML = this.value">
+<table align="center" style="" border="0">
+
+	<tr>
+		<td colspan="4">
+			<div id="numDisplay"></div>
+		</td>
+	</tr>
+	
+
+	<tr>
+		<td>
+			<div class="key" onclick="showDisplay('7');">7</div>
+		</td>
+		<td>
+			<div class="key" onclick="showDisplay('8');">8</div>
+		</td>
+		<td>
+			<div class="key" onclick="showDisplay('9');">9</div>
+		</td>
+		
+		<td>
+			<div class="key" onclick="showDisplay('del');">del</div>
+		</td>
+		
+	</tr>
+		
+	<tr>
+		<td>
+			<div class="key" onclick="showDisplay('4');">4</div>
+		</td>
+		<td>
+			<div class="key" onclick="showDisplay('5');">5</div>
+		</td>
+		<td>
+			<div class="key" onclick="showDisplay('6');">6</div>
+		</td>
+		
+		<td rowspan="3">
+			<div class="keyEnter" onclick="showDisplay('enter');">enter</div>
+		</td>
+	</tr>
+	
+
+	
+	<tr>
+		<td>
+			<div class="key" onclick="showDisplay('1');">1</div>
+		</td>
+		<td>
+			<div class="key" onclick="showDisplay('2');">2</div>
+		</td>
+		<td>
+			<div class="key" onclick="showDisplay('3');">3</div>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<div class="key" onclick="showDisplay('0');">0</div>
+		</td>
+		<td>
+			<div class="key" onclick="showDisplay('00');">00</div>
+		</td>
+		<td>
+			<div class="key" onclick="showDisplay('.');">.</div>
+		</td>
+		
+
+	</tr>
+
+</table>
+
+

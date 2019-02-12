@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+
+	<!-- 
+	<context-param>   
+	   <param-name>mailUser</param-name>
+	   <param-value>lebahemail@gmail.com</param-value>
+	</context-param>
+	
+	<context-param>   
+	   <param-name>mailPassword</param-name>
+	   <param-value>shamsulbahrin543</param-value>
+	</context-param>
+	
+	<listener>
+		<listener-class>lebah.listeners.GmailSMTPListener</listener-class>
+	</listener>		
+	-->
+
+
+	<listener>
+		<listener-class>lebah.listeners.ContextListener</listener-class>
+	</listener>
+
+	
+	<listener>
+		<listener-class>lebah.listeners.SessionListener</listener-class>
+	</listener>  
+
+	<servlet>
+		<servlet-name>interceptor</servlet-name>
+		<servlet-class>lebah.portal.InterceptorServlet</servlet-class>
+		
+		
+		<init-param>
+		  <param-name>GT-I9070</param-name>
+		  <param-value>lebah.portal.handler.DesktopHandler</param-value>
+		</init-param>
+		
+		<init-param>
+		  <param-name>Mobile Safari</param-name>
+		  <param-value>lebah.portal.handler.MMPHandler</param-value>
+		</init-param>	
+		
+		<init-param>
+		  <param-name>Opera Mobi</param-name>
+		  <param-value>lebah.portal.handler.MMPHandler</param-value>
+		</init-param>
+		
+		
+		<init-param>
+		  <param-name>SPBE</param-name>
+		  <param-value>lebah.portal.handler.MMPHandler</param-value>
+		</init-param>
+		
+		<init-param>
+		  <param-name>MMP</param-name>
+		  <param-value>lebah.portal.handler.MMPHandler</param-value>
+		</init-param>
+		<init-param>
+		  <param-name>MIDP</param-name>
+		  <param-value>lebah.portal.handler.MMPHandler</param-value>
+		</init-param>
+		<init-param>
+		  <param-name>DESKTOP</param-name>
+		  <param-value>lebah.portal.handler.DesktopHandler</param-value>
+		</init-param>
+		<init-param>
+		  <param-name>NORMAL</param-name>
+		  <param-value>lebah.portal.handler.DesktopHandler</param-value>
+		</init-param>
+		<!-- 
+		<init-param>
+		  <param-name>LOGIN_INTERCEPT</param-name>
+		  <param-value>lebah.portal.intercept.LoginIntercept</param-value>
+		</init-param>
+		-->
+								
+	</servlet>	
+	
+	<servlet>
+		<servlet-name>desktop</servlet-name>
+		<servlet-class>lebah.portal.DesktopController</servlet-class>
+		<init-param>
+		<param-name>properties</param-name>
+		<param-value>/velocity.properties</param-value>
+		</init-param>		
+	</servlet> 	
+	
+	<servlet>
+		<servlet-name>mobile</servlet-name>
+		<servlet-class>lebah.portal.MobileController</servlet-class>
+		<init-param>
+		<param-name>properties</param-name>
+		<param-value>/velocity.properties</param-value>
+		</init-param>		
+	</servlet> 		
+	
+	<servlet>
+    	<servlet-name>controller2</servlet-name>
+	    <servlet-class>lebah.portal.ControllerServlet2</servlet-class>
+		<init-param>
+		<param-name>properties</param-name>
+		<param-value>/velocity.properties</param-value>
+		</init-param>    
+  	</servlet> 
+  	
+	<servlet>
+    	<servlet-name>controller3</servlet-name>
+	    <servlet-class>lebah.portal.ControllerServlet3</servlet-class>
+		<init-param>
+		<param-name>properties</param-name>
+		<param-value>/velocity.properties</param-value>
+		</init-param>    
+  	</servlet>
+  	
+  	<servlet>
+    	<servlet-name>app-controller</servlet-name>
+	    <servlet-class>lebah.portal.ApplicationController</servlet-class>
+		<init-param>
+		<param-name>properties</param-name>
+		<param-value>/velocity.properties</param-value>
+		</init-param>    
+  	</servlet>
+  	
+  	<servlet>
+    	<servlet-name>app-div-controller</servlet-name>
+	    <servlet-class>lebah.portal.ApplicationDivController</servlet-class>
+		<init-param>
+		<param-name>properties</param-name>
+		<param-value>/velocity.properties</param-value>
+		</init-param>    
+  	</servlet>      
+  	      
+  	
+	<servlet>
+    	<servlet-name>controllerDiv</servlet-name>
+	    <servlet-class>lebah.portal.DivControllerServlet</servlet-class>
+		<init-param>
+		<param-name>properties</param-name>
+		<param-value>/velocity.properties</param-value>
+		</init-param>    
+  	</servlet>  
+  	
+	<servlet>
+    	<servlet-name>appController</servlet-name>
+	    <servlet-class>fwd.main.AppController</servlet-class>
+		<init-param>
+		<param-name>properties</param-name>
+		<param-value>/velocity.properties</param-value>
+		</init-param>    
+  	</servlet>   	  
+  	
+	<servlet>
+		<servlet-name>ajaxInterceptor</servlet-name>
+		<servlet-class>lebah.portal.AjaxInterceptorServlet</servlet-class>
+	</servlet> 	  			
+  	
+  	<servlet>
+		<servlet-name>servlet</servlet-name>
+		<servlet-class>lebah.servlets.ServletTemplate</servlet-class>
+	</servlet> 	   	
+  	
+	<servlet>
+		<servlet-name>download</servlet-name>
+		<servlet-class>lebah.util.DownloadServlet</servlet-class>
+	</servlet> 	
+	
+	<servlet>
+		<servlet-name>viewImage</servlet-name>
+		<servlet-class>lebah.util.ThumbnailServlet</servlet-class>
+	</servlet>
+	
+
+	<servlet>
+		<servlet-name>CompileServlet</servlet-name>
+		<servlet-class>lebah.servlets.CompileServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ImageServlet</servlet-name>
+		<servlet-class>lebah.servlets.ImageServlet</servlet-class>
+	</servlet>
+	
+
+  	<servlet>
+    	<servlet-name>viewer</servlet-name>
+	    <servlet-class>lebah.portal.ViewerServlet</servlet-class>
+		<init-param>
+		<param-name>properties</param-name>
+		<param-value>/velocity.properties</param-value>
+		</init-param>    
+  	</servlet>   
+    
+
+      
+    
+  	<servlet-mapping>
+    	<servlet-name>interceptor</servlet-name>
+    	<url-pattern>/c/*</url-pattern>
+  	</servlet-mapping>   
+  
+  	<servlet-mapping>
+    	<servlet-name>desktop</servlet-name>
+    	<url-pattern>/desktop/*</url-pattern>
+  	</servlet-mapping>   
+  
+  	<servlet-mapping>
+    	<servlet-name>mobile</servlet-name>
+    	<url-pattern>/mobile/*</url-pattern>
+  	</servlet-mapping>    
+  
+  	<servlet-mapping>
+    	<servlet-name>controller2</servlet-name>
+    	<url-pattern>/x/*</url-pattern>
+  	</servlet-mapping> 
+  
+  	<servlet-mapping>
+    	<servlet-name>controller3</servlet-name>
+    	<url-pattern>/y/*</url-pattern>
+  	</servlet-mapping> 
+ 
+  	<servlet-mapping>
+    	<servlet-name>app-controller</servlet-name>
+    	<url-pattern>/w/*</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet-mapping>
+    	<servlet-name>app-div-controller</servlet-name>
+    	<url-pattern>/wdiv/*</url-pattern>
+  	</servlet-mapping>     	   
+  
+  	<servlet-mapping>
+    	<servlet-name>controllerDiv</servlet-name>
+    	<url-pattern>/div/*</url-pattern>
+  	</servlet-mapping> 
+  	
+  	<servlet-mapping>
+    	<servlet-name>ajaxInterceptor</servlet-name>
+    	<url-pattern>/ajin/*</url-pattern>
+  	</servlet-mapping>   	
+  	
+  	  
+  	<servlet-mapping>
+    	<servlet-name>servlet</servlet-name>
+    	<url-pattern>/servlet/*</url-pattern>
+  	</servlet-mapping>    
+    
+	<servlet-mapping>
+		<servlet-name>download</servlet-name>
+		<url-pattern>/download</url-pattern>
+	</servlet-mapping>
+	
+  	<servlet-mapping>
+    	<servlet-name>appController</servlet-name>
+    	<url-pattern>/app/*</url-pattern>
+  	</servlet-mapping>   	
+	
+  	<servlet-mapping>
+    	<servlet-name>viewer</servlet-name>
+    	<url-pattern>/v/*</url-pattern>
+  	</servlet-mapping>  
+    
+
+   
+ 	<resource-ref>
+      	<description>Portal Db</description>
+      	<res-ref-name>jdbc/portalDb</res-ref-name>
+      	<res-type>javax.sql.DataSource</res-type>
+      	<res-auth>Container</res-auth>
+  	</resource-ref>	
+		  
+</web-app>

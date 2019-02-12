@@ -1,0 +1,386 @@
+.portal_logo {
+	 background:url(logo/logo.png) no-repeat;
+}
+
+/*
+    Page Header
+*/
+body { 
+	
+	 background-color:#000000;
+
+}
+.body {background-color:#000000;}
+.main {text-align:center}
+.container { width: 100%; background-color:#FFFFFF}
+.modules {
+	width:100%;
+ 	background-color:#FFF;
+}
+.page_header { 
+	background-color: lightgrey; 
+	background: url(default/header.png);
+	height: 100px;
+}
+
+.page_footer { 
+	background-color: #0A0A0A; 
+	height:20px;
+	font-family:Verdana; 
+	font-size:8pt; 
+	color:#ffffff; 
+	font-weight:bold;
+}
+
+.font_title { font-family:Verdana; font-size:24pt; font-weight:normal; color:#FDB926; }
+.font_welcome { font-family:verdana; font-size:8pt; font-weight:bold; color:#FFFFFF; }
+.font_login { font-family:Verdana; font-size:8pt; color:#FFFFFF;  font-weight:bold}
+.login_input { background-color: white; width: 50px; font-family:Verdana; font-size:8pt;}
+.login_button { background-color: #FFF8C0;   font-family:Verdana; font-size:8pt;}
+.button_top { background-color: #FFF8C0; width: 80px; font-family:Verdana; font-size:8pt;}
+.font_footer { font-family:Verdana; font-size:8pt; color:#FFFFFF; }
+.font_role { font-family:Verdana; font-size:8pt; color:#ffffff; }
+.font_role_select { font-family:Verdana; font-size:8pt; color:#ffffff;  font-weight:bold}
+
+.tab_role { background: url(default/rolebg.png); width:100px; height:24px; }
+.tab_role1 { background: url(default/role1.png); width:100px; height:24px; text-align:center; }
+.tab_role2 { background: url(default/role2.png); width:100px; height:24px; text-align:center; }
+
+/*
+    Normal href
+*/
+a { color:#000000; text-decoration:none;}
+a:hover { text-decoration:none; }
+
+/*
+    Navigation href
+*/
+a.nav_link { font-family: Verdana; font-size:8pt; text-decoration:none;  color: #1135FF; font-weight: bold; }
+a:hover.nav_link {font-family: Verdana; font-size:8pt; text-decoration:none; color: #1135FF; font-weight: bold; }
+
+a.nav_link_active { font-family: Verdana; font-size:8pt; text-decoration:none; color: #1135FF; font-weight: bold;}
+a:hover.nav_link_active { font-family: Verdana; font-size:8pt; text-decoration:none;color: #1135FF; font-weight: bold;}
+
+/*
+    Navigation background
+*/
+
+.navigation_menu { 
+	background: -moz-linear-gradient(top, #DCECFD 0%, #F6FAFE 100%);
+}
+
+.nav_background {
+    background-color:#A7C5D6;
+}
+.nav_background_top  {
+    height: 12px;
+    background-color:#A7C5D6;
+}
+.nav_background_bot  { 
+    height: 1px;
+	background-color:#A7C5D6;
+}
+.nav_background_top_left  { 
+	width:4px;
+	background-color:#A7C5D6;  
+}
+.nav_background_top_right  {  
+
+}
+.nav_background_bot_left  { 
+	background-color:#A7C5D6;
+}
+.nav_background_bot_right  { 
+
+}
+.nav_background_left  { 
+	background-color:#A7C5D6;
+}
+.nav_background_right  { 
+
+}
+
+.nav_background_active 
+{ 
+
+    font-weight: bold;
+
+}
+.nav_background_top_active  
+{ 
+	height: 12px;
+
+}
+.nav_background_bot_active  
+{ 
+	height: 1px;
+	background-color:#2D2D2D;
+
+}
+.nav_background_top_left_active  { 
+	width: 1px;
+
+}
+.nav_background_bot_left_active  
+{ 
+	width: 1px;
+
+}
+.nav_background_top_right_active  {
+	width:1px; 
+
+
+}
+.nav_background_bot_right_active  { 
+	background-color:#2D2D2D;
+}
+.nav_background_left_active  
+{
+
+}
+.nav_background_right_active  
+{ 
+	width:4px;
+
+}
+
+
+/*
+    Pulldown menu
+*/
+
+div.pulldown_menu, a.pulldown_menu
+{
+  width: 200px;
+  border: 0.5px solid silver;
+  background: #FFFFFF;
+  padding: 4px 4px;
+  color: #000000;
+}
+
+a.pulldown_menu
+{
+  display: block;
+  border-bottom: 0.5px solid #000000;
+  text-decoration: none;
+  font-family:Verdana; font-size:8pt; text-decoration:none; color; #000000; font-weight:bold;
+  height:20px;
+}
+
+a:hover.pulldown_menu
+{
+  display: block;
+  border-bottom: 0.5px solid #000000;
+  text-decoration: none;
+  font-family:Verdana; font-size:8pt; text-decoration:none; color: #FFFFFF; font-weight:bold;
+  background: #006699;
+  height:20px;
+}
+
+a.tab_link { font-family:Arial; font-size:10pt; text-decoration:none; color: #0076a3; font-weight:bold;}
+a.tab_link_active { font-family:Arial; font-size:10pt; text-decoration:none; color: #003663; font-weight:bold;}
+a:hover.tab_link { font-family:Arial; font-size:10pt; text-decoration:none; color: #005b7f; font-weight:bold;}
+a:hover.tab_link_active { font-family:Arial; font-size:10pt; text-decoration:none; color:  #005b7f;  font-weight:bold;}
+
+/*
+    Tab background
+*/  
+
+.tab 
+{ 
+	background: url(default/tab_bg.png)
+}
+.tab_background_base 
+{ 
+	background-color: #ffffff;
+}
+
+.tab_background  
+{ 
+    height: 38px;
+	background:  url(default/tab2.png);
+    text-align: center;
+    background-color: #ffffff;
+}
+.tab_background_active 
+{ 
+
+	height: 38px;
+	background:  url(default/tab1.png);
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.tab_background_gap1 
+{ 
+    background-color: #ffffff;
+}
+.tab_background_gap2 
+{ 
+    background-color: #ffffff;
+}
+
+.tab_background_left  
+{ 
+	background:  url(default/tab2_left.png);
+    width: 12px;
+}
+.tab_background_right  
+{ 
+	background:  url(default/tab2_right.png);
+    width: 12px;
+}
+.tab_background_left_active  
+{ 
+	background:  url(default/tab1_left.png);
+    width: 12px;
+}
+.tab_background_right_active  
+{ 
+	background:  url(default/tab1_right.png);
+    width: 12px;
+}
+
+/*
+	Tab's Title for Top navigation
+*/
+.tab_title
+{
+	height: 60px;
+	font-family: Verdana;
+	font-size: 16pt;
+	font-weight: bold;
+}
+
+
+/*
+	Top Module
+*/ 
+
+.top_menu_background 
+{ 
+	height: 22px;
+    background-color: #333333;
+}
+
+.top_menu_active 
+{ 
+	height: 22px;
+    text-align: center;
+	color: #FFFFFF;
+    background-color: #99CCFF;
+}
+
+.top_menu 
+{ 
+	height: 22px;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #B29E83;
+}
+
+
+
+/*
+    Module Title 
+*/
+.module_title 
+{ 
+    height: 30px;
+    background-color: #0076a3;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 12pt;
+    color: #FFF430;
+   
+    
+}
+.module_title_left 
+{
+	width:10px;
+	background-color: #0076a3;
+
+}
+.module_title_right 
+{ 
+ 	width:10px;
+	background-color: #0076a3;
+}
+.module_title_bot 
+{ 
+    height: 4px;
+    background-color: #0076a3;
+
+}
+.module_title_left_bot
+{ 
+background-color: #0076a3;
+}
+.module_title_right_bot 
+{ 
+	background-color: #0076a3;
+}
+
+/*
+    Module frame
+    The color is the same as .tab_background_base
+*/
+table.module_frame 
+{
+    border-top:	1px solid  #0076A3;
+	border-bottom:  1px solid  #0076A3;
+	border-right:   1px solid  #0076A3;
+	border-left:    1px solid  #0076A3; 
+}
+
+/*
+	Table elements
+*/
+
+.table_header { background-color: #CEF7FF; font-weight: normal;}
+.table_header2 { background-color: #CEF7FF; font-weight: normal; text-align: center }
+.table_row { background-color: #CEF7FF}
+.table_row2 { background-color: #CEF7FF }
+.table { background-color: #CEF7FF }
+
+
+/*
+    Other elements
+*/
+input { font-family:Verdana; font-size:8pt }
+input.cb { BORDER-BOTTOM: none; BORDER-LEFT: none; BORDER-RIGHT: none; BORDER-TOP: none; }
+input.checkbox { BORDER-BOTTOM: none; BORDER-LEFT: none; BORDER-RIGHT: none; BORDER-TOP: none; }
+input.single_border { font-family:verdana; font-size:8pt; BORDER-BOTTOM: 1px solid;   BORDER-LEFT: 1px solid; BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; }
+textarea { font-family:verdana; font-size:8pt; }
+textarea.single_border { font-family:verdana; font-size:8pt; BORDER-BOTTOM: 1px solid; BORDER-LEFT: 1px solid; BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; }
+select { font-family:verdana; font-size:8pt; }
+
+/*
+    Table elements
+*/
+td { color: #000000; font-size: 8pt; font-family: Verdana; font-weight: normal; }
+
+/*  Alternating rows changing row color between row1 and row2 */
+td.row1 { background-color: #FFFFFF; color: #000000; font-size: 8pt; font-family: verdana; font-weight: normal; }
+td.row2 { background-color: #E6E6E6; color: #000000; font-size: 8pt; font-family: verdana; font-weight: normal; }
+td.selected { background-color: #CBECF9; color: #000000; font-size: 8pt; font-family: verdana; font-weight: normal; }
+
+
+td.table_head { background-color: #0B3A6E; color: #FFFFFF; font-size: 8pt; font-family: verdana; font-weight: normal; }
+td.cell_head { background-color: #FFA800; color: #000000; font-size: 8pt; font-family: verdana; font-weight: normal; }
+
+/*
+    Style for Announcement
+*/
+td.ann_date { color: #FFFFFF; font-size: 8pt; font-family: Verdana; font-weight: normal; font-style: italic; }
+
+/*
+    Style for Mini Announcement
+*/
+a.ann_more { font-size:8pt; color: #000000; font-weight: normal;  text-decoration:underline;}
+a:hover.ann_more { font-size:8pt; color: #FF0000; font-weight: normal; text-decoration:underline;}
+td.mini_ann_date { font-size: 7pt; color: #000000; font-family: verdana; font-weight: normal; font-style: normal; }
+td.mini_ann_cell { background-color: #FFA800; color: #000000; font-size: 8pt; font-family: verdana; font-weight: normal; }
+
+
+

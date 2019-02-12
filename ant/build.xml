@@ -1,0 +1,61 @@
+<project name="account.my" basedir="../">
+	<property file="${basedir}/ant/build.properties"/>
+    <property name="webroot.dir" value="${basedir}/WebContent"/>
+    <property name="webinf.dir" value="${webroot.dir}/WEB-INF"/>
+    <property name="build.dir" value="build"/>
+	<property name="project.distname" value="accountmy"/>	
+
+	<path id="compile.classpath">
+    	<fileset dir="${webinf.dir}/lib">
+    	    <include name="**/*.jar"/>
+        </fileset>	
+	</path>	
+	
+	<target name="jar-create">
+  		<jar destfile="${build.dir}/${project.distname}.jar">
+            <fileset dir="${webinf.dir}/classes">
+            	<exclude name="**/*.svn"/>
+            	<exclude name="**/*.properties"/>
+            	<exclude name="**/*.xml"/>
+            </fileset>		
+  		</jar>
+	</target>	
+
+    <path id="jpa.enhancement.classpath">
+        <pathelement location="${webinf.dir}/classes"/>
+
+        <!-- lib contains all of the jars that came with the OpenJPA binary download -->
+        <fileset dir="${webinf.dir}/lib">
+        <include name="**/*.jar"/>
+        </fileset>
+    </path>
+	
+	
+    <target name="enhance2">
+    <!-- define the openjpac task -->
+    <taskdef name="openjpac" classname="org.apache.openjpa.ant.PCEnhancerTask">
+        <classpath refid="jpa.enhancement.classpath"/>
+    </taskdef>
+
+    <!-- invoke enhancer the enhancer -->
+    <openjpac>
+        <classpath refid="jpa.enhancement.classpath"/>
+    </openjpac>
+    	<echo message="Enhancing complete."/>
+    </target>
+	
+    <!-- Create binary distribution -->
+    <target name="war">
+      <mkdir dir="${build.dir}"/>
+      <war
+        basedir="${webroot.dir}"
+        warfile="${build.dir}/${project.distname}.war"
+        webxml="${webinf.dir}/web.xml">
+        <exclude name="WEB-INF/${build.dir}/**"/>
+        <exclude name="WEB-INF/src/**"/>
+        <exclude name="WEB-INF/web.xml"/>
+       </war>
+    </target>
+	
+
+</project>

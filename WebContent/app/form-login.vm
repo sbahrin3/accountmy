@@ -1,0 +1,170 @@
+<style>
+
+:-moz-placeholder {
+  color: #c9c9c9 !important;
+  font-size: 13px;
+}
+ 
+::-webkit-input-placeholder {
+  color: #ccc;
+  font-size: 13px;
+}
+
+.errorMessage {
+  position: absolute;
+  margin: 0 auto;
+  padding: 1px 1px 1px;
+  width: 495px;
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size:12pt;
+  text-align:center;  
+  background:#FF6633;
+  color:#FFF;
+}
+
+
+.login {
+  position: relative; 
+  margin: 0 auto;
+  padding: 20px;
+  width: 350px;
+  margin-top:50px;
+  background:#8DBDD9;
+  text-align:center;
+}
+
+#** 
+.login:before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  bottom: -8px;
+  left: -8px;
+  z-index: -1;
+  background:#3EABCA;
+  border-radius: 10px;
+}
+**#
+.login p {
+  margin: 20px 0 0;
+}
+ 
+.login p:first-child {
+  margin-top: 0;
+}
+ 
+.login input[type=text], .login input[type=password] {
+  width: 200px;
+  height:40px;
+  border-radius: 5px;
+  border:1px solid #ccc;
+  font-size:14pt;
+}
+
+.login input[type=text]:focus, .login input[type=password]:focus {
+  -moz-box-shadow: 1px 1px 10px #888; 
+  -webkit-box-shadow: 1px 1px 10px #888; 
+  box-shadow: 1px 1px 10px #888;
+}
+ 
+.login p.remember_me {
+  float: left;
+  line-height: 31px;
+}
+ 
+.login p.remember_me label {
+  font-size: 12px;
+  color: #777;
+  cursor: pointer;
+}
+ 
+.login p.remember_me input {
+  position: relative;
+  bottom: 1px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.login p.submit {
+  text-align: right;
+}
+
+#login-button {
+	padding:5px;
+	background:#1C7187;
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size:12pt;
+    font-weight:bold;
+    color:#fff;
+	-moz-border-radius: 6px;
+	border-radius: 6px;    
+	width:100px;
+	height:40px;
+}
+
+</style>
+
+
+<script>
+$('div_ontop').style.display="block";
+$('div_input').style.display="block";
+</script>
+
+<div id="dragHandle" style="background:#b0edfc;height:40px;font-weight:bold;padding-top:10px;text-align:center;font-size:14pt">
+	ACCOUNT.MY
+	#**
+	<table  width="100%" style="height:30px;cursor:pointer;border-bottom:2px solid #ADADAD">
+		<tr>
+			<td style="text-align:center;font-family:Arial, Helvetica, sans-serif; font-size:14pt; font-weight:bold">
+			ACCOUNTING
+			</td>
+			<td align="right">
+			<a href="javascript:void(0)" onclick="$('div_input').style.display='none';$('div_ontop').style.display='none';"><img src="../img2/close.png"></a>
+			</td>
+		</tr>
+	</table>
+	**#
+</div>
+	
+#if ( $loginError )
+<div id="errorMessage" class="errorMessage">
+<p style="position:relative;text-align:right;margin:0px">
+<a href="javascript:void()" onclick="$('errorMessage').style.display='none';"><img src="../img2/close.gif"></a>
+</p>
+<p style="margin-top:0px">
+$loginError
+</p>
+</div>
+#end
+
+<div class="login-container">
+<div class="login">
+	
+  <p><input type="text" id="username" name="login" value="" placeholder="Username or Email" onKeyDown="loginInputKey(event, this)"></p>
+  <p><input type="password" id="password" name="password" value="" placeholder="Password" onKeyDown="loginInputKey(event, this)"></p>
+  <p class="remember_me">
+	<label>
+	 	<label style="font-family:Arial, Helvetica, sans-serif; font-size:9pt;  ">
+  		##<input type="checkbox" name="remember_me" id="remember_me">
+      	##Remember me on this computer
+    	</label>
+    </label>
+  </p>
+  <br/>
+  	<input id="login-button" type="button" value="Login" onclick="doDivAjaxCall3$formname('div_input','loginSubmit','')">
+  
+</div>
+</div>
+
+<div style="text-align:center;display:none">
+POS: Username = siti, Password = 123<br/>
+Manager: Username = ali, Password = 123<br/>
+</div>
+
+<script>new Draggable('div_input', {handle: 'dragHandle'});</script>
+
+
+<script>
+$('username').focus();
+</script>

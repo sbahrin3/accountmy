@@ -1,0 +1,135 @@
+
+
+<div id="menubar" align="left" style="padding-right:10px;border-bottom:1px solid #000;background:#3669a2">
+	<table border="0" style="">
+		<tr>
+			<td id="m_company" class="menu" style="border-right:2px dotted #ccc"><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;Company</a></td>
+			<td id="m_sales" class="menu" style="border-right:2px dotted #ccc"><i class="fa fa-rocket" aria-hidden="true"></i>&nbsp;Sales &amp; Receipts&nbsp;&nbsp;</td>
+	
+			<td id="m_purchases" class="menu" style="border-right:2px dotted #ccc"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>&nbsp;Purchases &amp; Payments</td>
+			
+			<td id="m_customer" class="menu" style="border-right:2px dotted #ccc"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Customers</td>
+			<td id="m_supplier" class="menu" style="border-right:2px dotted #ccc"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Suppliers</td>
+			
+				
+			<td id="m_stock" class="menu" style="border-right:2px dotted #ccc"><i class="fa fa-diamond" aria-hidden="true"></i>&nbsp;Products</td>
+			<td id="m_account" class="menu" style="border-right:2px dotted #ccc"><i class="fa fa-money" aria-hidden="true"></i>&nbsp;Accounting</td>
+			
+			<td id="m_logout" class="menu" onclick="location.href='../logout1.jsp'"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout</td>
+		</tr>
+	</table>
+</div>
+
+
+<div id="menu_company" class="tab_pulldown shadow" style="position:absolute; visibility:hidden;z-index:1000;background:#fff;width:250px">
+	<table style="width:100%">
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.CompanyProfileModule');$('m_company').className='menuSelected'">Company Profile</td></tr>
+	
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.BankMaintenanceModule');$('m_company').className='menuSelected'">Bank Maintenance</td></tr>
+	
+	
+	</table>
+</div>
+
+<div id="menu_account" class="tab_pulldown shadow" style="position:absolute; visibility:hidden;z-index:1000;background:#FFF;width:250px">
+	<table style="width:100%">
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.SetupAccountChartModule');$('m_account').className='menuSelected'">Chart of Account</td></tr>
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.JournalEntryModule');$('m_account').className='menuSelected'">Journal Entry</td></tr>
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.GeneralLedgerModule2');$('m_account').className='menuSelected'">General Ledger</td></tr>
+	
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.IncomeStatementModule');$('m_account').className='menuSelected'">Income Statement (P&L)</td></tr>
+		
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.BalanceSheetModule');$('m_account').className='menuSelected'">Balance Sheet Statement</td></tr>
+		
+		##<tr><td class="menu_disabled" style="border-bottom:2px dotted #ccc;color:#ccc" onclick="">Cash Flow Statement</td></tr>
+		##<tr><td class="menu_disabled" style="border-bottom:2px dotted #ccc;color:#ccc" onclick="">Statement of Financial Position</td></tr>
+		##<tr><td class="menu_disabled" style="color:#ccc" onclick="">Statement of Changes in Equity</td></tr>
+		
+		
+	</table>
+</div>
+
+
+<div id="menu_payment" class="tab_pulldown shadow" style="position:absolute; visibility:hidden;z-index:1000;background:#FFF;width:250px">
+	<table style="width:100%">
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.PaymentVoucherModule');$('m_payment').className='menuSelected'">Payment Voucher</td></tr>
+		<tr><td class="menu" onclick="gourl('../app/fwd.busim.module.ComingSoonMessage');$('m_payment').className='menuSelected'">Payment Report</td></tr>
+	</table>
+</div>
+
+<div id="menu_receipt" class="tab_pulldown shadow" style="position:absolute; visibility:hidden;z-index:1000;background:#FFF;width:250px">
+	<table style="width:100%">
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.ReceiptVoucherModule');$('m_receipt').className='menuSelected'">Receipt</td></tr>
+		<tr><td class="menu" onclick="gourl('../app/fwd.busim.module.ComingSoonMessage');$('m_receipt').className='menuSelected'">Receipt Report</td></tr>	
+	</table>
+</div>
+
+
+<div id="menu_customer" class="tab_pulldown shadow" style="position:absolute; visibility:hidden;z-index:1000;background:#FFF;width:250px">
+	<table style="width:100%">
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.CustomerMaintenanceModule');$('m_customer').className='menuSelected'">Customer Maintenance</td></tr>
+		<tr><td class="menu" onclick="gourl('../app/fwd.busim.module.ComingSoonMessage');$('m_customer').className='menuSelected'">Customer Report</td></tr>
+	</table>
+</div>
+
+
+<div id="menu_supplier" class="tab_pulldown shadow" style="position:absolute; visibility:hidden;z-index:1000;background:#FFF;width:250px">
+	<table style="width:100%">
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.SupplierMaintenanceModule');$('m_supplier').className='menuSelected'">Supplier Maintenance</td></tr>
+		<tr><td class="menu" onclick="gourl('../app/fwd.busim.module.ComingSoonMessage');$('m_supplier').className='menuSelected'">Supplier Report</td></tr>
+	</table>
+</div>
+
+
+<div id="menu_sales" class="tab_pulldown shadow" style="position:absolute; visibility:hidden;z-index:1000;background:#FFF;width:250px">
+	<table style="width:100%">
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.SaleQuotationModule');$('m_sales').className='menuSelected'">Quotation</td></tr>
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.SaleDeliveryOrderModule');$('m_sales').className='menuSelected'">Delivery Order</td></tr>
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.SaleInvoiceModule');$('m_sales').className='menuSelected'">Invoice</td></tr>
+		
+		##<tr><td class="menu_disabled" style="border-bottom:2px dotted #ccc" onclick="">Cash Sales</td></tr>
+		
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.ReceiptVoucherModule');$('m_sales').className='menuSelected'">Receipt</td></tr>
+		
+		<tr><td class="menu_disabled" style="border-bottom:2px dotted #ccc" onclick="">Sales Report</td></tr>
+		<tr><td class="menu_disabled" onclick="">Receipt Report</td></tr>	
+		
+	</table>
+</div>
+
+
+<div id="menu_purchases" class="tab_pulldown shadow" style="position:absolute; visibility:hidden;z-index:1000;background:#FFF;width:250px">
+	<table style="width:100%">
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.PurchaseOrderModule');$('m_purchases').className='menuSelected'">Purchase Order</td></tr>
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.PurchaseInvoiceModule');$('m_purchases').className='menuSelected'">Purchase Invoice</td></tr>
+		
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.PaymentVoucherModule');$('m_purchases').className='menuSelected'">Payment</td></tr>
+		<tr><td class="menu_disabled" onclick="">Payment Report</td></tr>
+	
+		<tr><td class="menu_disabled" onclick="">Purchase Report</td></tr>
+	</table>
+</div>
+
+<div id="menu_stock" class="tab_pulldown shadow" style="position:absolute; visibility:hidden;z-index:1000;background:#FFF;width:250px">
+	<table style="width:100%">
+	
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl('../app/fwd.busim.module.ProductMaintenanceModule');$('m_stock').className='menuSelected'">Product Maintenance</td></tr>
+		<tr><td class="menu"  onclick="gourl('../app/fwd.busim.module.ComingSoonMessage');$('m_stock').className='menuSelected'">Product Report</td></tr>
+	
+	</table>
+</div>
+
+
+
+<script>
+
+at_attach("m_company", "menu_company", "hover", "y", "pointer");
+at_attach("m_sales", "menu_sales", "hover", "y", "pointer");
+at_attach("m_purchases", "menu_purchases", "hover", "y", "pointer");
+
+at_attach("m_account", "menu_account", "hover", "y", "pointer");
+at_attach("m_customer", "menu_customer", "hover", "y", "pointer");
+at_attach("m_supplier", "menu_supplier", "hover", "y", "pointer");
+at_attach("m_stock", "menu_stock", "hover", "y", "pointer");
+
+</script>

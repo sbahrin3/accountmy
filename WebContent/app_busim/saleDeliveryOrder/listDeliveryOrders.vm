@@ -1,0 +1,31 @@
+<div class="subTitle">List of Delivery Orders</div>
+
+<table style="width:100%">
+	<tr style="height:35px;background:#CCC">
+		<td style="width:40px"></td>
+		<td>Customer</td>
+		<td style="width:120px">DO No</td>
+		<td style="width:120px">Quotation No</td>
+		<td style="width:100px">Date</td>
+		<td style="width:50px" align="center">Term</td>
+		<td style="width:100px" align="right">Total</td>	
+		<td style="width:30px"></td>
+	</tr>
+	#set ( $cnt = 0 )
+	#foreach( $d in $deliveryOrders )
+	#set ( $cnt = $cnt + 1 )
+	#if ( $cnt % 2 == 0 ) #set ( $bgcolor = "#FCF8DE" ) #else #set ( $bgcolor = "#FFFFFF") #end
+	<tr style="height:35px;background:$bgcolor">
+		<td>$cnt.</td>
+		<td>$d.quotation.customer.name</td>
+		<td>$d.refNo</td>
+		<td>$d.quotation.refNo</td>
+		<td>#if ( $d.date ) $df.format($d.date) #end</td>
+		<td align="center">$!d.term.name</td>
+		<td align="right">$nf.format($d.netPrice)</td>
+		<td align="center"  style="cursor:pointer" onclick="doDivAjaxCall$formname('formData','edit','deliveryOrderId=$!d.id')">
+			<img src="../img/edit.gif">
+		</td>
+	</tr>
+	#end
+</table>

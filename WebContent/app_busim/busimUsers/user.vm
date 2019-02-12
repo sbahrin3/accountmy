@@ -1,0 +1,34 @@
+<div style="float:right">
+	<a href="javascript:void(0)" class="btn btn-success" onclick="doDivAjaxCall$formname('formData','listUsers','')">Back</a>
+</div>
+
+
+
+<div class="subTitle">
+#if ( $user )
+	User Detail
+#else
+	Add New User
+#end
+</div>
+<br/><br/>
+<table width="100%">
+	<tr><td style="width:150px">Name</td><td style="width:10px">:</td><td><input class="form-control" name="name" value="$!user.name"></td></tr>
+	<tr><td>Login Id</td><td>:</td><td><input class="form-control" name="login" value="$!user.login"></td></tr>
+	
+	
+	<tr><td></td><td></td><td><br/><br/></td></tr>
+	<tr><td></td><td></td><td>To Set/Change Password :<br/><br/></td></tr>
+	
+	<tr><td>Password</td><td>:</td><td><input class="form-control" type="password" name="password" id="password" value=""></td></tr>
+	<tr><td>Confirm Password</td><td>:</td><td><input class="form-control" type="password" name="password_confirm" id="password_confirm" value=""></td></tr>
+		
+</table>
+<br/><br/>
+<div style="float:right">
+	<a href="javascript:void(0)" class="btn btn-success" onclick="doDivAjaxCall$formname('formData','listUsers','')">Cancel</a>&nbsp;
+</div>
+<div style="float:right">
+	<a href="javascript:void(0)" class="btn btn-warning" onclick="if ( !confirmPassword() ) return; doDivAjaxCall$formname('formData','saveUser','userId=$!user.id')">Save</a>&nbsp;
+</div>
+

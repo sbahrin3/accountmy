@@ -1,0 +1,79 @@
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	background-color: #D4D4D4;
+}
+.fieldentry {
+	font-size: 10px;
+	font-weight: bold;
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.textbox {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #001C37;
+	height: 16px;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #7EB0C9;
+	border-right-color: #C9DEE9;
+	border-bottom-color: #E3EEF4;
+	border-left-color: #A4C8D9;
+	background-image: url(images/textbox_shadow.gif);
+	background-position: left top;
+}
+.text {
+	font-size: 10px;
+	color: #214461;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+li {
+	list-style-type: square;
+	text-indent: -17pt;
+}
+.tdbg {
+	background-image: url(images/lr2_3.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.copy {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #000000;
+}
+a:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	text-decoration: none;
+}
+a:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	text-decoration: none;
+}
+a:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #2E6AA7;
+	text-decoration: underline;
+	background-color: #F0F0F0;
+}
+a:active {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	text-decoration: none;
+}
+.biggertext {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+}

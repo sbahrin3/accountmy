@@ -1,0 +1,64 @@
+
+<table style="width:100%">
+	<tr style="background:#494945;height:35px">
+		<td style="width:100px;color:#FFFFFF" align="">Date</td>
+		<td style="color:#FFFFFF" align="">Description</td>
+		<td style="width:300px;color:#FFFFFF" align="">Account</td>
+		<td style="width:100px;color:#FFFFFF" align="center">Debit</td>
+		<td style="width:100px;color:#FFFFFF" align="center">Credit</td>
+		<td style="width:40px"></td>
+	</tr>
+	#set ( $cnt = 0 )
+	#foreach( $item in $journal.orderedItems )
+		#if ( $cnt % 2 == 1 ) #set ( $bgcolor = "#F9F2B8" ) #else #set ( $bgcolor = "#F4F3ED" ) #end
+		#if ( $item.transactions.size() > 0 )
+			#set ( $cnt = $cnt + 1 )
+		#end
+		#set ( $tcnt = 0 )
+		#foreach( $t in $item.transactions )
+			#set ( $tcnt = $tcnt + 1 )
+			<tr style="background:$bgcolor;height:35px">
+				#if ( $tcnt == 1 )
+					<td rowspan="$item.transactions.size()" style="padding-top:5px" valign="top">
+						$df.format($item.date)
+					</td>
+				#end
+				#if ( $tcnt == 1 )
+					<td rowspan="$item.transactions.size()" style="padding-top:5px" valign="top">
+						$util.putLineBreak($item.description)
+					</td>
+				#end
+				<td>$t.account.title</td>
+				#if ( $t.side == 0 )
+    				<td align="right">$nf.format($t.amount) &nbsp;</td>
+    				<td></td>
+				#elseif ( $t.side == 1 )
+					<td></td>
+    				<td align="right">$nf.format($t.amount) &nbsp;</td>
+				#end
+				#if ( $tcnt == 1 )
+					<td rowspan="$item.transactions.size()" valign="top" align="center" style="padding-top:5px;cursor:pointer"
+						
+						#if ( !$item.linked )
+						onclick="doDivAjaxCall$formname('formTransaction','editTransaction','companyId=$!company.id&journalId=$!journal.id&itemId=$item.id')">
+						<img src="../img/edit.gif" border="0">
+						#else
+						>
+						
+						#end
+						
+						
+					</td>
+				#end
+			</tr>
+		#end
+	#end
+</table>
+
+<div style="float:right;padding:2px">
+	<a href="javascript:void(0)" class="btn btn-warning" onclick="doDivAjaxCall$formname('formTransaction','newTransaction','companyId=$!company.id&journalId=$!journal.id')">Add New Transaction</a>
+</div>
+
+<script>
+$('formTransaction').style.display="none";
+</script>

@@ -1,0 +1,237 @@
+<div id="div_ontop"></div>
+
+#set ( $status = "" )
+#set ( $disabled = "" )
+#if ( !$quotation )
+	<div class="subTitle">Create New Quotation</div>
+#else
+		#set ( $cntInDeliveryOrder = 0 )
+		#foreach( $i in $quotation.items)
+			#if ( $i.inDeliveryOrder ) 
+				#set ( $cntInDeliveryOrder = $cntInDeliveryOrder + 1 )
+			#end
+		#end
+		#if ( $cntInDeliveryOrder > 0 )
+			#set ( $disabled = "disabled" )
+			#set ( $status = "partial" )
+		#end
+		#if ( $cntInDeliveryOrder == $quotation.items.size() )
+			#set ( $status = "completed" )
+		#end
+#end
+
+#if ( $status == "completed" )
+<div class="form-status">Status: Completed</div>
+#end
+
+<table style="width:100%"><tr><td style="width:50%;padding:10px" valign="top">
+##START
+<table style="width:100%">
+	<tr><td style="width:100px" align="right">Quotation No.</td><td style="width:10px">:</td><td><input class="form-control" name="quotationNo" value="$!quotation.refNo" placeholder="&lt;&lt;Create New&gt;&gt;" $disabled></td></tr>
+	<tr><td align="right">Term</td><td>:</td>
+		<td>
+        <select class="form-control" name="termId" $disabled>
+        	<option value=""></option>
+        	#foreach( $t in $terms )
+        		<option value="$t.id" #if ( $quotation && $t.id == $quotation.term.id ) selected #end>$t.name</option>
+        	#end
+        </select>
+        
+		</td>
+	</tr>
+	<tr>
+		<td align="right">Date</td><td>:</td><td><input class="form-control" style="width:100px" name="quotationDate" id="quotationDate" #if ( $date ) value="$df.format($date)" #end $disabled></td>
+	</tr>
+</table>	
+##END
+</td><td style="width:50%;padding:10px" valign="top">
+##START
+
+<table style="width:100%">
+	<tr><td style="width:100px" align="right">Customer</td><td style="width:10px">:</td><td><input class="form-control" value="$customer.name" readonly></td></tr>
+	<tr><td valign="top" align="right">Address</td><td valign="top">:</td><td valign="top"><textarea class="form-control" style="height:70px" readonly>$address</textarea></td></tr>
+
+	<tr><td style="width:100px" align="right">Att.</td><td style="width:10px">:</td><td><input class="form-control" value="$!customer.contactName" readonly></td></tr>
+	
+	<tr><td style="width:100px" align="right">Tel/Fax</td><td style="width:10px">:</td>
+		<td>
+			<input class="form-control" value="$!customer.telephone / $!customer.fax" readonly>
+        </td>
+
+	</tr>
+</table>
+##END
+</td></tr></table>
+<table style="width:100%" cellpadding="0" cellspacing="0">
+	<tr style="background:#E8E3E3;height:30px">
+		<td style="width:30px" align="center">#</td>
+		<td style="width:150px" align="center">Item Code</td>
+		<td style="" align="center">Description</td>
+		<td style="width:100px" align="center">Quantity</td>
+		<td style="width:100px" align="center">UOM</td>
+		<td style="width:100px" align="center">Unit Price</td>
+		<td style="width:100px" align="center">Sub Total</td>
+		<td style="width:20px">&nbsp;</td>
+	</tr>
+</table>
+
+#set ( $r = 0 )
+#if ( $quotation )
+	#foreach( $i in $quotation.items )
+		#set ( $r = $r + 1 )
+		#set ( $readonly = "" )
+		#if ( $i.inDeliveryOrder ) 
+			#set ( $readonly = "readonly" )
+		#end
+        <div id="quotItem_$r" >
+            <table style="width:100%" cellpadding="0" cellspacing="0">
+            	<tr>
+            		<td style="width:30px;padding-top:5px;border-bottom:1px dotted #ccc" valign="top">
+						$r. 
+					<input type="hidden" id="itemId_$r" name="itemId_$r" value="$!i.id">
+					</td>
+					
+            		<td style="width:150px"  valign="top">
+						<input name="code_$r" id="code_$r" value="$!i.code" class="textrow" style="width:150px" onfocus="selectItemNo($r)" $readonly>
+			        </td>
+            		
+            		<td style="" valign="top">
+        				<div id="t2_$r" style="display:none;">
+                            <textarea id="name2_$r" name="name2_$r" style="width:100%" onfocus="t2focus($r)" onblur="tblur($r)" $readonly>$!i.remark</textarea>
+        				</div>
+        				
+        				<div id="t_$r" style="display:block">
+        					<input id="name_$r" name="name_$r" class="textrow" value="$!i.description" onfocus="tfocus($r)" $readonly>
+        				</div>
+        
+        			</td>            		
+					<td style="width:100px"  valign="top"><input name="quantity_$r" id="quantity_$r" value="$!i.quantity" onchange="calcSubTotal($r)" class="textrow" style="width:100px;text-align:center" $readonly></td>
+            		<td style="width:100px"  valign="top"><input name="uom_$r" id="uom_$r" value="$!i.measurementUnit" class="textrow" style="width:100px;text-align:center" $readonly></td>
+            		<td style="width:100px"  valign="top"><input name="price_$r" id="price_$r" #if ( $i.unitPrice ) value="$nf.format($i.unitPrice)"  onchange="calcSubTotal($r)" #end class="textrow" style="width:100px;text-align:right" $readonly></td>
+            		<td style="width:100px"  valign="top"><input name="subTotal_$r" id="subTotal_$r" #if ( $i.subTotal ) value="$nf.format($i.subTotal)" #end class="textrow" style="width:100px;text-align:right" readonly></td>
+					<td style="width:20px;padding-top:5px;border-bottom:1px dotted #ccc;cursor:pointer" align="center" valign="top" #if ( !$i.inDeliveryOrder ) onclick="deleteConfirm($r)" #end>#if ( !$i.inDeliveryOrder ) x #end</td>
+				</tr>
+            </table>
+        </div>
+		<div id="confirm_$r" class="confirmBox">
+			<table style="width:100%"><tr><td align="center">
+			Delete item row no. $r<br/>
+			Are you sure?
+			<a href="javascript:void(0)" onclick="deleteItem($r)">Yes</a> /
+			<a href="javascript:void(0)" onclick="deleteItemCancel($r)">No</a>
+			</td></tr></table>
+		</div>
+	#end
+#end
+
+#if ( $r == 0 ) #set ( $r = 1 ) #end
+#foreach( $r in [$r..10])
+<div id="quotItem_$r" style="display:none" >
+    <table style="width:100%" cellpadding="0" cellspacing="0">
+    	<tr>
+    		<td style="width:30px;padding-top:5px;border-bottom:1px dotted #ccc" valign="top">
+				$r.
+			<input type="hidden" id="itemId_$r" name="itemId_$r" value="">
+			</td>
+    		<td style="width:150px"  valign="top"><input name="code_$r" id="code_$r" class="textrow" style="width:150px" onfocus="selectItemNo($r)"></td>
+    		<td style="" valign="top">
+				<div id="t2_$r" style="display:none;">
+                    <textarea id="name2_$r" name="name2_$r" style="width:100%" onfocus="t2focus($r)" onblur="tblur($r)"></textarea>
+				</div>
+				
+				<div id="t_$r" style="display:block">
+					<input id="name_$r" name="name_$r" class="textrow" onfocus="tfocus($r)")>
+				</div>
+
+			</td>
+    		<td style="width:100px"  valign="top"><input name="quantity_$r" id="quantity_$r" onchange="calcSubTotal($r)" class="textrow" style="width:100px;text-align:center"></td>
+    		<td style="width:100px"  valign="top"><input name="uom_$r" id="uom_$r" class="textrow" style="width:100px;text-align:center"></td>
+    		<td style="width:100px"  valign="top"><input name="price_$r" id="price_$r" onchange="calcSubTotal($r)" class="textrow" style="width:100px;text-align:right"></td>
+    		<td style="width:100px"  valign="top"><input name="subTotal_$r" id="subTotal_$r" readonly class="textrow" style="width:100px;text-align:right"></td>
+			<td style="width:20px;padding-top:5px;;border-bottom:1px dotted #ccc;cursor:pointer" align="center" valign="top" onclick="deleteConfirm($r)">x</td>
+		</tr>
+    </table>
+</div>
+
+<div id="confirm_$r" class="confirmBox">
+	<table style="width:100%"><tr><td align="center">
+	Delete item row no. $r<br/>
+	Are you sure?
+	<a href="javascript:void(0)" onclick="deleteItem($r)">Yes</a> /
+	<a href="javascript:void(0)" onclick="deleteItemCancel($r)">No</a>
+	</td></tr></table>
+</div>
+		
+#end
+<br/>
+<div>
+<table align="right">
+	<tr>
+		<td style="width:120px"></td>
+		<td style="width:50px">
+			
+		</td>
+		<td style="width:150px" align="right">
+			Total Price :
+		</td>
+		<td style="width:100px">
+			<input class="form-control" style="text-align:right" readonly #if ( $quotation.totalPrice ) value="$nf.format($!quotation.totalPrice)" #end>
+		</td>
+	</tr>
+	<tr>
+		<td style="width:120px"></td>
+		<td style="width:50px">
+			
+		</td>
+		<td style="width:150px" align="right">
+			Discount Amount :
+		</td>
+		<td style="width:100px">
+			<input class="form-control" style="text-align:right" readonly #if ( $quotation.discountPrice ) value="$nf.format($!quotation.discountPrice)" #end>
+		</td>
+	</tr>	
+	<tr>
+		<td style="width:120px">Discount (%):</td>
+		<td style="width:50px">
+			<input class="form-control" style="text-align:right" name="discount" id="discount" value="$!quotation.discount" #if ( $status == "completed" ) readonly #end>
+		</td>
+		<td style="width:150px" align="right">
+			Net Price :
+		</td>
+		<td style="width:100px">
+			<input class="form-control" style="text-align:right" readonly #if ( $quotation.netPrice ) value="$nf.format($!quotation.netPrice)" #end>
+		</td>
+	</tr>
+</table>
+</div>
+
+#if ( $status == "" )
+<div style="float:left">
+	<a href="javascript:void(0)" class="btn btn-warning" onclick="addRow();$('start_message').style.display='none';">+</a>
+	<span id="start_message" style="font-weight:bold">&lt;-- Click here to add new row</span>
+</div>
+#end
+
+<br/><br/><br/><br/><br/><br/><br/>
+
+
+#if ( $status != "completed" )
+<div style="float:right">
+	<a href="javascript:void(0)" class="btn btn-primary" onclick="document.location='../servlet/fwd.util.CreatePDFServlet?pathUrl=v/fwd.busim.module.SaleQuotationPDF?quotationId=$!quotation.id&pdfName=Quotation';">PDF</a>
+	<a href="javascript:void(0)" class="btn btn-success" onclick="doDivAjaxCall$formname('formData','save','customerId=$!customer.id&quotationId=$!quotation.id')">Save</a>
+</div>
+#end
+
+
+
+<div id="listItems" class="shadow"></div>
+<div id="calcSubTotal"></div>
+
+<input type="hidden" value="/servlet/fwd.util.CreatePDFServlet?pathUrl=v/fwd.busim.module.SaleQuotationPDF?quotationId=$!quotation.id">
+<script>
+resetRow();
+#if ( $quotation )
+	setRows($quotation.items.size());
+#end
+new datepickr('quotationDate', {'dateFormat': 'd-m-Y'});
+</script>

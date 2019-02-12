@@ -1,0 +1,111 @@
+<script>
+$('formTransaction').style.display="block";
+</script>
+
+
+<div style="float:right;padding:2px">
+	<a href="javascript:void(0)" class="btn btn-primary btn-sm" onclick="$('formTransaction').style.display='none';">Close</a>
+</div>
+#if ( $item )
+<div style="float:right;padding:2px;">
+	<a href="javascript:void(0)" class="btn btn-danger btn-sm" onclick="if ( !confirm('Delete?') ) return; doDivAjaxCall$formname('items','deleteTransaction','companyId=$!company.id&journalId=$!journal.id&itemId=$!item.id')">Delete</a>
+</div>
+#end
+<div style="float:right;padding:2px">
+	<a href="javascript:void(0)" class="btn btn-success btn-sm" onclick="if ( !checkBalance() ) return; doDivAjaxCall$formname('items','addTransactions','companyId=$!company.id&journalId=$!journal.id&itemId=$!item.id') ">Save</a>
+</div>
+
+<div id="divTitle">
+	Transactions
+</div>
+
+<div id="unbalanceError" class="messageArea" style="display:none">
+	Amount entered are not balanced.
+</div>
+
+<div style="height:400px;overflow:auto;">
+<table style="width:100%">
+	<tr><td style="width:150px"></td><td style="width:20px"></td><td></td></tr>
+	<tr><td colspan="3">&nbsp;</td></tr>
+	
+	<tr>
+	<td>Date</td><td>:</td>
+	<td> 
+		<input class="form-control" style="width:100px;text-align:center" id="itemDate" name="itemDate" 
+		#if ( $item.date )
+			value="$df.format($item.date)"
+		#end
+		>
+	</td>
+	</tr>
+	<tr><td>Description</td><td>:</td><td><textarea id="itemDescription" name="itemDescription">$!item.description</textarea></td></tr>
+</table>
+<table style="width:100%">
+	<tr><td style="width:150px"></td><td style="width:20px"></td>
+		<td style="width:40%" align="center">Account</td>
+		<td align="center">Debit</td>
+		<td align="center">Credit</td>
+	</tr>
+</table>
+
+#set ( $transactions = $item.transactions )
+
+#foreach ( $i in [1..4] )
+
+	#if ( $item.transactions )
+	
+		#set ( $ind = $i - 1 )
+		#set ( $tran_account_id = "" )
+		#set ( $tran_side = "" )
+		#set ( $tran_amount = "" )
+		
+		
+		#if ( $ind < $transactions.size() )
+		
+			#set ( $tran_account_id = $transactions.get($ind).account.id )
+			#if ( $transactions.get($ind).side == 0 )
+				#set ( $tran_side = "left" )
+				#set ( $tran_amount = $nf.format($transactions.get($ind).amount))
+			#else
+				#set ( $tran_side = "right" )
+				#set ( $tran_amount = $nf.format($transactions.get($ind).amount))
+			#end
+		#end
+		
+	#end
+	
+	<div id="item_$i">
+	<table style="width:100%">
+	<tr><td style="width:150px"></td><td style="width:20px"></td>
+		<td style="width:40%">
+		
+			<select class="form-control" id="accountId_$i" name="accountId_$i">
+				<option value=""></option>
+				#foreach( $t in $accounts )
+					<option value="$t.id"
+						#if ( $tran_account_id == $t.id ) selected #end
+					>$t.title</option>
+				#end
+			</select>
+		
+		</td>
+		<td>
+			<input class="form-control" style="text-align:right" id="amountDebit_$i" name="amountDebit_$i" #if ( $tran_side == "left" ) value="$tran_amount" #end>
+		</td>
+		<td>
+			<input class="form-control" style="text-align:right" id="amountCredit_$i" name="amountCredit_$i" #if ( $tran_side == "right" ) value="$tran_amount" #end>
+		</td>
+	</tr>
+	</table>
+	</div>
+#end
+
+</div>
+
+
+
+<script type="text/javascript">
+	new datepickr('itemDate', {
+		'dateFormat': 'd-m-Y'
+	});
+</script>

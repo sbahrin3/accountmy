@@ -1,0 +1,3 @@
+<script>
+$('subTotal_${itemNo}').value = "$nf.format($subTotal)";
+</script>

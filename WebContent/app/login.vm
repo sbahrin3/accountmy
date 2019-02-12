@@ -1,0 +1,18 @@
+
+<div align="left" style="padding-right:10px">
+
+<input class="buttonType1" style="width:100px" type="button" value="Log In" onclick="doDivAjaxCall3$formname('div_input','loginForm','')">
+
+</div>
+
+<script>
+
+
+_jq( document ).ready(function() {
+
+    doDivAjaxCall3$formname('div_input','loginForm','');
+
+});
+
+
+</script>

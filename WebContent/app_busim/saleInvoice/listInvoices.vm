@@ -1,0 +1,33 @@
+<div class="subTitle">List of Invoices</div>
+
+<table style="width:100%">
+	<tr style="height:35px;background:#CCC">
+		<td style="width:40px"></td>
+		<td>Customer</td>
+		<td style="width:120px">Ref No</td>
+		<td style="width:100px">Date</td>
+		<td style="width:50px" align="center">Term</td>
+		<td style="width:100px" align="right">Total</td>
+		##<td style="width:100px" align="center">Status</td>		
+		<td style="width:30px"></td>
+	</tr>
+	#set ( $cnt = 0 )
+	#foreach( $invoice in $invoices )
+	#set ( $cnt = $cnt + 1 )
+	#if ( $cnt % 2 == 0 ) #set ( $bgcolor = "#FCF8DE" ) #else #set ( $bgcolor = "#FFFFFF") #end
+	<tr style="height:30px;background:$bgcolor">
+		<td>$cnt.</td>
+		<td>$invoice.deliveryOrder.quotation.customer.name</td>
+		<td>$invoice.refNo</td>
+		<td>#if ( $invoice.date ) $df.format($invoice.date) #end</td>
+		<td align="center">$!invoice.term.name</td>
+		<td align="right">$nf.format($invoice.netPrice)</td>
+
+		##<td align="center"></td>
+		
+		<td align="center"  style="cursor:pointer" onclick="doDivAjaxCall$formname('formData','edit','invoiceId=$!invoice.id')">
+			<img src="../img/edit.gif">
+		</td>
+	</tr>
+	#end
+</table>

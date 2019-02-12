@@ -1,0 +1,1430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="498"
+   name=""
+   committed-date="2008-09-09T04:48:12.216909Z"
+   url="http://10.0.0.46/svn/projects/aeudev/WebContent/img"
+   last-author="aeu"
+   kind="dir"
+   uuid="b99bc6d1-8e12-4e73-863b-542e752875f1"
+   repos="http://10.0.0.46/svn/projects"
+   revision="533"/>
+<entry
+   committed-rev="498"
+   name="red_strip_back.gif"
+   text-time="2008-09-10T03:51:06.781250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="e6312c7240f05f5f97f37e4d7ab9d028"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.421875Z"/>
+<entry
+   committed-rev="498"
+   name="filefolder.gif"
+   text-time="2008-09-10T03:51:06.796875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="ff6c7bf48ffbb6ea2c5ded61ff7949c2"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.421875Z"/>
+<entry
+   committed-rev="498"
+   name="removeSubject.gif"
+   text-time="2008-09-10T03:51:06.796875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="9728bd60334acbc0fb551a686a92c6a4"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.421875Z"/>
+<entry
+   committed-rev="498"
+   name="footer.png"
+   text-time="2008-09-10T03:51:06.812500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="e53225a9169993efbc12d4c1e2a4ecaa"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.437500Z"/>
+<entry
+   committed-rev="498"
+   name="scheduler.gif"
+   text-time="2008-09-10T03:51:06.812500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="87e0bdb8b6501c7f90e0b94824a8c660"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.437500Z"/>
+<entry
+   committed-rev="498"
+   name="user.gif"
+   text-time="2008-09-10T03:51:06.812500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="fbf2ad08aac714f4f077cf1f1e2610b3"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.437500Z"/>
+<entry
+   committed-rev="498"
+   name="tab.jpg"
+   text-time="2008-09-10T03:51:06.828125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="bb1e2464ca183c3b4f995cd1be5bd77f"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.453125Z"/>
+<entry
+   committed-rev="498"
+   name="trash.gif"
+   text-time="2008-09-10T03:51:06.828125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="ddb7c9d519ac0a693c1d5d49b9c2e5df"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.453125Z"/>
+<entry
+   committed-rev="498"
+   name="lesson1.gif"
+   text-time="2008-09-10T03:51:06.859375Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="3e06432eb0c41edb53b434659533ccfe"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.453125Z"/>
+<entry
+   committed-rev="498"
+   name="Folder T Purple.gif"
+   text-time="2008-09-10T03:51:06.859375Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="c79ee7ee7dfebf0d811352d9f11a9950"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.468750Z"/>
+<entry
+   committed-rev="498"
+   name="globe.gif"
+   text-time="2008-09-10T03:51:06.875000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="6fb0fb53c38c60da27a256efb05a3dc9"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.468750Z"/>
+<entry
+   committed-rev="498"
+   name="home.gif"
+   text-time="2008-09-10T03:51:06.859375Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="37b66cc1b242e18d8ddae449d2b81b09"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.468750Z"/>
+<entry
+   committed-rev="498"
+   name="a_left.gif"
+   text-time="2008-09-10T03:51:06.890625Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="337c7ebae3ba1853c2eb2d2506899ed9"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.500000Z"/>
+<entry
+   committed-rev="498"
+   name="btn_accept_changes.gif"
+   text-time="2008-09-10T03:51:06.890625Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="6f3020c759fd9394e9278db4ec68f4a2"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.500000Z"/>
+<entry
+   committed-rev="498"
+   name="red_back.gif"
+   text-time="2008-09-10T03:51:06.875000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="325472601571f31e1bf00674c368d335"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.484375Z"/>
+<entry
+   name="shout"
+   kind="dir"/>
+<entry
+   committed-rev="498"
+   name="settings.gif"
+   text-time="2008-09-10T03:51:06.890625Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="e05711b1fe3b9a534902492f22f09e14"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.734375Z"/>
+<entry
+   committed-rev="498"
+   name="twin_tower.gif"
+   text-time="2008-09-10T03:51:06.906250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="617cf4495dbdce2495989df4649b22a0"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.765625Z"/>
+<entry
+   committed-rev="498"
+   name="marblenext.gif"
+   text-time="2008-09-10T03:51:06.906250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="e36e264e0c597d847d7bc6b482f1cebb"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.734375Z"/>
+<entry
+   committed-rev="498"
+   name="files.gif"
+   text-time="2008-09-10T03:51:06.921875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="cc7b855e41e5ab391292586d2d7fde50"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.781250Z"/>
+<entry
+   committed-rev="498"
+   name="bluebook.gif"
+   text-time="2008-09-10T03:51:06.921875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="611471045b56bce30cbae6581118c1af"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.765625Z"/>
+<entry
+   committed-rev="498"
+   name="fulltrash.gif"
+   text-time="2008-09-10T03:51:06.921875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="b1a90c65ede1a622f9b1e77f3414ef16"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.781250Z"/>
+<entry
+   committed-rev="498"
+   name="btn_change_page_theme.gif"
+   text-time="2008-09-10T03:51:06.937500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="44a66e7297e79459925716d78871b85d"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.781250Z"/>
+<entry
+   committed-rev="498"
+   name="finder.gif"
+   text-time="2008-09-10T03:51:06.937500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="3daac5a9d9fb6d77d2e8dd0e225ddd99"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.796875Z"/>
+<entry
+   committed-rev="498"
+   name="ie.jpg"
+   text-time="2008-09-10T03:51:06.937500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="9d3dc4b708d94dd4c0604abeea9781ca"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.796875Z"/>
+<entry
+   committed-rev="498"
+   name="desktop.gif"
+   text-time="2008-09-10T03:51:06.953125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="752b7155686828e8f52955706287bf5f"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.796875Z"/>
+<entry
+   committed-rev="498"
+   name="_wrong.png"
+   text-time="2008-09-10T03:51:06.953125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="217eb51f8a30ea5b568c4e2d73993ffb"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.812500Z"/>
+<entry
+   committed-rev="498"
+   name="news.gif"
+   text-time="2008-09-10T03:51:06.953125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="3b177db491f1a89d89091da004e5ad8b"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.812500Z"/>
+<entry
+   committed-rev="498"
+   name="group1.gif"
+   text-time="2008-09-10T03:51:06.968750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="17a48b225de7c87d5fd40429bc1add96"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.812500Z"/>
+<entry
+   committed-rev="498"
+   name="s.jpg"
+   text-time="2008-09-10T03:51:06.968750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="94d25c0369311ec7c113bbae38db1354"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.828125Z"/>
+<entry
+   committed-rev="498"
+   name="sq_red.gif"
+   text-time="2008-09-10T03:51:06.984375Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="e7b95b23759479069b8e1f2b3398c763"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.828125Z"/>
+<entry
+   committed-rev="498"
+   name="edit.gif"
+   text-time="2008-09-10T03:51:06.984375Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="1647da6550a57973df1cdb5ab1d19322"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.828125Z"/>
+<entry
+   committed-rev="498"
+   name="cd.gif"
+   text-time="2008-09-10T03:51:06.984375Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="149e7495947e9b02e38c58064f544f83"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.843750Z"/>
+<entry
+   committed-rev="498"
+   name="inceif_logo.jpg"
+   text-time="2008-09-10T03:51:07.000000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="75d6fcda41abce6e74dc16a721038a4a"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.843750Z"/>
+<entry
+   committed-rev="498"
+   name="gantt.jpg"
+   text-time="2008-09-10T03:51:07.000000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="5549c5304608fb158c218c5bdb92f031"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.859375Z"/>
+<entry
+   committed-rev="498"
+   name="checkmark.gif"
+   text-time="2008-09-10T03:51:07.015625Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="ba09d2e719c2453f1023e0424c271a71"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.859375Z"/>
+<entry
+   committed-rev="498"
+   name="camera.gif"
+   text-time="2008-09-10T03:51:07.031250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="4cf1277221f2975931769e9efb3751b4"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.875000Z"/>
+<entry
+   committed-rev="498"
+   name="btn_apply.gif"
+   text-time="2008-09-10T03:51:07.078125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="68d60ee552e8ff285e280cad3189e95d"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.875000Z"/>
+<entry
+   committed-rev="498"
+   name="left.gif"
+   text-time="2008-09-10T03:51:07.093750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="87adac6f5822e2c7830f5c5749061208"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.875000Z"/>
+<entry
+   committed-rev="498"
+   name="edittext.gif"
+   text-time="2008-09-10T03:51:07.140625Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="2712b74600233298ab1a48062612e7f0"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.890625Z"/>
+<entry
+   committed-rev="498"
+   name="write.gif"
+   text-time="2008-09-10T03:51:07.140625Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="da939ffb32774da3e60408820e3b0d3e"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.890625Z"/>
+<entry
+   committed-rev="498"
+   name="remove.gif"
+   text-time="2008-09-10T03:51:07.140625Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="9642f406367d2620c83b74251a56981a"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.890625Z"/>
+<entry
+   committed-rev="498"
+   name="tunes.gif"
+   text-time="2008-09-10T03:51:07.156250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="8e05ec12115efe06311ffe91525bfce4"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.906250Z"/>
+<entry
+   committed-rev="498"
+   name="documents.gif"
+   text-time="2008-09-10T03:51:07.156250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="6b49d6d6d9065a71f2c091b1c8c874ec"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.906250Z"/>
+<entry
+   committed-rev="498"
+   name="d_44_Pangkor_2.jpg"
+   text-time="2008-09-10T03:51:07.171875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="41816fa75610f91b6bc246935905c670"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.921875Z"/>
+<entry
+   committed-rev="498"
+   name="exit.gif"
+   text-time="2008-09-10T03:51:07.171875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="e273bfe7b82c1a82fcb9e68bde9602f4"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.937500Z"/>
+<entry
+   committed-rev="498"
+   name="back_arrow.gif"
+   text-time="2008-09-10T03:51:07.171875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="f2114d86c961dca4cd25b1b11cceba43"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.937500Z"/>
+<entry
+   committed-rev="498"
+   name="textedit2.gif"
+   text-time="2008-09-10T03:51:07.187500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="f96bd8094ce46adc84797dd528f99032"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.953125Z"/>
+<entry
+   committed-rev="498"
+   name="next.gif"
+   text-time="2008-09-10T03:51:07.187500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="0cfa86099d31ad6256b9ae4b65cd3ede"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.953125Z"/>
+<entry
+   committed-rev="498"
+   name="triangle_left.gif"
+   text-time="2008-09-10T03:51:07.203125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="e26dd78642ef3dcbf510a69a2c8fe72c"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.953125Z"/>
+<entry
+   committed-rev="498"
+   name="folder_blue.gif"
+   text-time="2008-09-10T03:51:07.203125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="b482943ab506bc9a842e1a1e21cfc7e9"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.968750Z"/>
+<entry
+   committed-rev="498"
+   name="study_plan.gif"
+   text-time="2008-09-10T03:51:07.218750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="793ca65884345c9a93186246e21de88d"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.968750Z"/>
+<entry
+   committed-rev="498"
+   name="email.gif"
+   text-time="2008-09-10T03:51:07.218750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="852b4e0f3ab1aab9949372060d06393c"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.968750Z"/>
+<entry
+   committed-rev="498"
+   name="chatbubble.gif"
+   text-time="2008-09-10T03:51:07.218750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="fc669a1dfa051b0cb0332043a2faf979"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.984375Z"/>
+<entry
+   committed-rev="498"
+   name="folder_green.gif"
+   text-time="2008-09-10T03:51:07.234375Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="9551c700f44b429313d67589728689c3"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.984375Z"/>
+<entry
+   committed-rev="498"
+   name="movies.gif"
+   text-time="2008-09-10T03:51:07.234375Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="20b48badd54bae236669b53a8ef125ec"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:04.984375Z"/>
+<entry
+   committed-rev="498"
+   name="folder_purple.gif"
+   text-time="2008-09-10T03:51:07.250000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="5cd7f3f7bddb79ff07d2b7b20debb2f0"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.000000Z"/>
+<entry
+   committed-rev="498"
+   name="grades.gif"
+   text-time="2008-09-10T03:51:07.250000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="703be3bb9a88c4fc5774a930cece3068"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.000000Z"/>
+<entry
+   committed-rev="498"
+   name="belina.jpg"
+   text-time="2008-09-10T03:51:07.281250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="aa022742f06cbcff325eb11475bacd16"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.015625Z"/>
+<entry
+   committed-rev="498"
+   name="down.gif"
+   text-time="2008-09-10T03:51:07.296875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="ebeab2dd497abd559f5f32e189613589"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.046875Z"/>
+<entry
+   committed-rev="498"
+   name="forum_top_right.gif"
+   text-time="2008-09-10T03:51:07.281250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="25d413d66d6b1d61bd638adb427e2875"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.031250Z"/>
+<entry
+   committed-rev="498"
+   name="addSubject.gif"
+   text-time="2008-09-10T03:51:07.312500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="0cad61433b102032c20821acf943ef34"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.140625Z"/>
+<entry
+   committed-rev="498"
+   name="forum_back.gif"
+   text-time="2008-09-10T03:51:07.296875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="c3027341e890f4cae90771145c0bb88a"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.125000Z"/>
+<entry
+   committed-rev="498"
+   name="folder.gif"
+   text-time="2008-09-10T03:51:07.312500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="135089a0d3f4b40c05b08727f198da01"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.156250Z"/>
+<entry
+   committed-rev="498"
+   name="list.gif"
+   text-time="2008-09-10T03:51:07.312500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="e05711b1fe3b9a534902492f22f09e14"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.156250Z"/>
+<entry
+   committed-rev="498"
+   name="indicator.gif"
+   text-time="2008-09-10T03:51:07.328125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="03ce3dcc84af110e9da8699a841e5200"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.156250Z"/>
+<entry
+   committed-rev="498"
+   name="books.gif"
+   text-time="2008-09-10T03:51:07.328125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="7802350cf4a4646f3671572fa945acc2"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.171875Z"/>
+<entry
+   committed-rev="498"
+   name="document.gif"
+   text-time="2008-09-10T03:51:07.343750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="fd683083a7f9017580dd8cb3a219bc45"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.171875Z"/>
+<entry
+   committed-rev="498"
+   name="redsq.gif"
+   text-time="2008-09-10T03:51:07.328125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="cab4ec706c29bf6418dad53dae264e36"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.171875Z"/>
+<entry
+   committed-rev="498"
+   name="test_centre.gif"
+   text-time="2008-09-10T03:51:07.359375Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="5d55fd32d3caaf8aa17369804f3bf875"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.187500Z"/>
+<entry
+   committed-rev="498"
+   name="_correct.png"
+   text-time="2008-09-10T03:51:07.343750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="d8ece39f2a8369bd26e8749e75cf2414"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.187500Z"/>
+<entry
+   committed-rev="498"
+   name="event.gif"
+   text-time="2008-09-10T03:51:07.359375Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="322a3e5b783e4f0de5914e6f1e77ce05"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.187500Z"/>
+<entry
+   committed-rev="498"
+   name="Thumbs.db"
+   text-time="2008-09-10T03:51:07.375000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="ffa4a9424791ff0522065335fff6bdcc"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.250000Z"/>
+<entry
+   committed-rev="498"
+   name="redbook.gif"
+   text-time="2008-09-10T03:51:07.375000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="8d3a5e7725bfaec43ed5052d854daf3d"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.250000Z"/>
+<entry
+   committed-rev="498"
+   name="dashboard.gif"
+   text-time="2008-09-10T03:51:07.375000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="52888b6ef7fd19a9f731264007eb1538"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.265625Z"/>
+<entry
+   committed-rev="498"
+   name="admin.gif"
+   text-time="2008-09-10T03:51:07.390625Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="cb89ce21f8facbf666033951cd2d214b"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.265625Z"/>
+<entry
+   committed-rev="498"
+   name="star1.gif"
+   text-time="2008-09-10T03:51:07.390625Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="bb8d992806c98844a8530363875a345f"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.281250Z"/>
+<entry
+   committed-rev="498"
+   name="tab_left.jpg"
+   text-time="2008-09-10T03:51:07.406250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="b7e5f6842a0fb639bdc018aa0b147d2d"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.281250Z"/>
+<entry
+   committed-rev="498"
+   name="face.gif"
+   text-time="2008-09-10T03:51:07.406250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="fbf2ad08aac714f4f077cf1f1e2610b3"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.281250Z"/>
+<entry
+   committed-rev="498"
+   name="_correct.gif"
+   text-time="2008-09-10T03:51:07.421875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="1ee97a1f2d164bfc90ba9cab37aa84a4"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.296875Z"/>
+<entry
+   committed-rev="498"
+   name="icon_lock.gif"
+   text-time="2008-09-10T03:51:07.406250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="868ada8710b20d7e0518b57637502a79"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.296875Z"/>
+<entry
+   committed-rev="498"
+   name="triangle_right.gif"
+   text-time="2008-09-10T03:51:07.421875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="24a5a289297c8d15634d6cad11ec8897"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.296875Z"/>
+<entry
+   committed-rev="498"
+   name="mycomputer.gif"
+   text-time="2008-09-10T03:51:07.437500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="7c32625cc7fa7a28b7164158b9edacd4"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.312500Z"/>
+<entry
+   committed-rev="498"
+   name="nw2.gif"
+   text-time="2008-09-10T03:51:07.437500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="06ed738a25a4ac1f46901b8e14d43a73"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.312500Z"/>
+<entry
+   committed-rev="498"
+   name="person.gif"
+   text-time="2008-09-10T03:51:07.437500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="cf4c24f5191ce125048dc38402007e4b"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.312500Z"/>
+<entry
+   committed-rev="498"
+   name="morepeople.gif"
+   text-time="2008-09-10T03:51:07.453125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="ec22f2f01d99250b2f89f71856343035"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.328125Z"/>
+<entry
+   committed-rev="498"
+   name="calendar.gif"
+   text-time="2008-09-10T03:51:07.453125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="893205385dfa12813f44dba0905d4a9a"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.328125Z"/>
+<entry
+   committed-rev="498"
+   name="btn_down.gif"
+   text-time="2008-09-10T03:51:07.453125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="60d69159cdf48ba60b9ad7112c39a858"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.328125Z"/>
+<entry
+   committed-rev="498"
+   name="dvd.gif"
+   text-time="2008-09-10T03:51:07.468750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="0d48e2a9d8cbfbaea554e5317787b27d"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.343750Z"/>
+<entry
+   committed-rev="498"
+   name="grey_arrow_right.gif"
+   text-time="2008-09-10T03:51:07.468750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="ba30bae80b6c75e34522c0b3ad0b3117"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.343750Z"/>
+<entry
+   committed-rev="498"
+   name="people_folder.gif"
+   text-time="2008-09-10T03:51:07.484375Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="8dfa839f52b6de2eb050dfcf419b777b"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.343750Z"/>
+<entry
+   committed-rev="498"
+   name="bluediam.gif"
+   text-time="2008-09-10T03:51:07.484375Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="1b21b9c3e76c62c075632b9970242adc"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.359375Z"/>
+<entry
+   committed-rev="498"
+   name="up.gif"
+   text-time="2008-09-10T03:51:07.500000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="2a858f35267483f978c06d4b35e81607"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.375000Z"/>
+<entry
+   committed-rev="498"
+   name="text.gif"
+   text-time="2008-09-10T03:51:07.500000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="2687b9aec39908c2f469baa4e86e3e96"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.359375Z"/>
+<entry
+   committed-rev="498"
+   name="forum_top_left.gif"
+   text-time="2008-09-10T03:51:07.500000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="9426cfdd61693596e6f232993b0fd7a4"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.359375Z"/>
+<entry
+   committed-rev="498"
+   name="lesson2.gif"
+   text-time="2008-09-10T03:51:07.515625Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="64e23e9cd98412fa35a922161d7ba7c7"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.375000Z"/>
+<entry
+   committed-rev="498"
+   name="resource.gif"
+   text-time="2008-09-10T03:51:07.515625Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="072991adf5f68d2d6c5e6aeea8229d7f"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.375000Z"/>
+<entry
+   committed-rev="498"
+   name="fc.gif"
+   text-time="2008-09-10T03:51:07.531250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="e892bbfe82b18cb4abb28dc221a7e47b"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.390625Z"/>
+<entry
+   committed-rev="498"
+   name="quiz.gif"
+   text-time="2008-09-10T03:51:07.515625Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="72c0d0bbb5252d5f478047d8b6882b24"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.390625Z"/>
+<entry
+   committed-rev="498"
+   name="activity.gif"
+   text-time="2008-09-10T03:51:07.531250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="e05711b1fe3b9a534902492f22f09e14"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.390625Z"/>
+<entry
+   committed-rev="498"
+   name="footer1.png"
+   text-time="2008-09-10T03:51:07.546875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="26e0873d4d66b6ac4caff82bbac4a9e5"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.406250Z"/>
+<entry
+   committed-rev="498"
+   name="folder_orange.gif"
+   text-time="2008-09-10T03:51:07.546875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="53b3d90bb562c174d58159ec9acc524a"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.406250Z"/>
+<entry
+   committed-rev="498"
+   name="tab_mid.jpg"
+   text-time="2008-09-10T03:51:07.546875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="1dc085f63ee7a1bf49e6e68473326c9c"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.421875Z"/>
+<entry
+   committed-rev="498"
+   name="macbook.gif"
+   text-time="2008-09-10T03:51:07.562500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="4092dc6530e401773c12507b331101d9"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.421875Z"/>
+<entry
+   committed-rev="498"
+   name="mersing.jpg"
+   text-time="2008-09-10T03:51:07.562500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="ca87fbea0f46a7e883940d1b15280423"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.453125Z"/>
+<entry
+   committed-rev="498"
+   name="log.gif"
+   text-time="2008-09-10T03:51:07.578125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="b8613e69fa623663ba6895eee03a4494"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.453125Z"/>
+<entry
+   name="shadow"
+   kind="dir"/>
+<entry
+   committed-rev="498"
+   name="nw.gif"
+   text-time="2008-09-10T03:51:07.578125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="9fdd1c8b81ff33afc7bfaf7b8f76595a"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.765625Z"/>
+<entry
+   committed-rev="498"
+   name="women.gif"
+   text-time="2008-09-10T03:51:07.578125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="a2cb8b71f0cdaa7f9e50b115074a5558"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.781250Z"/>
+<entry
+   committed-rev="498"
+   name="forum_back..gif"
+   text-time="2008-09-10T03:51:07.593750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="c3027341e890f4cae90771145c0bb88a"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.781250Z"/>
+<entry
+   committed-rev="498"
+   name="twoface.gif"
+   text-time="2008-09-10T03:51:07.593750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="f742a57e9de0f9abbe19c0da4266e387"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.781250Z"/>
+<entry
+   committed-rev="498"
+   name="infusion-logo.gif"
+   text-time="2008-09-10T03:51:07.593750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="5f1865d58d7ac2a87952351cd56fac37"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.781250Z"/>
+<entry
+   committed-rev="498"
+   name="exit2.gif"
+   text-time="2008-09-10T03:51:07.609375Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="d64638fb7afd51b8869f9abf4de20602"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.796875Z"/>
+<entry
+   committed-rev="498"
+   name="link.gif"
+   text-time="2008-09-10T03:51:07.609375Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="d6a3c0ea4452b5629c90db9026f2c16a"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.796875Z"/>
+<entry
+   committed-rev="498"
+   name="portfolio1.gif"
+   text-time="2008-09-10T03:51:07.625000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="cd1acffeb6a756646e1fcfcf491e3c8d"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.812500Z"/>
+<entry
+   committed-rev="498"
+   name="course.gif"
+   text-time="2008-09-10T03:51:07.625000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="039737bfbdccf469bc7c85fe35bc9ed1"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.812500Z"/>
+<entry
+   committed-rev="498"
+   name="delete.gif"
+   text-time="2008-09-10T03:51:07.640625Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="aa70bf5d6a35a48c1bb8ef7603523c8e"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.812500Z"/>
+<entry
+   committed-rev="498"
+   name="folder_red.gif"
+   text-time="2008-09-10T03:51:07.656250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="0f3e11460707dde6d40419bdfb539df4"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.843750Z"/>
+<entry
+   committed-rev="498"
+   name="close.gif"
+   text-time="2008-09-10T03:51:07.640625Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="864076a68badc84268e41af47e65b720"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.828125Z"/>
+<entry
+   committed-rev="498"
+   name="red_diamond.gif"
+   text-time="2008-09-10T03:51:07.640625Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="7d595acaa669f05b5cae54ef933a8bd1"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.828125Z"/>
+<entry
+   committed-rev="498"
+   name="rss.gif"
+   text-time="2008-09-10T03:51:07.656250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="fa99ef61838fcb4fcc2e9775d7f58df5"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.843750Z"/>
+<entry
+   committed-rev="498"
+   name="oneworld.png"
+   text-time="2008-09-10T03:51:07.656250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="79979a6898a6cf04dd71b687d8cdbbe8"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.859375Z"/>
+<entry
+   committed-rev="498"
+   name="journal.gif"
+   text-time="2008-09-10T03:51:07.671875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="c2c776ead16c9b453746b3b2ea1bd940"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.859375Z"/>
+<entry
+   committed-rev="498"
+   name="textedit1.gif"
+   text-time="2008-09-10T03:51:07.671875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="986285971505dc07d10869e05129378b"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.875000Z"/>
+<entry
+   committed-rev="498"
+   name="page.gif"
+   text-time="2008-09-10T03:51:07.687500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="23b5dfc399ab9ffc9b737c84e8b2e2cb"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.875000Z"/>
+<entry
+   committed-rev="498"
+   name="generic.gif"
+   text-time="2008-09-10T03:51:07.687500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="fc99bf9cc0f6da08dffdf8380a80c594"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.875000Z"/>
+<entry
+   committed-rev="498"
+   name="right.gif"
+   text-time="2008-09-10T03:51:07.687500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="0fdf22c12dcd8798e4e152c3dc749987"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.890625Z"/>
+<entry
+   committed-rev="498"
+   name="textedit3.gif"
+   text-time="2008-09-10T03:51:07.703125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="fe5159f4cb93d038c59c42cb785f1917"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.890625Z"/>
+<entry
+   committed-rev="498"
+   name="tab_right.jpg"
+   text-time="2008-09-10T03:51:07.703125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="f2f8aaab31eed40f58a9341511e5cc75"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.906250Z"/>
+<entry
+   committed-rev="498"
+   name="eventcheck.gif"
+   text-time="2008-09-10T03:51:07.718750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="8591899ff2bde3ad51e274cae8152f0b"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.906250Z"/>
+<entry
+   committed-rev="498"
+   name="ifs.gif"
+   text-time="2008-09-10T03:51:07.718750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="1d8efda257e96df3483c95ecd20191a0"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.906250Z"/>
+<entry
+   committed-rev="498"
+   name="video.jpg"
+   text-time="2008-09-10T03:51:07.718750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="448baa4f3c1245f496f64f1f1310ea7f"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.921875Z"/>
+<entry
+   committed-rev="498"
+   name="rd_sqdi.gif"
+   text-time="2008-09-10T03:51:07.734375Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="e7b95b23759479069b8e1f2b3398c763"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.921875Z"/>
+<entry
+   committed-rev="498"
+   name="footer_logo.jpg"
+   text-time="2008-09-10T03:51:07.734375Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="16e2f8b97beca3cfda70d149b7696840"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.921875Z"/>
+<entry
+   committed-rev="498"
+   name="arrow.gif"
+   text-time="2008-09-10T03:51:07.750000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="6bb7b215fe01f04b117275d55c96d5d3"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.937500Z"/>
+<entry
+   committed-rev="498"
+   name="group.gif"
+   text-time="2008-09-10T03:51:07.750000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="bf6f52acf8d4b2dd20aef5a93a4f2122"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:05.937500Z"/>
+<entry
+   name="classroom"
+   kind="dir"/>
+<entry
+   committed-rev="498"
+   name="lesson.gif"
+   text-time="2008-09-10T03:51:07.750000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="2bb34dfb3dbbbeb3b7b12389d38c6ec7"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.187500Z"/>
+<entry
+   committed-rev="498"
+   name="question.gif"
+   text-time="2008-09-10T03:51:07.765625Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="56309573ef487bb897f306177adffd19"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.203125Z"/>
+<entry
+   committed-rev="498"
+   name="netg.jpg"
+   text-time="2008-09-10T03:51:07.765625Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="f9d34658a36489262e38414e187f6811"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.203125Z"/>
+<entry
+   committed-rev="498"
+   name="pinpurpl.gif"
+   text-time="2008-09-10T03:51:07.781250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="1e4ab4c21cdb0c1d03f4a8b8e9a5de02"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.218750Z"/>
+<entry
+   committed-rev="498"
+   name="scales.gif"
+   text-time="2008-09-10T03:51:07.781250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="33839d8e44319130d23ad86e03299b46"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.218750Z"/>
+<entry
+   committed-rev="498"
+   name="arrow1.gif"
+   text-time="2008-09-10T03:51:07.781250Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="b72a261647d00927913b703c60027fa5"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.218750Z"/>
+<entry
+   committed-rev="498"
+   name="prev.gif"
+   text-time="2008-09-10T03:51:07.796875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="430ee4d1df1eb101bcf4b0404e398612"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.234375Z"/>
+<entry
+   committed-rev="498"
+   name="ar_left.gif"
+   text-time="2008-09-10T03:51:07.796875Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="f2114d86c961dca4cd25b1b11cceba43"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.234375Z"/>
+<entry
+   committed-rev="498"
+   name="txt.gif"
+   text-time="2008-09-10T03:51:07.812500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="c419c649df0e0ca6dd3b74dea1b3c8cd"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.250000Z"/>
+<entry
+   committed-rev="498"
+   name="mail.gif"
+   text-time="2008-09-10T03:51:07.812500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="5c0c1e6dd43fe3446172c168d5162220"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.250000Z"/>
+<entry
+   name="forum"
+   kind="dir"/>
+<entry
+   committed-rev="498"
+   name="btn_up.gif"
+   text-time="2008-09-10T03:51:07.812500Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="db41079e3ab3d8204b4d74886425ec08"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.609375Z"/>
+<entry
+   committed-rev="498"
+   name="forum.gif"
+   text-time="2008-09-10T03:51:07.828125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="35f0e2308939cb0edbb65b910286ff8b"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.609375Z"/>
+<entry
+   committed-rev="498"
+   name="new.gif"
+   text-time="2008-09-10T03:51:07.828125Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="d17b37630c0e26c25bc25e73b69f3c3a"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.609375Z"/>
+<entry
+   committed-rev="498"
+   name="grey_arrow_left.gif"
+   text-time="2008-09-10T03:51:07.843750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="650dddf6dde7349b7a0c522da7b56bb1"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.625000Z"/>
+<entry
+   committed-rev="498"
+   name="star2.gif"
+   text-time="2008-09-10T03:51:07.843750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="c0684e4c3ed34c4ecf7cd5d907d8a9b1"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.671875Z"/>
+<entry
+   committed-rev="498"
+   name="print.gif"
+   text-time="2008-09-10T03:51:07.843750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="7a5c1c80d710c2d72fae25d04d490b6b"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.671875Z"/>
+<entry
+   committed-rev="498"
+   name="aeu_header.jpg"
+   text-time="2008-09-10T03:51:07.859375Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="12e6635f2b86210f7190724879d01516"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.703125Z"/>
+<entry
+   committed-rev="498"
+   name="scorm.jpg"
+   text-time="2008-09-10T03:51:07.859375Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="c689dad2bee9af7875aa716d9f31156c"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.718750Z"/>
+<entry
+   committed-rev="498"
+   name="back.gif"
+   text-time="2008-09-10T03:51:07.875000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="a4fb4436ebf5ef9081f1cf3f6409da6e"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.718750Z"/>
+<entry
+   committed-rev="498"
+   name="emptytrash.gif"
+   text-time="2008-09-10T03:51:07.875000Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="387574400fb9863067e1c105f68fa2f7"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.734375Z"/>
+<entry
+   committed-rev="498"
+   name="aeu_logo.JPG"
+   text-time="2008-09-10T03:51:07.890625Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="bd652682626b6c99b650e51664584920"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.765625Z"/>
+<entry
+   committed-rev="498"
+   name="assignment.gif"
+   text-time="2008-09-10T03:51:07.968750Z"
+   committed-date="2008-09-09T04:48:12.216909Z"
+   checksum="c676d1bd1b03c6ad02c71c6583a659ee"
+   last-author="aeu"
+   kind="file"
+   prop-time="2008-09-10T03:51:06.781250Z"/>
+</wc-entries>

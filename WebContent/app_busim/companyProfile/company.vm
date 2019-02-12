@@ -1,0 +1,39 @@
+
+<table style="width:100%">
+<tr><td style="width:150px" >Company Name</td><td style="width:20px">:</td><td><input class="form-control" name="name" value="$!company.name"></td></tr>
+<tr><td>Reg. No.</td><td>:</td><td><input class="form-control" name="registrationNumber" value="$!company.registrationNumber"></td></tr>
+
+<tr><td>Company Type</td><td>:</td><td>
+
+<select name="companyType" class="form-control">
+	<option value=""></option>
+	#foreach( $t in $companyTypes )
+		<option value="$t.id" #if ( $company.companyType.id == $t.id ) selected #end>$t.name</option>
+	#end
+</select>
+
+</td></tr>
+
+<tr><td>Business Type</td><td>:</td><td>
+
+<select name="businessType" class="form-control">
+	<option value=""></option>
+	#foreach( $t in $businessTypes )
+		<option value="$t.id" #if ( $company.businessType.id == $t.id ) selected #end>$t.name</option>
+	#end
+</select>
+</td></tr>
+
+<tr><td>Address</td><td>:</td><td><input class="form-control" name="address1" value="$!company.address1"></td></tr>
+<tr><td></td><td>:</td><td><input class="form-control" name="address2" value="$!company.address2"></td></tr>
+<tr><td>Postcode</td><td>:</td><td><input class="form-control" name="postcode" value="$!company.postcode"></td></tr>
+<tr><td>State</td><td>:</td><td><input class="form-control" name="state" value="$!company.state"></td></tr>
+
+<tr><td>Telephone</td><td>:</td><td><input class="form-control" name="telephone" value="$!company.telephone"></td></tr>
+<tr><td>Fax</td><td>:</td><td><input class="form-control" name="fax" value="$!company.fax"></td></tr>
+
+</table>
+
+<div id="companySaved"></div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+

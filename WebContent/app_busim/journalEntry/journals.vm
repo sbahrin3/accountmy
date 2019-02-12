@@ -1,0 +1,22 @@
+<div style="float:right;padding:4px">
+	<a  href="javascript:void(0)" class="btn btn-primary" onclick="doDivAjaxCall$formname('formData','edit','companyId=$!company.id')">Add New</a>
+</div>
+<table style="width:100%" cellpadding="2">
+	<tr style="background:#494945;height:35px">
+		<td style="width:60px;color:#FFFFFF">#</td>
+		<td style="width:150px;color:#FFFFFF">Ref.</td>
+		<td style="color:#FFFFFF">Description</td>
+		<td style="width:40px;color:#FFFFFF">&nbsp;</td>
+	</tr>
+	#set ( $cnt = 0 )
+	#foreach ( $journal in $journals )
+		#set ( $cnt = $cnt + 1 )
+		#if ( $cnt % 2 == 1 ) #set ( $bgcolor = "#F9F2B8" ) #else #set ( $bgcolor = "#F4F3ED" ) #end
+		<tr style="background:$bgcolor;height:35px">
+			<td>$cnt</td>
+			<td>$!journal.code</td>
+			<td>$!journal.description</td>
+			<td align="center" style="cursor:pointer" onclick="doDivAjaxCall$formname('formData','edit','companyId=$!company.id&journalId=$!journal.id')"><i class="fa fa-pencil" aria-hidden="true"></i></td>
+		</tr>
+	#end
+</table>

@@ -1,0 +1,13 @@
+<div style="float:right;margin-right:5px;margin-top:7px">
+	<a href="javascript:void(0)" class="menu-button" onclick="doDivAjaxCall$formname('formData','newPaymentVoucher','supplierId=')">Make Open Payment</a>
+</div>
+<div style="float:right;margin-right:5px;margin-top:7px">
+	<a href="javascript:void(0)" class="menu-button" onclick="doDivAjaxCall$formname('list','listSuppliers','')">New Payment Voucher</a>
+</div>
+<div style="float:right;margin-right:5px;margin-top:7px">
+	<a href="javascript:void(0)" class="menu-button" onclick="doDivAjaxCall$formname('list','listPaymentVouchers','')">List Payment Vourchers</a>
+</div>
+<br/><br/><br/>
+<div id="list">
+#parse("app_busim/paymentVoucher/listPaymentVouchers.vm")
+</div>

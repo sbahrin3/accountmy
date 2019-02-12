@@ -1,0 +1,15 @@
+testing..
+
+<br>
+<table width="100%">
+<tr><td style="font-weight:bold;height:30px;background-color:lightgrey">UPLOAD PHOTO</td></tr>
+<tr><td>
+To upload photo, click on the <b>Browse...</b> button, select a file you want to upload,
+then click on the <b>Upload</b> button.  When done, click on the <b>Save Photo</b> button.
+</td></tr>
+<tr><td align="center">
+$html.uploadFilesField.count(1)
+<input type="button" style="height:30px;font-weight:bold" value="Save Photo" onclick="doDivAjaxCall$formname('div_photo','save_photo','user_profile_id=$!userprofile.id');$('div_upload_photo').style.visibility='hidden'">
+<input type="button" style="height:30px;font-weight:bold" value="Cancel" onclick="$('div_upload_photo').style.visibility='hidden'">
+</td></tr>
+</table>

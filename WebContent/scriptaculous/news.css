@@ -1,0 +1,90 @@
+HTML {
+	OVERFLOW-Y: hidden; OVERFLOW-X: hidden
+}
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 11px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: #dfdede
+}
+A {
+	TEXT-DECORATION: none
+}
+TABLE {
+	FONT-SIZE: 13px; COLOR: #d4d2d2
+}
+#nav {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 100%; COLOR: #999; PADDING-TOP: 3px; POSITION: fixed; HEIGHT: 18px; BACKGROUND-COLOR: #dfdede
+}
+#nav UL {
+	PADDING-RIGHT: 0px; DISPLAY: inline; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+#nav LI {
+	PADDING-RIGHT: 0px; DISPLAY: inline; PADDING-LEFT: 7px; PADDING-BOTTOM: 0px; MARGIN: 0px 4px; PADDING-TOP: 0px
+}
+#nav A:link {
+	COLOR: #999
+}
+#nav A:visited {
+	COLOR: #333
+}
+#nav A:hover {
+	COLOR: #dc720c
+}
+#nav A:active {
+	COLOR: #333
+}
+#nav A:unknown {
+	COLOR: #333
+}
+.panel {
+	DISPLAY: inline; FLOAT: left; WIDTH: 900px; HEIGHT: 340px
+}
+#container {
+	LEFT: 0px; POSITION: relative; TOP: 21px
+}
+.newscontent {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 15px; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; HEIGHT: 280px
+}
+.studentnews {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 18px; BACKGROUND: url(../images/news/stunews/bg_lifestyle2.jpg) no-repeat 0px 50%; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; HEIGHT: 340px
+}
+.studentnews H2 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 19px; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #fff; PADDING-TOP: 0px
+}
+.studentnews P {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 13px; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 10px; COLOR: #d4d2d2; LINE-HEIGHT: 18px; PADDING-TOP: 0px
+}
+.studentnews P.last {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 13px; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #d4d2d2; LINE-HEIGHT: 18px; PADDING-TOP: 0px
+}
+.studentnews P.newsdate {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 10px; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 10px; COLOR: #d4d2d2; LINE-HEIGHT: 12px; PADDING-TOP: 0px
+}
+H2 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 19px; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #333; PADDING-TOP: 0px
+}
+P {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 13px; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 10px; COLOR: #333; LINE-HEIGHT: 18px; PADDING-TOP: 0px
+}
+P.last {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 13px; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #333; LINE-HEIGHT: 18px; PADDING-TOP: 0px
+}
+P.newsdate {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 10px; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 10px; COLOR: #999; LINE-HEIGHT: 12px; PADDING-TOP: 0px
+}
+.morebutton {
+	LEFT: 42%; POSITION: relative
+}
+.morebutton A {
+	DISPLAY: block; BACKGROUND: url(../images/btn_more_new.gif) no-repeat 0px 0px; WIDTH: 65px; TEXT-INDENT: -20000px; HEIGHT: 15px
+}
+.morebutton A:hover {
+	DISPLAY: block; BACKGROUND: url(../images/btn_more_new.gif) no-repeat 0px -15px; WIDTH: 65px; TEXT-INDENT: -20000px; HEIGHT: 15px
+}
+.studentnews .morebutton A {
+	BACKGROUND: url(../images/btn_more_new2.gif) no-repeat 0px 0px; WIDTH: 65px; TEXT-INDENT: -20000px; HEIGHT: 15px
+}
+.studentnews .morebutton A:hover {
+	BACKGROUND: url(../images/btn_more_new2.gif) no-repeat 0px -15px; WIDTH: 65px; TEXT-INDENT: -20000px; HEIGHT: 15px
+}
+.caption {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 3px; FONT-SIZE: 12px; PADDING-BOTTOM: 0px; COLOR: #333333; PADDING-TOP: 0px; FONT-STYLE: italic
+}

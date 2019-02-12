@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="../app_busim/style.css" type="text/css" media="screen" />
+
+<div id="divMain" style="background:url(../img2/klcc-background.png);height:100%;opacity:0.5; filter:alpha(opacity=50);"></div>
+
+<div id="divData" class="shadow">
+	<div style="float:right">
+		<a class="btn btn-warning" href="../app/fwd.busim.module.WelcomeModule" target="mainframe">Back</a>
+	</div>
+	<div style="float:right">
+		<button type="button" class="btn btn-success" onclick="doDivAjaxCall$formname('companySaved','saveCompany','')">Save</button>
+	</div>
+	<div id="divTitle">
+		Company Profile
+	</div>
+	<div class="formData" id="formData">
+	#parse("app_busim/companyProfile/company.vm")
+	</div>
+</div>
+	

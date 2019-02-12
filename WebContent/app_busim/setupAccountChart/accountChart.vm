@@ -1,0 +1,62 @@
+#if ( $dataSaved )
+<div id="buttonAddNew" style="float:left;padding:2px">
+	<a href="javascript:void(0)" class="btn btn-primary" onclick="doDivAjaxCall$formname('formData','edit','companyId=$!company.id&parentId=$!parent.id')">Add New</a>
+</div>
+#end
+<div style="float:right;padding:2px">
+	<a href="javascript:void(0)" class="btn btn-primary" onclick="doDivAjaxCall$formname('formData','list','companyId=$!company.id')">Back</a>
+</div>
+#if ( $account )
+    <div style="float:right;padding:2px">
+    	<a href="javascript:void(0)" class="btn btn-danger" onclick="if ( !confirm('Delete?') ) return; doDivAjaxCall$formname('formData','delete','companyId=$!company.id&accountId=$!account.id')">Del</a>
+    </div>
+#end
+<div style="float:right;padding:2px">
+	<a class="btn btn-success" href="javascript:void(0)" onclick="doDivAjaxCall$formname('formData','save','companyId=$!company.id&accountId=$!account.id&parentId=$!parent.id')">Save</a>
+</div>
+
+#if ( $dataSaved )
+<div id="divMessage" class="messageArea" style="width:880px;text-align:center">Data Successfully Saved.</div>
+#end
+
+<br/><br/>
+
+<div style="margin-top:30px">
+
+<table style="width:100%">
+	
+#if ( $parent )
+    <tr style="height:30px"><td>Parent Account</td><td>:</td><td>$!parent.number - $!parent.title</td></tr>
+    
+    <tr style="height:30px"><td>Type</td><td>:</td>
+    	<td>
+    		$!parent.type.name
+    	</td>
+    </tr>
+#else
+    <tr><td>Account Type</td><td>:</td>
+    	<td>
+    		
+			<select class="form-control" id="accountTypeId" name="accountTypeId">
+				<option value=""></option>
+				#foreach( $t in $accountTypes )
+					<option value="$t.id" #if ( $account.type.id == $t.id ) selected #end>$t.name</option>
+				#end
+			</select>
+    		
+    	</td>
+    </tr>
+#end
+
+<tr><td style="width:150px" >Account Name</td><td style="width:20px">:</td><td><input class="form-control" id="title" name="title" value="$!account.title"></td></tr>
+
+<tr><td>Code Number</td><td>:</td><td><input class="form-control" id="number" name="number" value="$!account.number"></td></tr>
+
+<tr><td>Description</td><td>:</td><td><textarea class="form-control" id="description" name="description">$!account.description</textarea></td></tr>
+
+	
+</table>
+
+</div>
+	
+

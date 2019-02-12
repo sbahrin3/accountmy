@@ -1,0 +1,31 @@
+<script>
+$('listItems').style.display="block";
+</script>
+
+<div style="float:right;margin-right:5px;">
+	<a href="javascript:void(0)" class="sq-button" onclick="$('listItems').style.display='none';">x</a>
+</div>
+<div class="subTitle">
+	Item List
+</div>
+<div style="overflow:auto;height:200px">
+<table style="width:100%">
+	<tr style="height:30px;background:#DBD4D4">
+		<td style="width:120px">Code</td>
+		<td>Name</td>
+		<td style="width:100px">UOM</td>
+		<td style="width:100px">Price</td>
+		<td style="width:20px"></td>
+	</tr>
+	
+	#foreach ( $i in $items )
+		<tr style="height:30px;background:#EFEDED">
+			<td style="cursor:pointer" onclick="putItem(selectedItem, '$!i.code', '$!i.name', '$!i.measurementUnit', '$nf.format($i.price)');$('listItems').style.display='none';">$i.code</td>
+			<td>$i.name</td>
+			<td>$i.measurementUnit</td>
+			<td>$i.price</td>
+			<td style="cursor:pointer" onclick="putItem(selectedItem, '$!i.code', '$!i.name', '$!i.measurementUnit', '$nf.format($i.price)');$('listItems').style.display='none';">...</td>
+		</tr>
+	#end
+</table>
+</div>

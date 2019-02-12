@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="../app_busim/style.css" type="text/css" media="screen" />
+
+<div id="divMain" style="background:url(../img2/klcc-background.png);height:100%;opacity:0.5; filter:alpha(opacity=50);"></div>
+
+<div id="divData">
+	
+    <div id="buttonBack" style="float:right;margin-right:5px;margin-top:5px">
+    	<a href="javascript:void(0)" class="btn btn-primary btn-sm" style="background:#64DEFC;border:1px solid #64DEFC"  onclick="$('params').style.display='block';$('result').style.display='none';"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+    </div>
+    
+	<div id="divTitle">
+		Income Statement
+	</div>
+	<div class="formData" id="formData">
+		<div id="params">
+			<table>
+				<tr>
+				<td>Year:</td>
+				<td>
+					<select id="year" name="year" class="form-control" style="width:100px">
+						#foreach( $y in [$year1..$year2] )
+							<option value="$y" #if ( $y == $currentYear ) selected #end>$y</option>
+						#end
+					</select>
+				</td>
+				<td>
+					<button type="button" class="btn btn-primary" onclick="doDivAjaxCall$formname('result','getIncomeStatement','')">Get Income Statement</button>
+				</td>
+			</tr>
+			</table>
+		</div>
+		
+		
+		<div id="result">
+		
+		</div>
+	</div>
+</div>
+	
+

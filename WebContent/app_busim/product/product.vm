@@ -1,0 +1,44 @@
+<div id="div_ontop"></div>
+
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('formData','back','')">back</a>
+</div>
+#if ( $product )
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('formData','newProduct','')">new</a>
+</div>	
+#end
+
+<div class="subTitle">
+#if ( $product )
+	Product Detail
+#else
+	Add New Product
+#end
+</div>
+
+<table width="100%">
+	<tr><td style="width:150px">Product Code</td><td style="width:10px">:</td><td><input type="text" name="code" value="$!product.code"></td></tr>
+	<tr><td>Product Description</td><td>:</td><td><input type="text" name="description" value="$!product.description"></td></tr>
+</table>
+
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('formData','back','')">back</a>
+</div>
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('formData','save','productId=$!product.id')">save</a>
+</div>
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="confirmDelete('$!product.id')"">del</a>
+</div>
+
+<div id="confirmDelete" class="confirmBox">
+	<table style="width:100%"><tr><td align="center">
+	Delete this Product.<br/>
+	Are you sure?
+	<a href="javascript:void(0)" onclick="deleteProduct('$!product.id')">Yes</a> /
+	<a href="javascript:void(0)" onclick="deleteProductCancel()">No</a>
+	</td></tr></table>
+</div>
+	
+<br/><br/><br/><br/><br/>

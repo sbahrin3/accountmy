@@ -1,0 +1,34 @@
+<script>
+$('listItems').style.display="block";
+</script>
+
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="$('listItems').style.display='none';">X</a>
+</div>
+<br/><br/><br/>
+<div>
+<table align="center">
+	<tr style="height:30px;background:#ccc">
+		<td style="width:30px"></td>
+		<td style="width:150px">GL Code</td>
+		<td style="width:150px">GL Name</td>
+		<td style="width:50px" align="center"></td>
+	</tr>
+</table>
+</div>
+<div style="overflow:auto;height:200px">
+<table align="center">
+	#foreach ( $i in $accounts )
+		#if ( !$i.gotChild )
+    		<tr>
+    			<td style="width:30px;border-bottom:1px dotted #939090"></td>
+    			<td style="width:150px;border-bottom:1px dotted #939090">$i.number</td>
+    			<td style="width:150px;border-bottom:1px dotted #939090">$i.title</td>
+    			<td style="width:50px;border-bottom:1px dotted #939090;cursor:pointer;background:#ccc" align="center" onclick="setGL($rowNo, '$i.id', '$i.number', '$i.title')">
+    				&gt;
+    			</td>
+    		</tr>
+		#end
+	#end
+</table>
+</div>

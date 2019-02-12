@@ -1,0 +1,283 @@
+<div id="${targetName}">
+<span id="W${targetName}" style="position:absolute;width:150px;"></span>
+<form id="${formName}" name="${formName}" method="post">
+
+
+#parse("$vmName")
+
+<input id="command" name="command" type="hidden">
+
+<input id="module_id" name="module_id" type="hidden" value="${moduleId}">
+		<input type="hidden" name="$formname" value="$formname">
+		
+		
+		
+		
+		<div id="popwin${formName}" name="popwin${formName}" 
+onmouseover="this.style.zIndex=999"
+onmouseout="this.style.zIndex=0"
+style="visibility:hidden;position:absolute;left:200px;background-color:white;border: 2px solid;border-color: #99a #99a #99a #99a;width:500px">
+
+
+<script>
+//new Draggable('popwin${formName}', { handle:'handle_${formName}' });
+</script>
+
+<table width="100%" cellpadding="0" cellspacing="1" border="0" align="center">
+<tr><td>
+
+
+<table bgcolor="lightgrey" width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr height="25px">
+		<td bgcolor="lightgrey" valign="bottom" style="cursor:hand; cursor:pointer;">
+		<span id="handle_$formName">&nbsp;&nbsp;</span>
+		</td>
+		<td bgcolor="lightgrey" align="right" width="50px">
+		<a href="#" onclick="close_popwin_$formName()"><b>Close</b></a>&nbsp;
+		</td>
+	</tr>	
+</table>
+
+
+
+
+</td></tr>
+<tr><td>
+<div id="win${formName}" name="win${formName}" style="height:200px; width: 100%; overflow: auto;"></div>
+</td></tr>
+</table>
+</div>
+
+
+</form>
+
+</div>
+
+
+<script>
+
+var IE = document.all?true:false
+if (!IE) document.captureEvents(Event.MOUSEMOVE)
+
+var cursorX;
+var cursorY;
+
+//preload image
+image1 = new Image();
+image1.src = "../img/indicator.gif";
+image2 = new Image();
+image2.src = "../img/wait-animated.gif";
+
+
+$('W${targetName}').innerHTML ='';
+
+document.onmousemove=getMouseCoordinates;
+
+function getMouseCoordinates(e) {
+  
+  if (IE) {
+    cursorX = event.clientX + document.body.scrollLeft;
+    cursorY = event.clientY + document.body.scrollTop;
+  } else {
+    cursorX = e.pageX;
+    cursorY = e.pageY;
+  }  
+
+  if (cursorX < 0){cursorX = 0}
+  if (cursorY < 0){cursorY = 0}    
+  
+}
+
+
+				function popwin_$formName() {
+  				var width = Element.getWidth(document.getElementById('popwin${formName}'));
+  								var height = Element.getHeight(document.getElementById('popwin${formName}'));
+				  var dim = get_page_size();
+				  var page_width = dim[2];
+				  var page_height = dim[3];
+				  var pop_left = (page_width - width)/2;
+				  var pop_top = (page_height - height)/2;
+								  document.getElementById('popwin${formName}').style.visibility='visible';
+								  document.getElementById('popwin${formName}').style.left=pop_left;
+								  document.getElementById('popwin${formName}').style.top=pop_top;
+								  Effect.Appear('popwin${formName}', { duration: 0.2 });
+								}
+								
+								function close_popwin_$formName() {
+   								Effect.Fade('popwin$formName' , { duration: 0.2 });
+								}
+								
+												function alert_$formName() {
+  				var width = Element.getWidth(document.getElementById('alert${formName}'));
+  								var height = Element.getHeight(document.getElementById('alert${formName}'));
+				  var dim = get_page_size();
+				  var page_width = dim[2];
+				  var page_height = dim[3];
+				  var pop_left = (page_width - width)/2;
+				  var pop_top = (page_height - height)/2;
+								  document.getElementById('alert${formName}').style.visibility='visible';
+								  document.getElementById('alert${formName}').style.left=pop_left;
+								  document.getElementById('alert${formName}').style.top=pop_top;
+								  Effect.Appear('alert${formName}', { duration: 0.2 });
+								}
+
+
+function doAjaxCall${formName}(actionName){
+
+    
+   #if ( $queryString != "" )
+   var url = '../y/${moduleId}?$queryString';
+   #else
+   var url = '../y/${moduleId}';
+   #end
+   
+   var target = '${targetName}';
+   doAjaxUpdater(document.${formName}, url, target, actionName);
+ 
+   document.getElementById('${targetName}').innerHTML ='<table width="100%"><tr><td align="center"><img src="../img/wait-animated.gif"></td></tr><tr><td align="center">Please wait ...</td></tr></table>';    
+   
+}
+
+function doAjaxCall${formName}(actionName, qs){
+
+   #if ( $queryString != "" )
+   var url = '../y/${moduleId}?$queryString';
+   #else
+   var url = '../y/${moduleId}';
+   #end
+   var target = '${targetName}';
+   doAjaxUpdater(document.${formName}, url, target, actionName, qs);
+
+   document.getElementById('${targetName}').innerHTML ='<table width="100%"><tr><td align="center"><img src="../img/wait-animated.gif"></td></tr><tr><td align="center">Please wait ...</td></tr></table>';
+   
+}
+
+function doDivAjaxCall${formName}(divName, actionName, qs){
+
+   #if ( $queryString != "" )
+   var url = '../div/${moduleId}?$queryString';
+   #else
+   var url = '../div/${moduleId}';
+   #end
+   var target = divName;
+   doAjaxUpdater(document.${formName}, url, target, actionName, qs);
+   document.getElementById(divName).style.visibility = 'visible';
+   document.getElementById(divName).innerHTML ='<table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center"><img src="../img/indicator.gif"></td></tr></table>';
+}
+
+function doDivAjaxCallX${formName}(divName, actionName, qs){
+   ##without indicator
+   #if ( $queryString && $queryString != "" )
+   var url = '../div/${moduleId}?$queryString';
+   #else
+   var url = '../div/${moduleId}';
+   #end
+   var target = divName;
+   doAjaxUpdater(document.${formName}, url, target, actionName, qs);
+   document.getElementById(divName).style.visibility = 'visible';
+}
+
+function doDivAjaxCallWithAlert${formName}(divName, actionName, qs){
+
+   #if ( $queryString != "" )
+   var url = '../div/${moduleId}?$queryString';
+   #else
+   var url = '../div/${moduleId}';
+   #end
+   var target = divName;
+   doAjaxUpdaterWithAlert(document.${formName}, url, target, actionName, qs);
+   document.getElementById(divName).style.visibility = 'visible';
+   document.getElementById(divName).innerHTML ='<table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center"><img src="../img/indicator.gif"></td></tr></table>';
+}
+
+function showAlertMessage() {
+   alert_$formName();
+}
+
+function doPositionDivAjaxCall${formName}(divName, actionName, qs){
+
+   #if ( $queryString != "" )
+   var url = '../div/${moduleId}?$queryString';
+   #else
+   var url = '../div/${moduleId}';
+   #end
+   var target = divName;
+   
+   document.getElementById(divName).style.visibility = 'visible';
+   //alert(cursorY);
+   document.getElementById(divName).style.top = cursorY;
+   doAjaxUpdater(document.${formName}, url, target, actionName, qs);
+   document.getElementById(divName).innerHTML ='<table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center"><img src="../img/indicator.gif"></td></tr></table>';
+}
+
+function doDivAjaxChainCall${formName}(divName, actionName, qs, divName2, actionName2, qs2){
+
+   #if ( $queryString != "" )
+   var url = '../div/${moduleId}?$queryString';
+   #else
+   var url = '../div/${moduleId}';
+   #end
+   
+   doAjaxUpdaterChain(document.${formName}, url, divName, actionName, qs, divName2, actionName2, qs2);
+   document.getElementById(divName).innerHTML ='<table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center"><img src="../img/indicator.gif"></td></tr></table>';
+}
+
+function doDivAjaxCall2${formName}(divName, actionName, qs){
+
+   #if ( $queryString != "" )
+   var url = '../div/${moduleId}?$queryString';
+   #else
+   var url = '../div/${moduleId}';
+   #end
+   var target = divName;
+   doAjaxUpdater(document.${formName}, url, target, actionName, qs);
+   document.getElementById(divName).innerHTML ='<table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center"><img src="../img/indicator.gif"></td></tr></table>';
+   
+	   blindDown(divName);
+}
+
+function doDivAjaxCall3${formName}(divName, actionName, qs){
+
+   #if ( $queryString != "" )
+   var url = '../div/${moduleId}?$queryString';
+   #else
+   var url = '../div/${moduleId}';
+   #end
+   var target = divName;
+   doAjaxUpdater(document.${formName}, url, target, actionName, qs);
+}
+
+function blindDown(elementId) {
+		  if ( document.all ) element = document.all[elementId];
+	  else element = document.getElementById(elementId);
+  new Effect.BlindDown(element,{duration:0.5}); 
+		  new Effect.Highlight(element,{duration:1.5})
+	  	return false;
+}
+
+function dnKeyPress(e, div, cmd, par) {
+   var characterCode;
+   if(e && e.which){
+     e = e;
+     characterCode = e.which;
+   }
+   else{
+     e = event;
+     characterCode = e.keyCode;
+   }
+   if(characterCode == 13){
+     doDivAjaxCall${formName}(div, cmd, par);
+     return false;
+   }
+   else {
+     return true;
+   }
+}
+
+function divScrollDown(divName) {
+divName.scrollTop = divName.scrollHeight;
+}
+
+
+</script>
+

@@ -1,0 +1,15 @@
+<html>
+<body>
+<table align="center" width="50%">
+	<tr>
+		<td align="center">
+		<font color="red">
+		<b>
+		$errormessage
+		</b>
+		</font>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

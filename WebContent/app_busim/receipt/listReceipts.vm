@@ -1,0 +1,25 @@
+<div class="subTitle">List Payment Vouchers</div>
+	
+<table style="width:100%">
+	<tr style="background:#ccc;height:35px">
+		<td style="width:30px"></td>
+		<td style="width:100px">Ref No</td>
+		<td style="width:200px">Vendor</td>
+		<td style="width:200px">Bank</td>
+		<td style="width:100px" align="right">Amount</td>	
+		<td style="width:30px"></td>
+	</tr>
+	#set ( $cnt = 0 )
+	#foreach( $p in $paymentVouchers )
+	#set ( $cnt = $cnt + 1 )
+	#if ( $cnt % 2 == 0 ) #set ( $bgcolor = "#FCF8DE" ) #else #set ( $bgcolor = "#FFFFFF") #end		
+		<tr style="height:35px;background:$bgcolor">
+			<td></td>
+			<td>$!p.refNo</td>
+			<td>$!p.supplier.name</td>
+			<td>$!p.bank.code</td>
+			<td align="right">#if ( $p.netAmount ) $nf.format($p.netAmount) #end</td>	
+			<td style="cursor:pointer" onclick="doDivAjaxCall$formname('formData','edit','paymentVoucherId=$!p.id')" align="center"><img src="../img/edit.gif"></td>
+		</tr>
+	#end
+</table>

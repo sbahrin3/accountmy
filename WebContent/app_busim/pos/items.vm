@@ -1,0 +1,24 @@
+<table width="100%" cellpadding="0" cellspacing="1">
+	<tr style="background:#494945;height:35px" onclick="$('divMenuItems').style.display='none';">
+		<td style="width:40px"></td>
+		<td style="width:200px;color:#FFFFFF" onclick="">Code</td>
+		<td style=";color:#FFFFFF">Name</td>
+		<td style="width:200px;color:#FFFFFF">Normal Price</td>
+		<td style="width:200px;color:#FFFFFF">Member Price</td>
+		
+	</tr>
+	#set ( $cnt = 0 )
+	#foreach ( $c in $posMenuItems )
+		
+
+		#set ( $cnt = $cnt + 1 )
+		<tr style="height:30px;">
+			<td>$cnt.</td>
+			<td><input class="textrow" style="width:200px" readonly value="$!c.code" onclick="doSelectItem('$c.code', '$c.name', '1', '$!c.normalPrice', '');"></td>
+			<td><input class="textrow" style="" readonly value="$!c.name" onclick="doSelectItem('$c.code', '$c.name', '1', '$!c.normalPrice', '');"></td>
+			<td><input class="textrow" style="width:200px" readonly value="$!c.normalPrice" onclick="doSelectItem('$c.code', '$c.name', '1', '$!c.normalPrice', '');"></td>
+			<td><input class="textrow" style="width:200px" readonly value="$!c.memberPrice" onclick="doSelectItem('$c.code', '$c.name', '1', '$!c.normalPrice', '');"></td>
+			
+		</tr>
+	#end
+</table>

@@ -1,0 +1,85 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+ <persistence-unit name="persistence">
+   
+   <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+   <!--  <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> -->
+   
+   
+   
+	  	<class>fwd.busim.entity.Pos</class>
+	  	<class>fwd.busim.entity.PosItem</class>
+	  	<class>fwd.busim.entity.PosMenuItem</class>
+   
+   		<class>fwd.busim.entity.ProductType</class>
+   		<class>fwd.busim.entity.ProductCategory</class>
+   		<class>fwd.busim.entity.Product</class>
+	   
+	   	<class>fwd.busim.entity.User</class>
+	  	<class>fwd.busim.entity.Company</class>
+	  	<class>fwd.busim.entity.BusinessType</class>
+	  	<class>fwd.busim.entity.CompanyType</class>
+	  	<class>fwd.busim.entity.Account</class>
+	  	<class>fwd.busim.entity.AccountType</class>
+	  	<class>fwd.busim.entity.AccountTransaction</class>
+	  	<class>fwd.busim.entity.JournalEntry</class>
+	  	<class>fwd.busim.entity.JournalEntryItem</class>
+	  	<class>fwd.busim.entity.Customer</class>
+	  	<class>fwd.busim.entity.Supplier</class>
+	  	<class>fwd.busim.entity.Term</class>
+	  	<class>fwd.busim.entity.Agent</class>
+	  	<class>fwd.busim.entity.Quotation</class>
+	  	<class>fwd.busim.entity.QuotationItem</class>
+	  	<class>fwd.busim.entity.RefNumPrefix</class>
+	  	<class>fwd.busim.entity.SaleItem</class>
+	  	<class>fwd.busim.entity.DeliveryOrder</class>
+	  	<class>fwd.busim.entity.DeliveryOrderItem</class>
+	  	<class>fwd.busim.entity.Invoice</class>
+	  	<class>fwd.busim.entity.InvoiceItem</class>
+	  	<class>fwd.busim.entity.PurchaseOrder</class>
+	  	<class>fwd.busim.entity.PurchaseOrderItem</class>
+	  	<class>fwd.busim.entity.PurchaseInvoice</class>
+	  	<class>fwd.busim.entity.PurchaseInvoiceItem</class>
+	  	<class>fwd.busim.entity.Bank</class>
+	  	<class>fwd.busim.entity.PaymentVoucher</class>
+	  	<class>fwd.busim.entity.PaymentVoucherItem</class>
+	  	<class>fwd.busim.entity.ReceiptVoucher</class>
+	  	<class>fwd.busim.entity.ReceiptVoucherItem</class>
+	  	
+	  	
+
+	<!-- 
+    <properties>
+	<property name="javax.persistence.jdbc.user" value="root"/>
+	<property name="javax.persistence.jdbc.password" value=""/>
+	<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+	<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/annportal?zeroDateTimeBehavior=convertToNull"/>
+	<property name="eclipselink.weaving" value="false" />
+	<property name="eclipselink.ddl-generation" value="create-tables"/>
+	<property name="eclipselink.logging.level" value="OFF"/>
+	</properties>
+	 -->
+	 
+	 <!-- 
+	 <properties>
+	  <property name="openjpa.ConnectionURL" value="jdbc:derby:accountmy_data;create=true"/>
+	    <property name="openjpa.ConnectionDriverName" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+	    <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema" />
+	    <property name="openjpa.Log" value="DefaultLevel=WARN, Tool=INFO"/>
+	    <property name="openjpa.Multithreaded" value="true"/>
+	  </properties>
+   	-->
+   
+	
+   <properties>
+	<property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3307/busim?zeroDateTimeBehavior=convertToNull"/>
+    <property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver"/>
+    <property name="openjpa.ConnectionUserName" value="root"/>
+    <property name="openjpa.ConnectionPassword" value=""/>
+    <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema" />
+    <property name="openjpa.Log" value="DefaultLevel=WARN, Tool=INFO"/>
+    <property name="openjpa.Multithreaded" value="true"/>
+  </properties>
+  
+  
+ </persistence-unit>
+</persistence>

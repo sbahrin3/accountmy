@@ -1,0 +1,53 @@
+<div style="float:right">
+	<a href="javascript:void(0)" class="btn btn-success" onclick="doDivAjaxCall$formname('formData','back','')">Back</a>
+</div>
+#* 
+#if ( $bank )
+<div style="float:right">
+	<a href="javascript:void(0)" class="btn btn-warning" onclick="doDivAjaxCall$formname('formData','newBank','')">Add New</a>
+</div>	
+#end
+*#
+<div class="subTitle">
+#if ( $bank )
+	Bank Detail
+#else
+	Add New Bank
+#end
+</div>
+
+<table width="100%">
+	<tr><td style="width:150px">Bank Name</td><td style="width:10px">:</td><td><input class="form-control" name="name" value="$!bank.name"></td></tr>
+	<tr><td>Code</td><td>:</td><td><input class="form-control" name="code" value="$!bank.code"></td></tr>
+	<tr><td>Control Account</td><td>:</td>
+		<td>
+		
+            <select name="accountId" class="form-control">
+            	<option value=""></option>
+            	#foreach( $a in $accounts )
+					#if ( !$a.gotChild )
+						<option value="$a.id" #if ( $bank.account.id == $a.id ) selected #end>$a.number - $a.title</option>
+					#end
+            	#end
+            </select>
+		
+		</td>
+	</tr>
+	<tr><td>Address</td><td>:</td><td><input class="form-control" name="address1" value="$!bank.address1"></td></tr>
+	<tr><td></td><td>:</td><td><input class="form-control" name="address2" value="$!bank.address2"></td></tr>
+	<tr><td>Postcode</td><td>:</td><td><input class="form-control" name="postcode" value="$!bank.postcode"></td></tr>
+	<tr><td>State</td><td>:</td><td><input class="form-control" name="state" value="$!bank.state"></td></tr>
+	<tr><td>Telephone</td><td>:</td><td><input class="form-control" name="telephone" value="$!bank.telephone"></td></tr>
+	<tr><td>Fax</td><td>:</td><td><input class="form-control" name="fax" value="$!bank.fax"></td></tr>
+	<tr><td>Contact Name</td><td>:</td><td><input class="form-control" name="contactName" value="$!bank.contactName"></td></tr>
+		
+</table>
+
+<div style="float:right">
+	<a href="javascript:void(0)" class="btn btn-success" onclick="doDivAjaxCall$formname('formData','back','')">Back</a>
+</div>
+<div style="float:right">
+	<a href="javascript:void(0)" class="btn btn-warning" onclick="doDivAjaxCall$formname('formData','save','bankId=$!bank.id')">Save</a>
+</div>
+	
+<br/><br/><br/><br/><br/>

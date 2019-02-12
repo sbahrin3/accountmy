@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="2904"
+   name=""
+   committed-date="2009-09-15T02:47:28.763836Z"
+   url="http://10.0.6.61/svn/projects/aeudev/WebContent/vtl/action"
+   last-author="aeu"
+   kind="dir"
+   uuid="b99bc6d1-8e12-4e73-863b-542e752875f1"
+   repos="http://10.0.6.61/svn/projects"
+   revision="2918"/>
+<entry
+   name="ajax"
+   kind="dir"/>
+<entry
+   committed-rev="483"
+   name="main.vm"
+   text-time="2009-09-30T19:52:04.718750Z"
+   committed-date="2008-09-09T04:36:26.637408Z"
+   checksum="2227e729133ca18da6a18906f48595a5"
+   last-author="aeu"
+   kind="file"
+   prop-time="2009-09-30T19:52:04.703125Z"/>
+<entry
+   committed-rev="483"
+   name="error.vm"
+   text-time="2009-09-30T19:52:04.718750Z"
+   committed-date="2008-09-09T04:36:26.637408Z"
+   checksum="66462e028a62467306ada34cc29c236b"
+   last-author="aeu"
+   kind="file"
+   prop-time="2009-09-30T19:52:04.703125Z"/>
+</wc-entries>

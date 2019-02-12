@@ -1,0 +1,33 @@
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('formData','back','')">back</a>
+</div>
+#if ( $item )
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('formData','newCustomer','')">new</a>
+</div>	
+#end
+
+<div class="subTitle">
+#if ( $item )
+	Item Detail
+#else
+	Add New Item
+#end
+</div>
+
+<table width="100%">
+	<tr><td style="width:150px">Code</td><td style="width:10px">:</td><td><input type="text" name="code" value="$!item.code"></td></tr>
+	<tr><td>Name</td><td>:</td><td><input type="text" name="name" value="$!item.name"></td></tr>
+	<tr><td>Description</td><td>:</td><td><input type="text" name="description" value="$!item.description"></td></tr>
+	<tr><td>UOM</td><td>:</td><td><input type="text" name="measurementUnit" value="$!item.measurementUnit"></td></tr>
+	<tr><td>Price</td><td>:</td><td><input type="text" name="price" value="$!item.price"></td></tr>
+</table>
+
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('formData','back','')">back</a>
+</div>
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('formData','save','itemId=$!item.id')">save</a>
+</div>
+	
+<br/><br/><br/><br/><br/>

@@ -1,0 +1,47 @@
+
+
+<div id="menubar" align="left" style="padding-right:10px;border-bottom:1px solid #000;background:#3669a2">
+	<table border="0" style="">
+		<tr>
+			
+			<td class="menu" style="border-right:2px dotted #ccc" onclick="gourl2('../app/fwd.busim.module.JournalEntryModule');"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Journal Entry</td>
+			
+			<td class="menu" style="border-right:2px dotted #ccc" onclick="gourl2('../app/fwd.busim.module.GeneralLedgerModule2');"><i class="fa fa-money" aria-hidden="true"></i>&nbsp;General Ledger</td>
+			<td class="menu" style="border-right:2px dotted #ccc" onclick="gourl2('../app/fwd.busim.module.IncomeStatementModule');"><i class="fa fa-money" aria-hidden="true"></i>&nbsp;Income Statement (P&L)</td>
+			
+			<td class="menu" style="border-right:2px dotted #ccc"  onclick="gourl2('../app/fwd.busim.module.SetupAccountChartModule');"><i class="fa fa-building" aria-hidden="true"></i>&nbsp;Chart of Accounts</td>
+			<td id="m_company" class="menu" style="border-right:2px dotted #ccc"><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;My Profile</a></td>
+		
+			<td id="m_logout" class="menu" onclick="location.href='../logout1.jsp'"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout</td>
+		</tr>
+	</table>
+</div>
+
+
+<div id="menu_company" class="tab_pulldown shadow" style="position:absolute; visibility:hidden;z-index:1000;background:#fff;width:250px">
+	<table style="width:100%">
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl2('../app/fwd.busim.module.CompanyProfileModule');">Company Profile</td></tr>
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl2('../app/fwd.busim.module.BusimUsersModule');">Manage Users</td></tr>
+		##<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl2('../app/fwd.busim.module.BankMaintenanceModule');">Bank Maintenance</td></tr>
+	</table>
+</div>
+
+<div id="menu_account" class="tab_pulldown shadow" style="position:absolute; visibility:hidden;z-index:1000;background:#FFF;width:250px">
+	<table style="width:100%">
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl2('../app/fwd.busim.module.SetupAccountChartModule');">Chart of Account</td></tr>
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl2('../app/fwd.busim.module.JournalEntryModule');">Journal Entry</td></tr>
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl2('../app/fwd.busim.module.GeneralLedgerModule2');">General Ledger</td></tr>
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl2('../app/fwd.busim.module.IncomeStatementModule');">Income Statement (P&L)</td></tr>
+	</table>
+</div>
+
+
+
+
+<script>
+
+at_attach("m_company", "menu_company", "hover", "y", "pointer");
+
+##at_attach("m_account", "menu_account", "hover", "y", "pointer");
+
+</script>

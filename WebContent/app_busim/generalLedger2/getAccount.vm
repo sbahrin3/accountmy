@@ -1,0 +1,94 @@
+#set ( $month_name = ["Jan", "Feb", "Mac", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] )  
+
+<input type="hidden" name="selectAccountId" value="$!account.id">
+<input type="hidden" name="selectYear" value="$!year">
+<input type="hidden" name="selectMonth" value="$!month">
+	
+<table style="width:100%">
+	#if ( $account.number && $account2.number)
+	<tr style="height:30px">
+		<td style="font-weight:bold">
+			$!account.number - $!account2.number
+		</td>
+	</tr>
+	#end
+	<tr style="height:30px">
+
+		<td style="font-weight:bold">
+			#if ( $month == 99 )
+				$year
+			#else
+				$month_name.get($month), $year
+			#end
+		</td>
+	</tr>
+</table>
+
+<br/>
+
+<table class="table" style="width:100%" cellpadding="2">
+	<tr style="background:#494945;height:35px">
+		
+		<td style="width:120px;color:#FFFFFF" align="">Date</td>
+		##<td style="width:120px;color:#FFFFFF" align="">Journal</td>
+		<td style="width:200px;color:#FFFFFF" align="">Account</td>
+		<td style="color:#FFFFFF" align="">Transaction</td>
+		<td style="width:150px;color:#FFFFFF" align="center">Debit</td>
+		<td style="width:150px;color:#FFFFFF" align="center">Credit</td>
+		<td style="width:150px;color:#FFFFFF" align="center">Balance</td>
+		<td style="width:40px;color:#FFFFFF" align="">&nbsp;</td>
+		
+	</tr>
+	#set ( $cnt = 0 )
+	#foreach( $t in $items )
+		#set ( $cnt = $cnt + 1 )
+		#if ( $cnt % 2 == 1 ) #set ( $bgcolor = "#F9F2B8" ) #else #set ( $bgcolor = "#F4F3ED" ) #end
+		<tr style="background:$bgcolor;cursor:pointer">
+
+			<td align="" style="cursor:pointer"  onclick="doDivAjaxCall3$formname('formTransaction','getTransaction','itemId=$t.transaction.entryItem.id&transactionId=$!t.transaction.id')">$df.format($t.date)</td>
+			 
+			<td>
+				$!t.transaction.account.number - $!t.transaction.account.title
+			</td>
+			
+			<td>$util.putLineBreak($t.description)</td>
+			
+			#if ( $t.side == 0 )
+				<td align="right">#if ( $t.amount == 0 ) 0 #else $nf.format($t.amount) #end &nbsp;</td>
+				<td>&nbsp;</td>
+			#elseif ( $t.side == 1 )
+				<td>&nbsp;</td>
+				<td align="right">#if ( $t.amount == 0 ) 0 #else $nf.format($t.amount) #end &nbsp;</td>
+			#end
+			<td align="right">#if ( $t.balance == 0 ) 0 #else $nf.format($t.balance) #end &nbsp;</td>
+			
+			#if ( $t.transaction.account.number )
+			<td align="" style="cursor:pointer"  onclick="doDivAjaxCall3$formname('formTransaction','getTransaction','itemId=$t.transaction.entryItem.id&transactionId=$!t.transaction.id')">
+				<i class="fa fa-external-link fa-xs" aria-hidden="true"></i>
+			</td>
+			#else
+			<td align="" style="cursor:pointer"  >
+			</td>
+			#end
+			
+		</tr>
+	#end
+	
+	<tr style="border-top:2px solid #000;border-bottom:2px solid #000;height:40px">
+		<td colspan="3" align="right"></td>
+		<td align="right">#if ( $totalDebit != 0 ) $nf.format($totalDebit) #end &nbsp;</td>
+		<td align="right">#if ( $totalCredit != 0 ) $nf.format($totalCredit) #end &nbsp;</td>
+		<td align="right">$nf.format($total) &nbsp;</td>
+		<td align="right"></td>
+	</tr>
+	
+</table>
+
+<div id="formTransaction" class="formData"></div>
+
+	
+<script>
+$('buttonBack').style.display="block";
+$('params').style.display='none';
+$('result').style.display='block';
+</script>

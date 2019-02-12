@@ -1,0 +1,221 @@
+<div id="div_ontop"></div>
+
+#set ( $disabled = "" )
+#if ( $receiptVoucher.status == "completed" )
+	#set ( $disabled = "disabled" )
+#end
+
+#if ( $receiptVoucher.id == "" )
+	<div class="subTitle">Create New Receipt Voucher</div>
+#end
+
+
+
+<table style="width:100%">
+	<tr><td style="width:50%" valign="top">
+			
+<table style="width:100%">
+	<tr>
+		<td style="width:100px" align="right">Receipt No.</td><td style="width:10px">:</td><td><input class="form-control" name="receiptVoucherNo" value="$!receiptVoucher.refNo" placeholder="&lt;&lt;Create New&gt;&gt;" $disabled></td>
+	</tr>
+	#**
+	<tr><td align="right">Bank</td><td>:</td>
+		<td>
+        <select class="form-control" id="bankId" name="bankId" $disabled>
+        	<option value=""></option>
+        	#foreach( $b in $banks )
+        		<option value="$b.id" #if ( $receiptVoucher && $b.id == $receiptVoucher.bank.id ) selected #end>$b.name</option>
+        	#end
+        </select>
+        
+		</td>
+	</tr>
+	**#
+	<tr>
+		<td align="right">Date</td><td>:</td><td><input class="form-control" style="width:100px" name="receiptVoucherDate" id="receiptVoucherDate" #if ( $date ) value="$df.format($date)" #end $disabled></td>
+	</tr>	
+	
+	
+	<tr><td align="right">Control Account</td><td>:</td>
+		<td>
+		
+            <select name="accountId" class="form-control" $disabled>
+            	
+            	#foreach( $a in $accounts )
+					#if ( !$a.gotChild )
+						<option value="$a.id" #if ( $receiptVoucher.account.id == $a.id ) selected #end>$a.number - $a.title</option>
+					#end
+            	#end
+            </select>
+		
+		</td>
+	</tr>
+	
+	
+</table>	
+
+
+</td><td style="width:50%" valign="top">
+	
+
+#if ( $customer )			
+    <table style="width:100%">
+    	<tr><td style="width:100px" align="right">From</td><td style="width:10px">:</td><td><input class="form-control" value="$customer.name" readonly></td></tr>
+    	<tr><td valign="top" align="right">Address</td><td valign="top">:</td><td valign="top"><textarea class="form-control" style="height:70px" readonly>$address</textarea></td></tr>
+    
+    	<tr><td style="width:100px" align="right">Attention</td><td style="width:10px">:</td><td><input class="form-control" value="$!customer.contactName" readonly></td></tr>
+    	<tr><td style="width:100px" align="right">Tel</td><td style="width:10px">:</td>
+    		<td>
+    			<input class="form-control" value="$customer.telephone" readonly>
+            </td>
+    
+    	</tr>
+    </table>
+#else
+    <table style="width:100%">
+    	<tr><td style="width:110px" align="right">From</td><td style="width:10px">:</td><td><input class="form-control" name="receiptFrom" value="$!receiptVoucher.receiptFrom" $disabled></td></tr>
+    		
+    	<tr><td valign="top" align="right"></td><td></td><td><input class="form-control" name="receiptAddress1" value="$!receiptVoucher.receiptAddress1" $disabled></td></tr>
+    	<tr><td valign="top"></td><td></td><td><input class="form-control" name="receiptAddress2" value="$!receiptVoucher.receiptAddress2" $disabled></td></tr>
+    	<tr><td valign="top" align="right">Postcode</td><td>:</td><td><input class="form-control" style="width:100px" name="receiptPostcode" value="$!receiptVoucher.receiptPostcode" $disabled></td></tr>
+    	<tr><td valign="top" align="right">State</td><td>:</td><td><input class="form-control" name="receiptState" value="$!receiptVoucher.receiptState" $disabled></td></tr>
+    	
+    	<tr><td style="width:100px" align="right">Attention</td><td style="width:10px">:</td><td><input class="form-control" name="receiptContact" value="$!receiptVoucher.receiptContact" $disabled></td></tr>
+    	<tr><td style="width:100px" align="right">Tel</td><td style="width:10px">:</td>
+    		<td>
+    			<input class="form-control" name="receiptTelephone" value="$!receiptVoucher.receiptTelephone" $disabled>
+            </td>
+    
+    	</tr>
+    </table>	
+#end
+	
+</td></tr></table>
+<br/>
+<table style="width:100%" cellpadding="0" cellspacing="0">
+	<tr style="background:#E8E3E3;height:30px">
+		<td style="width:30px" align="center">#</td>
+		<td style="width:150px" align="center">Document No</td>
+		<td style="" align="center">Description</td>
+		<td style="width:100px" align="center">Amount</td>
+		
+		#** 
+		<td style="width:20px" align="center">&nbsp;</td>
+		<td style="width:100px" align="center">GL Code</td>
+		<td style="width:200px">&nbsp;&nbsp;GL Name</td>
+		**#
+		
+		<td style="width:20px">&nbsp;</td>
+	</tr>
+</table>
+
+<div id="listReceiptVoucherItems">
+#parse("app_busim/receiptVoucher/listReceiptVoucherItems.vm")
+</div>
+
+<br/>
+<div>
+<table align="right">
+	<tr>
+		<td style="width:120px"></td>
+		<td style="width:50px">
+			
+		</td>
+		<td style="width:150px" align="right">
+			Total Price :
+		</td>
+		<td style="width:100px">
+			<input class="form-control" style="text-align:right" readonly #if ( $receiptVoucher.totalAmount ) value="$nf.format($!receiptVoucher.totalAmount)" #end $disabled>
+		</td>
+	</tr>
+	<tr>
+		<td style="width:120px"></td>
+		<td style="width:50px">
+			
+		</td>
+		<td style="width:150px" align="right">
+			Discount Amount :
+		</td>
+		<td style="width:100px">
+			<input class="form-control" style="text-align:right" readonly #if ( $receiptVoucher.discountAmount ) value="$nf.format($!receiptVoucher.discountAmount)" #end>
+		</td>
+	</tr>	
+	<tr>
+		<td style="width:120px">Discount (%):</td>
+		<td style="width:100px">
+			<input class="form-control" style="text-align:right" name="discount" id="discount" value="$!receiptVoucher.discount" $disabled>
+		</td>
+		<td style="width:150px" align="right">
+			Net Price :
+		</td>
+		<td style="width:100px">
+			<input class="form-control" style="text-align:right" readonly #if ( $receiptVoucher.netAmount ) value="$nf.format($!receiptVoucher.netAmount)" #end>
+		</td>
+	</tr>
+</table>
+
+<div id="confirmDelete" class="confirmBox">
+	<table style="width:100%"><tr><td align="center">
+	Delete this PAYMENT VOUCHER.<br/>
+	Are you sure?
+	<a href="javascript:void(0)" onclick="deleteReceiptVoucher('$!receiptVoucher.id')">Yes</a> /
+	<a href="javascript:void(0)" onclick="deleteReceiptVoucherCancel()">No</a>
+	</td></tr></table>
+</div>
+
+</div>
+
+#if ( $disabled == "" )
+
+	#if ( $customer )
+	<div style="float:left;padding:2px">
+		<a href="javascript:void(0)" class="btn btn-success" onclick="doDivAjaxCall$formname('listItems','selectInvoice','customerId=$!customer.id&receiptVoucherId=$!receiptVoucher.id')">+ Invoiced Item</a>
+	</div>
+	#end
+	
+	<div style="float:left;padding:2px">
+		<a href="javascript:void(0)" class="btn btn-warning" onclick="addRow();">+</a>
+	</div>
+
+#end
+
+<br/><br/><br/><br/><br/><br/><br/>
+
+
+#if ( $disabled == "" )
+	#if ( $receiptVoucher.id != "" )
+	<div style="float:right">
+		<a href="javascript:void(0)" class="btn btn-danger" onclick="confirmDelete()"><i class="fa fa-trash" aria-hidden="true"></i></a>
+	</div>
+	#end
+#end
+
+<div style="float:right;">
+	&nbsp;&nbsp;&nbsp;
+</div>
+
+
+
+<div style="float:right">
+	<input type="checkbox" value="1" name="markCompleted" #if ( $receiptVoucher.status == 'completed') checked #end>&nbsp;Mark as completed.&nbsp;&nbsp;
+	<a href="javascript:void(0)" class="btn btn-success" onclick="doDivAjaxCall$formname('formData','save','customerId=$!customer.id&receiptVoucherId=$!receiptVoucher.id')"><i class="fa fa-floppy-o" aria-hidden="true"></i>&nbsp;&nbsp;Save</a>
+</div>
+
+<div id="listItems" class="shadow"></div>
+<div id="calcSubTotal"></div>
+
+<script>
+resetRow();
+#if ( $receiptVoucher )
+	setRows($receiptVoucher.items.size());
+#end
+new datepickr('receiptVoucherDate', {
+	'dateFormat': 'd-m-Y'
+});
+</script>
+
+#if ( $customer && $receiptVoucher.id == "" )
+<script>	
+doDivAjaxCall$formname('listItems','selectInvoice','customerId=$!customer.id&receiptVoucherId=$!receiptVoucher.id');
+</script>
+#end

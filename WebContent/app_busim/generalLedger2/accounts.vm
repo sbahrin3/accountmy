@@ -1,0 +1,104 @@
+#set ( $month_name = ["Jan", "Feb", "Mac", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] )  
+
+<div id="params">
+<table >
+
+	#**
+	<tr style="height:40px">
+		<td style="width:150px" align="right">Account</td><td style="width:10px">:</td>
+		<td  >
+		
+			<select id="accountId" name="accountId" class="form-control"  style="width:150px">
+				<option value=""></option>
+				#set ( $temp = "" )
+				#foreach( $a in $accounts )
+					#if ( $temp != $a.type.name )
+						<option value="">--- $a.type.name ---</option>
+						#set ( $temp = $a.type.name )
+					#end
+					<option value="$a.id" #if ( $a.id == $account.id ) selected #end>$a.number - $a.type.name</option>
+				#end
+			</select>
+		
+		</td>
+		<td align="right" style="width:50px">
+			To:
+		</td>
+		<td>
+		
+			<select id="accountId2" name="accountId2" class="form-control"  style="width:150px">
+				<option value=""></option>
+				#set ( $temp = "" )
+				#foreach( $a in $accounts )
+					#if ( $temp != $a.type.name )
+						<option value="">--- $a.type.name ---</option>
+						#set ( $temp = $a.type.name )
+					#end
+					<option value="$a.id" #if ( $a.id == $account2.id ) selected #end>$a.number</option>
+				#end
+			</select>
+		
+		</td>
+		<td></td>
+	</tr>
+	**#
+	
+	<tr style="height:40px">
+		<td align="right">Year</td><td>:</td>
+		<td style="width:100px">
+		
+			<select id="year" name="year" class="form-control" style="width:100px">
+				#foreach( $y in [$year1..$year2] )
+					<option value="$y" #if ( $selectYear == $y ) selected #end>$y</option>
+				#end
+			</select>
+		
+		</td>
+		<td style="width:50px" align="right">Month:&nbsp;</td>
+		<td style="width:100px">
+		
+			<select id="month" name="month" class="form-control" style="width:100px">
+				<option value="99">- All -</option>
+				#foreach( $m in [0..11] )
+					<option value="$m" #if ( $selectMonth == $m ) selected #end>$month_name.get($m)</option>
+				#end
+			</select>
+		
+		</td>
+		<td>&nbsp;</td>
+		<td></td>
+	</tr>
+	
+	<tr>
+		<td align="right">BFW?</td><td>:</td>
+		<td colspan="4">
+			
+			<select id="includeBfw" name="includeBfw" class="form-control" style="width:300px">
+				
+				<option value="yes">Include Balance Brought Forward</option>
+				<option value="no">Do not include Balance Brought Forward</option>
+				
+			</select>
+			
+			
+		</td>
+	</tr>
+	
+	<tr>
+		<td></td><td></td>
+		<td>
+			<br/>
+			<a href="javascript:void(0)" class="btn btn-success" onclick="doDivAjaxCall3$formname('result','getAccount','companyId=$!company.id')">Get Report</a>
+		</td>
+		<td></td>
+	</tr>
+</table>
+</div>
+
+<div id="result"></div>
+
+<script>
+$('buttonBack').style.display="none";
+</script>
+
+

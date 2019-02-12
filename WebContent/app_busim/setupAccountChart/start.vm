@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="../app_busim/style.css" type="text/css" media="screen" />
+
+<div id="divMain" style="background:url(../img2/klcc-background.png);height:100%;opacity:0.5; filter:alpha(opacity=50);"></div>
+
+<div id="divData">
+	<div id="divTitle">
+		Chart of Accounts
+	</div>
+	<div class="formData" id="formData">
+	#parse("app_busim/setupAccountChart/accounts.vm")
+	</div>
+</div>
+	
+<script>
+function checkField() {
+	var cnt = 0;
+	if ( document.getElementById('title').value == '' ) cnt++;
+	if ( document.getElementById('accountTypeId').value == '' ) cnt++;
+	if ( cnt > 0 ) {
+		alert('Please complete this form.');
+		return false;
+	}
+	return true;
+}
+</script>

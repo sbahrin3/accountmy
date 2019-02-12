@@ -1,0 +1,321 @@
+<link rel="stylesheet" href="../app_busim/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../js/datepickr.css" />
+<script type="text/javascript" src="../js/datepickr.min.js"></script>
+
+<style>
+#listItems {
+	z-index: 99;
+	position:fixed;
+    top: 30%;
+	left:52%;
+    width:600px;
+    margin: 0 0 0 -25%;
+    background:#fff;
+    font-family:arial, Helvetica, sans-serif;
+    font-size:10pt;
+    padding:10px;
+	opacity:0.9; 
+	filter:alpha(opacity=90); 
+	-moz-border-radius: 8px;
+	border:2px dotted #000000;
+	border-radius: 8px;   	
+	display:none;
+}
+
+#div_ontop {
+	z-index: 99;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: none;
+	position: absolute;	
+	background-color: #cccccc;
+	color: #aaaaaa;
+	opacity: .4;
+	filter: alpha(opacity = 50);
+}
+
+.confirmBox {
+	z-index: 100;
+	position:fixed;
+    top: 40%;
+	left:55%;
+    width:400px;
+    margin: 0 0 0 -20%;
+    background:#fff;
+    font-family:arial, Helvetica, sans-serif;
+    font-size:10pt;
+    padding:10px;
+	-moz-border-radius: 8px;
+	border:2px dotted #000000;
+	border-radius: 8px;   	
+	display:none;
+}
+</style>
+
+
+
+<div id="divMain" style="background:url(../img2/klcc-background.png);height:100%;opacity:0.5; filter:alpha(opacity=50);"></div>
+
+<div id="divKey" class="shadow" style="display:none">
+	#parse("app_busim/pos/pad.vm")
+</div>
+
+
+	
+
+<div id="divData2">
+
+
+	<div id="divTitle2">
+		POINT OF SALE
+	</div>
+	
+	<div id="divMenuItems" class="shadow" style="padding:10px;margin-bottom:40px;display:none">
+		#parse("app_busim/pos/items.vm")
+	</div>
+	
+	<div class="formData" id="formData">
+		#parse("app_busim/pos/search.vm")
+	</div>
+	
+</div>
+
+
+	
+<div id="formTransaction" class="formData"></div>
+
+<script>new Draggable('divKey', {handle: 'divKey'});</script>
+
+
+<script>
+var totalRow = 0;
+var quotItem = 0;
+var selectedItem = 0;
+var targetElement;
+var targetRow;
+var focusNo = 0;
+
+function addRow() {
+	if ( quotItem < 10 ) {
+		quotItem++;
+		totalRow++;
+		selectedItem = totalRow;
+		$('quotItem_' + totalRow).style.display="block";
+	}
+}
+function delRow() {
+	if ( totalRow > 0 ) {
+		$('quotItem_' + totalRow).style.display="none";
+		clearValues(totalRow);
+		totalRow--;
+		quotItem = totalRow;
+		selectedItem = totalRow;
+	}
+}
+function clearValues(i) {
+	$('itemId_' + i).value = "";
+	$('code_' + i).value = "";
+	$('name_' + i).value = "";
+	$('name2_' + i).value = "";
+	$('quantity_' + i).value = "";
+	##$('uom_' + i).value = "";
+	$('price_' + i).value = "";
+	$('subTotal_' + i).value = "";
+}
+function resetRow() {
+	quotItem = 0;
+	totalRow = 0;
+}
+function selectItemNo(i) {
+	selectedItem = i;
+}
+function setRows(i) {
+	totalRow = i;
+	quotItem = i;
+}
+
+function calcSubTotal(i) {
+	var price = $('price_' + i).value;
+	var quantity = $('quantity_' + i).value;
+
+	doDivAjaxCall$formname('calcSubTotal','calcSubTotal','itemNo=' + i + '&price=' + price + '&quantity=' + quantity);
+}
+
+function tfocus(i) {
+	$('t_' + i).style.display = "none";
+	$('t2_' + i).style.display = "block";
+	$('name2_' + i).focus();
+}
+function tblur(i) {
+
+	$('name_' + i).value = $('name2_' + i).value.split('\n')[0];
+	
+	$('t_' + i).style.display = "block";
+	$('t2_' + i).style.display = "none";
+	
+}
+function t2focus(i) {
+	for ( var j=1; j<11; j++ ) {
+		$('t2_' + j).style.zIndex = '1';
+	}
+	$('t2_' + i).style.zIndex = '10';
+}
+
+function deleteConfirm(i) {
+	$('div_ontop').style.display="block";
+	$('confirm_' + i).style.display="block";
+	$('confirm_' + i).style.zIndex="1000";
+}
+
+function deleteItem(i) {
+	for ( var j=i; j<10; j++) {
+		copyValues(j, j+1);
+	}
+	delRow();
+	$('confirm_' + i).style.display="none";
+	$('div_ontop').style.display="none";
+}
+
+function deleteItemCancel(i) {
+	$('div_ontop').style.display="none";
+	$('confirm_' + i).style.display="none";
+}
+
+function copyValues(i, k) {
+	$('itemId_' + i).value = $('itemId_' + k).value;
+	$('code_' + i).value = $('code_' + k).value;
+	$('name_' + i).value = $('name_' + k).value;
+	$('name2_' + i).value = $('name2_' + k).value;
+	$('quantity_' + i).value = $('quantity_' + k).value;
+	##$('uom_' + i).value = $('uom_' + k).value;
+	$('price_' + i).value = $('price_' + k).value;
+	$('subTotal_' + i).value = $('subTotal_' + k).value;	
+}
+
+function deleteQuotationConfirm(i) {
+	$('div_ontop').style.display="block";
+	$('confirmDeleteQuotation_' + i).style.display="block";
+	$('confirmDeleteQuotation_' + i).style.zIndex="1000";
+}
+function deleteQuotationCancel(i) {
+	$('confirmDeleteQuotation_' + i).style.display="none";
+	$('div_ontop').style.display="none";
+}
+function deleteQuotation(i) {
+	doDivAjaxCall$formname('formData','deleteQuotation','quotationId=' + i);
+	$('confirmDeleteQuotation_' + i).style.display="none";
+	$('div_ontop').style.display="none";
+}
+function toggleDivKey() {
+	if ( focusNo == 0 ) return;
+	
+	if ( $('divKey').style.display == "none" ) {
+		$('divKey').style.display = "block";
+		focusNo = 0;
+	}
+	else {
+		$('divKey').style.display = "none";
+	}
+}
+function showDisplay(n) {
+	var i = $('numDisplay').innerHTML;
+	var x = i;
+	if ( n == "del" ) {
+		if ( i.length == 1 ) {
+			$('numDisplay').innerHTML = "";
+		}
+		else if ( i.length > 1 ) {
+			var r = i.substring(0, i.length - 1 );
+			$('numDisplay').innerHTML = r;
+		}
+	}
+	else if ( n == "enter" ) {
+		var number = Number(i);
+		$('numDisplay').innerHTML = number;
+		targetElement.value = number;
+		calcSubTotal(targetRow);
+		if ( focusNo == 1 ) {
+			var ne = 'price_' + targetRow;
+			$(ne).focus();
+		} else if ( focusNo == 2 ) {
+			var ne = 'quantity_' + targetRow;
+			$(ne).focus();
+		} else if ( focusNo == 3 ) {
+			$('divKey').style.display = "none";
+		}
+	}
+	else {
+		var j = i + "" + n;
+		if ( isNaN(j) )
+			$('numDisplay').innerHTML = x;
+		else
+			$('numDisplay').innerHTML = j;
+	}
+}
+function doOnblur(r) {
+	
+}
+
+
+
+function doOnfocus(e, r, title) {
+	$('numDisplay').innerHTML = e.value;
+	$('numTitle').innerHTML = title;
+	targetElement = e;
+	targetRow = r;
+	$('divKey').style.display = "block";
+}
+function doOnfocus1(e, r, title) {
+	$('numDisplay').innerHTML = e.value;
+	$('numTitle').innerHTML = title;
+	targetElement = e;
+	targetRow = r;
+	focusNo = 1;
+	$('divKey').style.display = "block";
+}
+function doOnfocus2(e, r, title) {
+	$('numDisplay').innerHTML = e.value;
+	$('numTitle').innerHTML = title;
+	targetElement = e;
+	targetRow = r;
+	focusNo = 2;
+	$('divKey').style.display = "block";
+}
+
+function doOnfocus3(e, r, title) {
+	$('numDisplay').innerHTML = e.value;
+	$('numTitle').innerHTML = title;
+	targetElement = e;
+	focusNo = 3;
+	$('divKey').style.display = "block";
+}
+function doOnfocus0() {
+	focusNo = 0;
+	$('divKey').style.display = "none";
+}
+
+function doOnfocusItems(e1, e2, e3, e4, e5, e6, r, title) {
+	targetCode = e1;
+	targetName = e2,
+	targetNameText = e3;
+	targetQuantity = e4;
+	targetPrice = e5;
+	targetSubTotal = e6;
+	targetRow = r;
+	focusNo = 1;
+	new Effect.SlideDown("divMenuItems", {duration: 0.5});
+}
+function doSelectItem(code, name, quantity, price, subTotal) {
+	targetCode.value = code;
+	targetName.value = name;
+	targetNameText.value = name;
+	targetQuantity.value = quantity;
+	targetPrice.value = price;
+	##targetSubTotal.value = subTotal;
+	calcSubTotal(targetRow);
+	$('divMenuItems').style.display="none";
+}
+</script>
+

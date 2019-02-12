@@ -1,0 +1,21 @@
+
+
+<div id="menubar" align="left" style="padding-right:10px;">
+	<table border="0" style="">
+		<tr>
+			<td id="m_sales" class="menu" style="border-right:2px dotted #ccc"  onclick="gourl2('../app/fwd.busim.module.POSModule');">Point of Sale</td>
+			<td id="m_menu_items" class="menu" style="border-right:2px dotted #ccc"  onclick="gourl2('../app/fwd.busim.module.POSItemModule');">Items</td>
+			<td id="m_logout" class="menu" onclick="location.href='../logout1.jsp'">Logout</td>
+		</tr>
+	</table>
+</div>
+
+<div id="menu_sales" class="tab_pulldown shadow" style="position:absolute; visibility:hidden;z-index:1000;background:#FFF;width:250px">
+	<table style="width:100%">
+		<tr><td class="menu" style="border-bottom:2px dotted #ccc" onclick="gourl2('../app/fwd.busim.module.POSModule');$('m_sales').className='menuSelected'">Point Of Sale</td></tr>
+	</table>
+</div>
+
+<script>
+##at_attach("m_sales", "menu_sales", "hover", "y", "pointer");
+</script>

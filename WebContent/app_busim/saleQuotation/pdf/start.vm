@@ -1,0 +1,8 @@
+
+
+<div class="container" style="padding:10px">
+
+<a href="javascript:void(0)" onclick="document.location='../servlet/akari.util.CreatePDFServlet?pathUrl=v/akari.timetable.module.SamplePDFTemplate?userName=$!userName';">Print PDF</a>
+        	
+
+</div>

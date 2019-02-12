@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="../app_busim/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../js/datepickr.css" />
+<script type="text/javascript" src="../js/datepickr.min.js"></script>
+
+
+<style>
+#formTransaction {
+	z-index: 99;
+	position:fixed;
+    top: 10%;
+	left:40%;
+    width:900px;
+	
+    margin: 0 0 0 -25%;
+    background:#fff;
+    font-family:arial, Helvetica, sans-serif;
+    font-size:12pt;
+    padding:10px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;  
+	border:2px solid #7C7B7B;
+	
+	display:none;
+}
+
+</style>
+
+<div id="divMain" style="background:url(../img2/klcc-background.png);height:100%;opacity:0.5; filter:alpha(opacity=50);"></div>
+
+<div id="divData">
+	<div id="divTitle">
+		Journal Entry
+	</div>
+	<div class="formData" id="formData">
+	#parse("app_busim/journalEntry/journals.vm")
+	</div>
+</div>
+
+<div id="formTransaction" class="formData"></div>
+	
+
+<script>
+function checkField() {
+	var cnt = 0;
+	if ( document.getElementById('journalDate').value == '' ) cnt++;
+	if ( cnt > 0 ) {
+		alert('Please enter Journal date.');
+		return false;
+	}
+	return true;
+}
+function checkBalance() {
+	amountDebit = 0;
+	amountCredit = 0;
+	for ( i = 1; i < 5; i++ ) {
+		if ( document.getElementById('amountDebit_' + i).value != "" ) amountDebit += parseFloat(document.getElementById('amountDebit_' + i).value.replace(/,/g, ""));
+		if ( document.getElementById('amountCredit_' + i).value != "" ) amountCredit += parseFloat(document.getElementById('amountCredit_' + i).value.replace(/,/g, ""));
+	}
+	if ( amountDebit == amountCredit ) {
+		return true;
+	}
+	document.getElementById('unbalanceError').style.display = "block";
+	return false;
+
+}
+</script>

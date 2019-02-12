@@ -1,0 +1,41 @@
+<div class="subTitle">Create Point Of Sale</div>
+<div style="padding:10px">
+	
+<div style="width:200px;float:center">
+			<input type="text" style="width:200px" name="customerId" placeholder="Customer ID">
+			<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('formData','newSale','')">Create Sale</a>
+</div>	
+
+<table style="width:100%">
+	<tr>
+		##<td style="width:120px" align="right">Customer ID</td><td style="width:10px">:</td>
+		<td align="right">
+		
+			#** 
+			<div class="styledSelect">
+            <select name="customerId" onchange="doDivAjaxCall$formname('formData','newSale','')">
+            	<option value=""></option>
+            	#foreach( $c in $customers )
+            		<option value="$c.id">$c.code - $c.name</option>
+            	#end
+            </select>
+            </div>
+			**#
+			##<input type="text" style="width:200px" name="customerId">
+			
+			<a href="javascript:void(0)" onclick="doDivAjaxCall$formname('formData','listAll','')">List</a>
+		</td>
+	</tr>
+</table>
+
+
+
+</div>
+	
+<br/><br/>
+
+<div style="float:right;margin-right:5px;margin-top:7px">
+	##<a href="javascript:void(0)" class="menu-button" onclick="doDivAjaxCall$formname('formData','listAllSales','')">List Quotations</a>
+</div>
+
+

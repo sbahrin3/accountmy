@@ -1,0 +1,31 @@
+<table width="100%" cellpadding="0" cellspacing="1">
+	<tr style="background:#494945;height:35px">
+		<td style="width:40px"></td>
+		<td style="width:100px;color:#FFFFFF">Code</td>
+		<td style="width:200px;color:#FFFFFF">Name</td>
+		<td style="width:100px;color:#FFFFFF">GL</td>
+		<td style="color:#FFFFFF">Address</td>
+		<td style="width:40px;color:#FFFFFF"></td>
+	</tr>
+	#set ( $cnt = 0 )
+	#foreach ( $c in $customers )
+		
+		#set ( $address = "" )
+		#if ( $c.address1 != "" ) #set ( $address = $c.address1 ) #end
+		#if ( $address != "" && $c.address2 != "" ) #set ( $address = $address + ", " + $c.address2 ) #end
+		#set ( $address = $address + ", " + $!c.postcode + ", " + $!c.state )
+		
+		#set ( $cnt = $cnt + 1 )
+		#if ( $cnt % 2 == 1 ) #set ( $bgcolor = "#F9F2B8" ) #else #set ( $bgcolor = "#F4F3ED" ) #end
+		<tr style="height:25px">
+			<td>$cnt.</td>
+			<td><input class="textrow" style="width:100px" readonly value="$!c.code"></td>
+			<td><input class="textrow" style="width:200px" readonly value="$!c.name"></td>
+			<td><input class="textrow" style="width:100px" readonly value="$!c.account.number"></td>
+			<td><input class="textrow" readonly value="$!address"></td>
+			<td style="cursor:pointer" onclick="doDivAjaxCall$formname('formData','edit','customerId=$!c.id')" align="center">
+				<img src="../img/edit.gif">
+			</td>
+		</tr>
+	#end
+</table>

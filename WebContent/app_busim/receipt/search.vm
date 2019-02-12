@@ -1,0 +1,10 @@
+<div style="float:right;margin-right:5px;margin-top:7px">
+	<a href="javascript:void(0)" class="menu-button" onclick="doDivAjaxCall$formname('list','listCustomers','')">Create new Receipt/a>
+</div>
+<div style="float:right;margin-right:5px;margin-top:7px">
+	<a href="javascript:void(0)" class="menu-button" onclick="doDivAjaxCall$formname('list','listReceipts','')">List Receipts</a>
+</div>
+
+<div id="list">
+#parse("app_busim/receipt/listReceipts.vm")
+</div>

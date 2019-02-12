@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="../app_busim/style.css" type="text/css" media="screen" />
+<style>
+#div_ontop {
+	z-index: 99;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: none;
+	position: absolute;	
+	background-color: #cccccc;
+	color: #aaaaaa;
+	opacity: .4;
+	filter: alpha(opacity = 50);
+}
+
+#listItems {
+	z-index: 99;
+	position:fixed;
+    top: 20%;
+	left:52%;
+    width:600px;
+    margin: 0 0 0 -25%;
+    background:#fff;
+    font-family:arial, Helvetica, sans-serif;
+    font-size:10pt;
+    padding:10px;
+	opacity:0.9; 
+	filter:alpha(opacity=90); 
+	-moz-border-radius: 8px;
+	border:2px dotted #000000;
+	border-radius: 8px;   	
+	display:none;
+}
+.confirmBox {
+	z-index: 100;
+	position:fixed;
+    top: 40%;
+	left:55%;
+    width:400px;
+    margin: 0 0 0 -20%;
+    background:#fff;
+    font-family:arial, Helvetica, sans-serif;
+    font-size:10pt;
+    padding:10px;
+	-moz-border-radius: 8px;
+	border:2px dotted #000000;
+	border-radius: 8px;   	
+	display:none;
+}
+</style>
+<div id="divMain" style="background:url(../img2/klcc-background.png);height:100%;opacity:0.5; filter:alpha(opacity=50);"></div>
+
+<div id="divData" class="shadow">
+
+	<div id="divTitle">
+		Product Maintenance
+	</div>
+	<div class="formData" id="formData">
+	#parse("app_busim/product/search.vm")
+	</div>
+</div>
+
+
+<script>
+function confirmDelete() {
+	$('div_ontop').style.display="block";
+	$('confirmDelete').style.display="block";
+	$('confirmDelete').style.zIndex="1000";
+}
+function deleteProduct(id) {
+	doDivAjaxCall$formname('formData','delete','productId=' + id);
+	$('div_ontop').style.display="none";
+	$('confirmDelete').style.display="none";	
+}
+
+function deleteProductCancel() {
+	$('div_ontop').style.display="none";
+	$('confirmDelete').style.display="none";
+}
+</script>

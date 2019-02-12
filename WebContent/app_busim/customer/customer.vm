@@ -1,0 +1,52 @@
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('formData','back','')">back</a>
+</div>
+#if ( $customer )
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('formData','newCustomer','')">new</a>
+</div>	
+#end
+
+<div class="subTitle">
+#if ( $customer )
+	Customer Detail
+#else
+	Add New Customer
+#end
+</div>
+
+<table width="100%">
+	<tr><td style="width:150px">Company Name</td><td style="width:10px">:</td><td><input type="text" name="name" value="$!customer.name"></td></tr>
+	<tr><td>Code</td><td>:</td><td><input type="text" name="code" value="$!customer.code"></td></tr>
+	<tr><td>Control Account</td><td>:</td>
+		<td>
+		<div class="styledSelect">
+            <select name="accountId">
+            	<option value=""></option>
+            	#foreach( $a in $accounts )
+					#if ( !$a.gotChild )
+						<option value="$a.id" #if ( $customer.account.id == $a.id ) selected #end>$a.number - $a.title</option>
+					#end
+            	#end
+            </select>
+		</div>
+		</td>
+	</tr>
+	<tr><td>Address</td><td>:</td><td><input type="text" name="address1" value="$!customer.address1"></td></tr>
+	<tr><td></td><td>:</td><td><input type="text" name="address2" value="$!customer.address2"></td></tr>
+	<tr><td>Postcode</td><td>:</td><td><input type="text" name="postcode" value="$!customer.postcode"></td></tr>
+	<tr><td>State</td><td>:</td><td><input type="text" name="state" value="$!customer.state"></td></tr>
+	<tr><td>Telephone</td><td>:</td><td><input type="text" name="telephone" value="$!customer.telephone"></td></tr>
+	<tr><td>Fax</td><td>:</td><td><input type="text" name="fax" value="$!customer.fax"></td></tr>
+	<tr><td>Contact Name</td><td>:</td><td><input type="text" name="contactName" value="$!customer.contactName"></td></tr>
+		
+</table>
+
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('formData','back','')">back</a>
+</div>
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('formData','save','customerId=$!customer.id')">save</a>
+</div>
+	
+<br/><br/><br/><br/><br/>

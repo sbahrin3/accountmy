@@ -1,0 +1,191 @@
+<link rel="stylesheet" href="../app_busim/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" type="text/css" href="../js/datepickr.css" />
+<script type="text/javascript" src="../js/datepickr.min.js"></script>
+
+<style>
+#listItems {
+	z-index: 99;
+	position:fixed;
+    top: 30%;
+	left:52%;
+    width:600px;
+    margin: 0 0 0 -25%;
+    background:#fff;
+    font-family:arial, Helvetica, sans-serif;
+    font-size:10pt;
+    padding:10px;
+	opacity:0.9; 
+	filter:alpha(opacity=90); 
+	-moz-border-radius: 8px;
+	border:2px dotted #000000;
+	border-radius: 8px;   	
+	display:none;
+}
+
+#div_ontop {
+	z-index: 99;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: none;
+	position: absolute;	
+	background-color: #cccccc;
+	color: #aaaaaa;
+	opacity: .4;
+	filter: alpha(opacity = 50);
+}
+
+.confirmBox {
+	z-index: 100;
+	position:fixed;
+    top: 40%;
+	left:55%;
+    width:400px;
+    margin: 0 0 0 -20%;
+    background:#fff;
+    font-family:arial, Helvetica, sans-serif;
+    font-size:10pt;
+    padding:10px;
+	-moz-border-radius: 8px;
+	border:2px dotted #000000;
+	border-radius: 8px;   	
+	display:none;
+}
+</style>
+
+
+
+<div id="divMain" style="background:url(../img2/klcc-background.png);height:100%;opacity:0.5; filter:alpha(opacity=50);"></div>
+
+<div id="divData">
+	
+	<div style="float:right;margin-right:5px;margin-top:5px">
+		<a href="javascript:void(0)" class="btn btn-primary btn-sm" style="background:#64DEFC;border:1px solid #64DEFC" onclick="doDivAjaxCall$formname('formData','back','supplierId=$!supplier.id')"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+	</div>
+
+	<div id="divTitle">
+		Purchase Order
+	</div>
+	<div class="formData" id="formData">
+	#parse("app_busim/purchaseOrder/search.vm")
+	</div>
+</div>
+
+<div id="formTransaction" class="formData"></div>
+<script>
+var totalRow = 0;
+var quotItem = 0;
+var selectedItem = 0;
+
+function addRow() {
+	if ( quotItem < 10 ) {
+		quotItem++;
+		totalRow++;
+		selectedItem = totalRow;
+		$('quotItem_' + totalRow).style.display="block";
+	}
+}
+function delRow() {
+	if ( totalRow > 0 ) {
+		$('quotItem_' + totalRow).style.display="none";
+		clearValues(totalRow);
+		totalRow--;
+		quotItem = totalRow;
+		selectedItem = totalRow;
+	}
+}
+function clearValues(i) {
+	$('code_' + i).value = "";
+	$('name_' + i).value = "";
+	$('name2_' + i).value = "";
+	$('quantity_' + i).value = "";
+	$('uom_' + i).value = "";
+	$('price_' + i).value = "";
+	$('subTotal_' + i).value = "";
+}
+function resetRow() {
+	quotItem = 0;
+	totalRow = 0;
+}
+function selectItemNo(i) {
+	selectedItem = i;
+}
+function setRows(i) {
+	totalRow = i;
+	quotItem = i;
+}
+
+function calcSubTotal(i) {
+	var price = $('price_' + i).value;
+	var quantity = $('quantity_' + i).value;
+
+	doDivAjaxCall$formname('calcSubTotal','calcSubTotal','itemNo=' + i + '&price=' + price + '&quantity=' + quantity);
+}
+
+function tfocus(i) {
+	$('t_' + i).style.display = "none";
+	$('t2_' + i).style.display = "block";
+	$('name2_' + i).focus();
+}
+function tblur(i) {
+
+	$('name_' + i).value = $('name2_' + i).value.split('\n')[0];
+	
+	$('t_' + i).style.display = "block";
+	$('t2_' + i).style.display = "none";
+	
+}
+function t2focus(i) {
+	for ( var j=1; j<11; j++ ) {
+		$('t2_' + j).style.zIndex = '1';
+	}
+	$('t2_' + i).style.zIndex = '10';
+}
+
+function deleteConfirm(i) {
+	$('div_ontop').style.display="block";
+	$('confirm_' + i).style.display="block";
+	$('confirm_' + i).style.zIndex="1000";
+}
+
+function deleteItem(i) {
+	for ( var j=i; j<10; j++) {
+		copyValues(j, j+1);
+	}
+	delRow();
+	$('confirm_' + i).style.display="none";
+	$('div_ontop').style.display="none";
+}
+
+function deleteItemCancel(i) {
+	$('div_ontop').style.display="none";
+	$('confirm_' + i).style.display="none";
+}
+
+function copyValues(i, k) {
+	$('code_' + i).value = $('code_' + k).value;
+	$('name_' + i).value = $('name_' + k).value;
+	$('name2_' + i).value = $('name2_' + k).value;
+	$('quantity_' + i).value = $('quantity_' + k).value;
+	$('uom_' + i).value = $('uom_' + k).value;
+	$('price_' + i).value = $('price_' + k).value;
+	$('subTotal_' + i).value = $('subTotal_' + k).value;	
+}
+
+function deletePurchaseOrderConfirm(i) {
+	$('div_ontop').style.display="block";
+	$('confirmDeletePurchaseOrder_' + i).style.display="block";
+	$('confirmDeletePurchaseOrder_' + i).style.zIndex="1000";
+}
+function deletePurchaseOrderCancel(i) {
+	$('confirmDeletePurchaseOrder_' + i).style.display="none";
+	$('div_ontop').style.display="none";
+}
+function deletePurchaseOrder(i) {
+	doDivAjaxCall$formname('formData','deletePurchaseOrder','purchaseOrderId=' + i);
+	$('confirmDeletePurchaseOrder_' + i).style.display="none";
+	$('div_ontop').style.display="none";
+}
+</script>
+

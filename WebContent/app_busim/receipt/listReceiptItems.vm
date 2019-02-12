@@ -1,0 +1,126 @@
+#set ( $totalRow = 0 )
+#set ( $r = 0 )
+#if ( $paymentVoucher )
+	#foreach( $i in $paymentVoucher.items )
+		#set ( $totalRow = $totalRow + 1 )
+		#set ( $r = $r + 1 )
+		#set ( $readonly = "" )
+        <div id="quotItem_$r" >
+			
+			<input type="hidden" id="paymentVoucherItemId_$r" name="paymentVoucherItemId_$r" value="$!i.id">
+        	<input type="hidden" id="purchaseInvoiceId_$r" name="purchaseInvoiceId_$r" value="$!i.purchaseInvoice.id">
+            
+			<table cellpadding="0" cellspacing="0">
+            	<tr>
+            		<td style="width:30px;padding-top:5px;border-bottom:1px dotted #ccc" valign="top">
+        				$r.
+        			</td>
+            		<td style="width:150px"  valign="top">
+        				<input name="documentNo_$r" id="documentNo_$r" class="textrow" style="width:150px" value="$!i.documentNo" onfocus="selectItemNo($r)">
+        	        </td>
+            		<td style="width:280px" valign="top">
+        				<div id="t2_$r" style="display:none;">
+                            <textarea id="name2_$r" name="name2_$r" style="width:280px" onfocus="t2focus($r)" onblur="tblur($r)">$!i.remark</textarea>
+        				</div>
+        				
+        				<div id="t_$r" style="display:block">
+        					<input id="name_$r" name="name_$r" class="textrow" style="width:280px" value="$!i.description" onfocus="tfocus($r)">
+        				</div>
+        
+        			</td>
+					
+					
+        			
+            		<td style="width:100px"  valign="top"><input name="amount_$r" id="amount_$r" #if ( $i.amount ) value="$nf.format($i.amount)" #end class="textrow" style="width:100px;text-align:right"></td>
+            		
+					<td style="width:20px;cursor:pointer;border-bottom:1px dotted #ccc" align="center" onclick="doDivAjaxCall$formname('listItems','selectAccounts','rowNo=$r&supplierId=$!supplierId')">
+						<img src="../img/list.gif">
+					</td>
+					
+					<td style="width:100px"  valign="top">
+						<input type="hidden" name="accountId_$r" id="accountId_$r" value="$!i.account.id">
+						<input name="accountCode_$r" id="accountCode_$r" class="textrow" style="width:120px;text-align:center" value="$!i.account.number" readonly>
+					</td>
+					
+
+					
+        			<td style="width:200px"  valign="top">
+						<input name="accountName_$r" id="accountName_$r" class="textrow" style="width:200px;" value="$!i.account.title" readonly>
+					</td>
+        			<td style="width:20px;padding-top:5px;;border-bottom:1px dotted #ccc;cursor:pointer" align="center" valign="top" onclick="deleteConfirm($r)">x</td>
+        		</tr>
+            </table>
+			
+			
+        </div>
+		<div id="confirm_$r" class="confirmBox">
+			<table style="width:100%"><tr><td align="center">
+			Delete item row no. $r<br/>
+			Are you sure?
+			<a href="javascript:void(0)" onclick="deleteItem($r)">Yes</a> /
+			<a href="javascript:void(0)" onclick="deleteItemCancel($r)">No</a>
+			</td></tr></table>
+		</div>
+	#end
+#end
+
+#if ( $r == 0 ) #set ( $r = 1 ) #end
+#foreach( $r in [$r..10])
+<div id="quotItem_$r" style="display:none" >
+	<input type="hidden" id="paymentVoucherItemId_$r" name="paymentVoucherItemId_$r" value="">
+	<input type="hidden" id="purchaseInvoiceId_$r" name="purchaseInvoiceId_$r" value="">
+			
+    <table cellpadding="0" cellspacing="0" >
+    	<tr>
+    		<td style="width:30px;padding-top:5px;border-bottom:1px dotted #ccc" valign="top">
+				$r.
+			</td>
+    		<td style="width:150px"  valign="top">
+				<input name="documentNo_$r" id="documentNo_$r" class="textrow" style="width:150px" onfocus="selectItemNo($r)">
+	        </td>
+    		<td style="width:280px" valign="top">
+				<div id="t2_$r" style="display:none;">
+                    <textarea id="name2_$r" name="name2_$r" style="width:280px" onfocus="t2focus($r)" onblur="tblur($r)"></textarea>
+				</div>
+				
+				<div id="t_$r" style="display:block">
+					<input id="name_$r" name="name_$r" class="textrow" onfocus="tfocus($r)") style="width:280px">
+				</div>
+
+			</td>
+			
+    		<td style="width:100px"  valign="top"><input name="amount_$r" id="amount_$r" class="textrow" style="width:100px;text-align:right"></td>
+    		
+			<td style="width:20px;cursor:pointer;border-bottom:1px dotted #ccc" align="center" onclick="doDivAjaxCall$formname('listItems','selectAccounts','rowNo=$r&supplierId=$!supplierId')">
+				<img src="../img/list.gif">
+			</td>
+			
+			
+			<td style="width:100px"  valign="top">
+				<input type="hidden" name="accountId_$r" id="accountId_$r">
+				<input name="accountCode_$r" id="accountCode_$r" class="textrow" style="width:120px;text-align:center" readonly>
+			</td>
+			
+
+			
+			<td style="width:200px"  valign="top"><input name="accountName_$r" id="accountName_$r" readonly class="textrow" style="width:200px;" readonly></td>
+			<td style="width:20px;padding-top:5px;;border-bottom:1px dotted #ccc;cursor:pointer" align="center" valign="top" onclick="deleteConfirm($r)">x</td>
+			
+		</tr>
+    </table>
+</div>
+
+<div id="confirm_$r" class="confirmBox">
+	<table style="width:100%"><tr><td align="center">
+	Delete item row no. $r<br/>
+	Are you sure?
+	<a href="javascript:void(0)" onclick="deleteItem($r)">Yes</a> /
+	<a href="javascript:void(0)" onclick="deleteItemCancel($r)">No</a>
+	</td></tr></table>
+</div>
+		
+#end
+
+<script>
+setRows($totalRow);
+</script>

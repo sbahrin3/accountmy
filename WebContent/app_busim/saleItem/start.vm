@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="../app_busim/style.css" type="text/css" media="screen" />
+
+<div id="divMain" style="background:url(../img2/klcc-background.png);height:100%;opacity:0.5; filter:alpha(opacity=50);"></div>
+
+<div id="divData" class="shadow">
+
+	<div id="divTitle">
+		Sale's Item Maintenance
+	</div>
+	<div class="formData" id="formData">
+	#parse("app_busim/saleItem/search.vm")
+	</div>
+</div>
+	

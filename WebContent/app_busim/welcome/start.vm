@@ -1,0 +1,103 @@
+<style>
+	
+body {
+overflow-x: hidden;
+overflow-y: hidden;
+}
+
+#divWelcome {
+	z-index: 999;
+    position:fixed;
+    top: 10%;
+    left: 50%;
+    width:600px;
+    height:450px;
+    margin: 0 0 0 -25%;
+    background:#fff;
+    font-family:arial, Helvetica, sans-serif;
+    font-size:12pt;
+    padding:10px;
+	opacity:0.9; 
+	filter:alpha(opacity=90); 
+	-moz-border-radius: 8px;
+	border-radius: 8px;   
+}
+
+#divAppTitle {
+	
+	font-family:arial;
+	font-weight:bold;
+	font-size:14pt;
+	border-bottom:2px dotted #000;
+	margin-bottom:40px;
+
+}
+
+.data_label {
+	
+}
+.data_value {
+	font-weight:bold;
+}
+
+.round-button {
+    display:block;
+    width:40px;
+    height:40px;
+    line-height:40px;
+    border: 4px solid #f5f5f5;
+    border-radius: 50%;
+    color:#f5f5f5;
+    text-align:center;
+    text-decoration:none;
+    background: #3669A2;
+    box-shadow: 0 0 3px #64DEFC;
+    font-size:16px;
+    font-weight:bold;
+}
+.round-button:hover {
+    background: #262626;
+}
+</style>
+
+<div id="divMain" style="overflow-y:hidden;overflow-x:hidden;background:url(../img2/klcc-background.png)  no-repeat center fixed;background-size: cover;height:100%;opacity:0.5; filter:alpha(opacity=50);"></div>
+
+
+<div id="divWelcome" class="shadow">
+
+<div id="divAppTitle">
+	$AppTitle
+</div>
+
+<p>
+<b>$user.name</b>,
+</p>
+<p>
+Profile:
+<br/><br/>
+</p>
+<div style="padding-left:30px">
+<table>
+<tr><td style="width:150px">Company Name</td><td style="width:20px">:</td><td class="data_value">$!company.name</td></tr>
+<tr><td>Reg. No.</td><td>:</td><td>$!company.registrationNumber</td></tr>
+<tr><td>Company Type</td><td>:</td><td>$!company.companyType.name</td></tr>
+<tr><td>Business Type</td><td>:</td><td>$!company.businessType.name</td></tr>
+<tr><td>Address</td><td>:</td><td>$!company.address1</td></tr>
+<tr><td></td><td>:</td><td>$!company.address2</td></tr>
+<tr><td>Postcode</td><td>:</td><td>$!company.postcode</td></tr>
+<tr><td>State</td><td>:</td><td>$!company.state</td></tr>
+<tr><td>Telephone</td><td>:</td><td>$!company.telephone</td></tr>
+<tr><td>Fax</td><td>:</td><td>$!company.fax</td></tr>
+
+
+
+
+</table>
+
+
+</div>
+
+<div style="float:right">
+	<a href="../app/fwd.busim.module.CompanyProfileModule" target="mainframe" class="round-button" style="padding:8px;font-weight:bold" ><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+</div>
+</div>

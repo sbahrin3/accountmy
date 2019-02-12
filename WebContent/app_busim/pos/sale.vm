@@ -1,0 +1,223 @@
+<div id="div_ontop"></div>
+
+#set ( $status = "" )
+#set ( $disabled = "" )
+#if ( $status == "completed" )
+<div class="form-status">Status: Completed</div>
+#end
+
+
+
+<table style="width:100%"><tr><td style="width:50%" valign="top">
+##START
+<table style="width:100%">
+	<tr><td style="width:100px">Sale No.</td><td style="width:10px">:</td><td><input type="text" name="posNo" value="$!pos.refNo" placeholder="&lt;&lt;Create New&gt;&gt;" disabled></td></tr>
+	
+	<tr>
+		<td>Date</td><td>:</td><td>
+		<input type="text" style="width:100px" name="posDate" id="posDate" #if ( $date ) value="$df.format($date)" #end $disabled>
+		</td>
+	</tr>
+</table>	
+##END
+</td><td style="width:50%" valign="top">
+##START
+
+<table style="width:100%">
+	<tr><td style="width:100px" align="right">Customer</td><td style="width:10px">:</td><td><input type="text" #if ( $customer ) value="$!customer.name" $readonly #else value="<<Walk In>>" disabled #end ></td></tr>
+	
+</table>
+##END
+</td></tr></table>
+<table style="width:100%" cellpadding="0" cellspacing="0">
+	<tr style="background:#E8E3E3;height:30px">
+		<td style="width:30px" align="center">#</td>
+		<td style="width:150px" align="center">Item Code</td>
+		<td style="" align="center">Description</td>
+		
+		##<td style="width:100px" align="center">UOM</td>
+		<td style="width:100px" align="center">Quantity</td>
+		<td style="width:100px" align="center">Unit Price</td>
+		<td style="width:100px" align="center">Sub Total</td>
+		<td style="width:20px">&nbsp;</td>
+	</tr>
+</table>
+
+#set ( $r = 0 )
+#if ( $pos )
+	#foreach( $i in $pos.items )
+		#set ( $r = $r + 1 )
+		#set ( $readonly = "" )
+		#if ( $i.paid ) 
+			#set ( $readonly = "readonly" )
+		#end
+		
+        <div id="quotItem_$r" >
+            <table style="width:100%" cellpadding="0" cellspacing="0">
+            	<tr>
+            		<td style="width:30px;padding-top:5px;border-bottom:1px dotted #ccc" valign="top">  ##onclick="selectItemNo($r); doOnfocusItems(document.getElementById('code_$r'), document.getElementById('name_$r'), document.getElementById('name2_$r'), document.getElementById('quantity_$r'), document.getElementById('price_$r'), document.getElementById('subTotal_$r'), $r, 'Menu Items')">
+						$r. 
+						<input type="hidden" id="itemId_$r" name="itemId_$r" value="$!i.id">
+						
+					</td>
+					
+            		<td style="width:150px"  valign="top">
+						<input name="code_$r" id="code_$r" value="$!i.code" class="textrow" style="width:150px" onfocus="selectItemNo($r);doOnfocus0()" $readonly>
+			        </td>
+            		
+            		<td style="" valign="top">
+        				<div id="t2_$r" style="display:none;">
+                            <textarea id="name2_$r" name="name2_$r" style="width:100%" onfocus="t2focus($r);doOnfocus0()" onblur="tblur($r)" $readonly >$!i.remark</textarea>
+        				</div>
+        				
+        				<div id="t_$r" style="display:block">
+        					<input id="name_$r" name="name_$r" class="textrow" value="$!i.description" onfocus="tfocus($r); doOnfocus0()" $readonly>
+        				</div>
+        
+        			</td>            		
+					
+					<td style="width:100px"  valign="top"><input name="quantity_$r" id="quantity_$r" value="$!i.quantity" class="textrow" style="width:100px;text-align:center" readonly onfocus="doOnfocus2(this, $r, 'Quantity')" onblur="doOnblur($r)" onchange="calcSubTotal($r)"></td>
+            		<td style="width:100px"  valign="top"><input name="price_$r" id="price_$r" #if ( $i.unitPrice ) value="$nf.format($i.unitPrice)"   #end class="textrow" style="width:100px;text-align:right" readonly onfocus="doOnfocus2(this, $r, 'Unit Price')" onblur="doOnblur($r)" onchange="calcSubTotal($r)"></td>
+            		<td style="width:100px"  valign="top"><input name="subTotal_$r" id="subTotal_$r" #if ( $i.subTotal ) value="$nf.format($i.subTotal)" #end class="textrow" style="width:100px;text-align:right" readonly onfocus="doOnfocus0()"></td>
+					<td style="width:20px;padding-top:5px;border-bottom:1px dotted #ccc;cursor:pointer" align="center" valign="top" #if ( !$i.inDeliveryOrder ) onclick="deleteConfirm($r)" #end>
+						#if ( !$i.inDeliveryOrder )
+						<img src="../img/trash.gif">
+						#end
+					</td>
+				</tr>
+            </table>
+        </div>
+		<div id="confirm_$r" class="confirmBox">
+			<table style="width:100%"><tr><td align="center">
+			Delete item row no. $r<br/>
+			Are you sure?
+			<a href="javascript:void(0)" onclick="deleteItem($r)">Yes</a> /
+			<a href="javascript:void(0)" onclick="deleteItemCancel($r)">No</a>
+			</td></tr></table>
+		</div>
+	#end
+#end
+
+#if ( $r == 0 ) #set ( $r = 1 ) #end
+#foreach( $r in [$r..10])
+<div id="quotItem_$r" style="display:none" >
+    <table style="width:100%" cellpadding="0" cellspacing="0">
+    	<tr>
+    		<td style="width:30px;padding-top:5px;border-bottom:1px dotted #ccc" valign="top" onclick="selectItemNo($r); doOnfocusItems(document.getElementById('code_$r'), document.getElementById('name_$r'), document.getElementById('name2_$r'), document.getElementById('quantity_$r'), document.getElementById('price_$r'), document.getElementById('subTotal_$r'), $r, 'Menu Items')">
+				
+				<input type="hidden" id="itemId_$r" name="itemId_$r" value="">
+				<a href="javascript:void(0)" class="round-button">$r</a>
+				
+			</td>
+    		<td style="width:150px"  valign="top"><input name="code_$r" id="code_$r" class="textrow" style="width:150px" onfocus="selectItemNo($r);doOnfocus0();"></td>
+    		<td style="" valign="top">
+				<div id="t2_$r" style="display:none;">
+                    <textarea id="name2_$r" name="name2_$r" style="width:100%" onfocus="t2focus($r);doOnfocus0()" onblur="tblur($r)"></textarea>
+				</div>
+				
+				<div id="t_$r" style="display:block">
+					<input id="name_$r" name="name_$r" class="textrow" onfocus="tfocus($r);doOnfocus0()">
+				</div>
+
+			</td>
+    		
+    		
+    		##<td style="width:100px"  valign="top"><input name="uom_$r" id="uom_$r" class="textrow" style="width:100px;text-align:center"></td>
+    		<td style="width:100px"  valign="top"><input name="quantity_$r" id="quantity_$r" class="textrow" style="width:100px;text-align:center"  onfocus="doOnfocus1(this, $r, 'Quantity')" onblur="doOnblur($r)" readonly></td>
+    		<td style="width:100px"  valign="top"><input name="price_$r" id="price_$r" class="textrow" style="width:100px;text-align:right"  onfocus="doOnfocus2(this, $r, 'Unit Price')" onblur="doOnblur($r)" readonly></td>
+    		<td style="width:100px"  valign="top"><input name="subTotal_$r" id="subTotal_$r" class="textrow" style="width:100px;text-align:right"  onfocus="doOnfocus0()" readonly></td>
+			<td style="width:20px;padding-top:5px;;border-bottom:1px dotted #ccc;cursor:pointer" align="center" valign="top" onclick="deleteConfirm($r)">
+				<img src="../img/trash.gif">
+			</td>
+		</tr>
+    </table>
+</div>
+
+<div id="confirm_$r" class="confirmBox">
+	<table style="width:100%"><tr><td align="center">
+	Delete item row no. $r<br/>
+	Are you sure?
+	<a href="javascript:void(0)" onclick="deleteItem($r)">Yes</a> /
+	<a href="javascript:void(0)" onclick="deleteItemCancel($r)">No</a>
+	</td></tr></table>
+</div>
+		
+#end
+<br/>
+<div>
+<table align="right">
+	<tr>
+		<td style="width:120px"></td>
+		<td style="width:50px">
+			
+		</td>
+		<td style="width:150px" align="right">
+			Total Price :
+		</td>
+		<td style="width:100px">
+			<input type="text" style="text-align:right" readonly #if ( $pos.totalPrice ) value="$nf.format($!pos.totalPrice)" #end  onfocus="doOnfocus0()">
+		</td>
+	</tr>
+	<tr>
+		<td style="width:120px"></td>
+		<td style="width:50px">
+			
+		</td>
+		<td style="width:150px" align="right">
+			Discount Amount :
+		</td>
+		<td style="width:100px">
+			<input type="text" style="text-align:right" readonly #if ( $pos.discountPrice ) value="$nf.format($!pos.discountPrice)" #end  onfocus="doOnfocus0()">
+		</td>
+	</tr>	
+	<tr>
+		<td style="width:120px">Discount (%):</td>
+		<td style="width:50px">
+			<input type="text" style="text-align:right" name="discount" id="discount" value="$!pos.discount"  onfocus="doOnfocus3(this, $r, 'Discount')" readonly>
+		</td>
+		<td style="width:150px" align="right">
+			Net Price :
+		</td>
+		<td style="width:100px">
+			<input type="text" style="text-align:right" readonly #if ( $pos.netPrice ) value="$nf.format($!pos.netPrice)" #end onfocus="doOnfocus0()">
+		</td>
+	</tr>
+	
+</table>
+</div>
+
+#if ( $status == "" )
+<div style="float:left">
+	<a href="javascript:void(0)" class="round-button" onclick="addRow();">+</a>
+</div>
+#end
+
+<br/><br/><br/><br/><br/><br/><br/>
+
+
+#if ( $status != "completed" )
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('formData','save','customerId=$!customer.id&posId=$!pos.id')">SUBMIT</a>
+</div>
+#end
+
+<div style="float:right;">
+	&nbsp;&nbsp;&nbsp;
+</div>
+
+<div style="float:right">
+	##<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('formData','listSales','customerId=$!customer.id')">list</a>
+</div>
+
+<div id="listItems" class="shadow"></div>
+<div id="calcSubTotal"></div>
+
+<script>
+resetRow();
+#if ( $pos )
+	setRows($pos.items.size());
+#end
+new datepickr('posDate', {
+	'dateFormat': 'd-m-Y'
+});
+</script>

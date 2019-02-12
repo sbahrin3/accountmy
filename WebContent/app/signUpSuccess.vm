@@ -1,0 +1,13 @@
+<table id="dragHandle" width="100%" style="height:30px;cursor:pointer;border-bottom:2px solid #ADADAD">
+<tr>
+<td style="font-family:Arial, Helvetica, sans-serif; font-size:12pt; font-weight:bold">
+Sign Up Form
+</td>
+<td align="right">
+<a href="javascript:void(0)" onclick="$('div_input').style.display='none';$('div_ontop').style.display='none';"><img src="../img2/close.png"></a>
+</td></tr>
+</table>
+
+<script>
+
+</script>

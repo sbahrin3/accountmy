@@ -1,0 +1,22 @@
+<div class="subTitle">New Receipt Voucher: Select a customer for this Receipt Voucher</div>
+
+
+<table style="width:100%">
+	<tr style="height:35px;background:#CCC">
+		<td style="width:40px"></td>
+		<td style="width:120px">Code</td>
+		<td style="width:400px">Name</td>	
+		<td style="width:30px"></td>
+	</tr>
+	#set ( $cnt = 0 )
+	#foreach( $s in $customers )
+	#set ( $cnt = $cnt + 1 )
+	#if ( $cnt % 2 == 0 ) #set ( $bgcolor = "#FCF8DE" ) #else #set ( $bgcolor = "#FFFFFF") #end
+	<tr style="height:30px;background:$bgcolor">
+		<td>$cnt.</td>
+		<td>$s.code</td>
+		<td>$s.name</td>
+		<td style="cursor:pointer"  onclick="doDivAjaxCall$formname('formData','newReceiptVoucher','customerId=$!s.id')" align="center"><img src="../img/edit.gif"></td>
+	</tr>
+	#end
+</table>

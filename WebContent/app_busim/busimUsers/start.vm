@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="../app_busim/style.css" type="text/css" media="screen" />
+
+<div id="divMain" style="background:url(../img2/klcc-background.png);height:100%;opacity:0.5; filter:alpha(opacity=50);"></div>
+
+<div id="divData" class="shadow">
+
+	<div id="divTitle">
+		Users Maintenance
+	</div>
+	<div class="formData" id="formData">
+		#parse("app_busim/busimUsers/users.vm")
+	</div>
+</div>
+	
+	
+<script>
+
+function confirmPassword() {
+	var confirmed = true;
+	if ( document.getElementById("password").value != "" ) {
+		if ( document.getElementById("password").value == document.getElementById("password_confirm").value ) 
+			confirmed = true;
+		else 
+			confirmed = false;
+	}
+	
+	if ( !confirmed ) {
+		alert("Please confirm password!");
+	}
+	
+	return confirmed;
+}
+
+</script>

@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="../app_busim/style.css" type="text/css" media="screen" />
+
+<div id="divMain" style="background:url(../img2/klcc-background.png);height:100%;opacity:0.5; filter:alpha(opacity=50);"></div>
+
+<div id="divData" class="shadow">
+	<div style="float:right">
+		<a href="../app/fwd.busim.module.WelcomeModule" target="mainframe" class="round-button">X</a>
+	</div>
+	<div style="float:right">
+		<a href="javascript:void(0)" class="round-button" onclick="doDivAjaxCall$formname('companySaved','saveCompany','')">OK</a>
+	</div>
+	<div id="divTitle">
+		Account Types
+	</div>
+	<div class="formData" id="formData">
+	#parse("app_busim/setupAccountType/accountType.vm")
+	</div>
+</div>
+	

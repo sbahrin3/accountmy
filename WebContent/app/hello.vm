@@ -1,0 +1,2 @@
+#parse("app/omg.vm")
+##<div style="background:url(../img2/klcc-background.png);height:70%;opacity:0.5; filter:alpha(opacity=50);"></div>

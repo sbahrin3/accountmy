@@ -1,0 +1,37 @@
+<script>
+$('listItems').style.display="block";
+</script>
+
+<div style="float:right">
+	<a href="javascript:void(0)" class="round-button" onclick="$('listItems').style.display='none';">X</a>
+</div>
+<br/><br/>
+#if ( $invoices.size() > 0 )
+    <div style="overflow:auto;height:250px">
+    <table align="center">
+    	<tr style="height:30px;background:#ccc">
+    		<td style="width:30px"></td>
+    		<td style="width:150px">Ref No</td>
+    		<td style="width:150px" align="center">Date</td>
+    		<td style="width:150px" align="right">Amount</td>
+    		<td style="width:50px" align="center">Select</td>
+    	</tr>
+    	#foreach ( $i in $invoices )
+    		<tr>
+    			<td style="border-bottom:1px dotted #939090"></td>
+    			<td style="border-bottom:1px dotted #939090">$i.refNo</td>
+    			<td style="border-bottom:1px dotted #939090" align="center">#if ( $i.date ) $df.format($i.date) #end</td>
+    			<td style="border-bottom:1px dotted #939090"  align="right">#if ( $i.netPrice ) $nf.format($i.netPrice) #end</td>
+    			<td style="border-bottom:1px dotted #939090" align="center"><input type="checkbox" id="invoiceIds" name="invoiceIds" value="$i.id"></td>
+    		</tr>
+    	#end
+    </table>
+    </div>
+    <div style="float:right">
+    	<a href="javascript:void(0)" class="menu-button" onclick="$('listItems').style.display='none';doDivAjaxCall$formname('listReceiptVoucherItems','selectReceiptVoucherItems','receiptVoucherId=$!receiptVoucher.id')">Select Invoices</a>
+    </div>
+#else
+	<div style="height:50px;font-weight:bold;text-align:center">
+		There are currently no pending Invoice by this customer.
+	</div>
+#end

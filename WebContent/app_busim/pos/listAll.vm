@@ -1,0 +1,49 @@
+<div id="div_ontop"></div>
+
+<div class="subTitle">
+	List of POS
+</div>
+<table style="width:100%">
+<tr style="background:#ccc;height:40px">
+	<td style="width:20px"></td>
+	<td style="width:100px" align="center">No</td>
+	<td style="" align="center">Customer</td>
+	<td style="width:100px" align="center">Date</d>
+	<td style="width:100px" align="center">Term</td>
+	<td style="width:100px" align="center">Total</td>
+	<td style="width:20px">&nbsp;</td>
+	<td style="width:20px">&nbsp;</td>
+</tr>
+#set ( $cnt = 0 )
+#foreach( $q in $posList )
+	#set ( $cnt = $cnt + 1 )
+	#if ( $cnt % 2 == 0 ) #set ( $bgcolor = "#EFEDED" ) #else #set ( $bgcolor = "#FFFFFF") #end
+	<tr style="height:35px;background:$bgcolor">
+		<td>$cnt.</td>
+		<td style="cursor:pointer;" onclick="doDivAjaxCall$formname('formData','edit','posId=$!q.id')">$q.refNo</td>
+		<td>$q.customer.name</td>
+		<td align="center">$df.format($q.date)</d>
+		<td align="center">$!q.term.name</td>
+		<td align="center">$nf.format($q.netPrice)</td>
+		<td align="center" style="cursor:pointer" onclick="doDivAjaxCall$formname('formData','edit','posId=$!q.id')"><img src="../img/edit.gif"></td>
+		<td align="center" style="cursor:pointer" onclick="deleteQuotationConfirm('$q.id')"><img src="../img/trash.gif"></td>
+	</tr>
+#end
+</table>
+	
+##Confirmations for delete quotations
+#foreach( $q in $posList )
+<div id="confirmDeleteQuotation_${q.id}" class="confirmBox">
+	<table style="width:100%"><tr><td align="center">
+	Delete POS No. $q.refNo<br/>
+	Are you sure?
+	<a href="javascript:void(0)" onclick="deleteQuotation('$q.id')">Yes</a> /
+	<a href="javascript:void(0)" onclick="deleteQuotationCancel('$q.id')">No</a>
+	</td></tr></table>
+</div>	
+	
+#end
+
+
+	
+

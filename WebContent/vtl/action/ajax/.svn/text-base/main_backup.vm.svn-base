@@ -1,0 +1,33 @@
+#parse ( $view )
+
+#set ( $form_token = $session.getAttribute("form_token") )
+<input type="hidden" name="form_token" value="$form_token">
+<!--
+BELOW HIDDEN FIELDS ARE GENERATED
+-->
+
+#foreach( $field in $hiddenFieldList)
+	<input type="hidden" name="${field}">
+#end
+<script>
+#foreach ( $submit in $submits )
+#if ( $submit != "" )
+#set ( $hidden = $hiddenFields.get("$submit") )
+#set ( $confirm = $confirms.get("$submit") )
+#if ( $hidden.size() > 0 )
+#set ( $i = 0 )
+function ${submit}${uniqueId}(#foreach( $field in $hidden )#set( $i = $i + 1)$field#if( $i < $hidden.size() ), #end#end) {
+#foreach( $field in $hidden ) 
+document.$formname.${field}.value = $field;
+#end
+#else
+function ${submit}${uniqueId}() {
+#end
+#if ($confirm != "" ) 
+if ( !confirm("$confirm")) return;
+#end
+doAjaxCall$formname("${submit}");
+}
+#end
+#end
+</script>
