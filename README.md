@@ -1,2 +1,2 @@
 # accountmy
-A simple double entry concept accounting system.
+A simple double entry book-keeping accounting system.
