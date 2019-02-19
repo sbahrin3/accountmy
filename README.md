@@ -3,7 +3,7 @@ A simple double entry book-keeping accounting system.
 
 If you just want a quick try, just download the tomcat package here: 
 
-https://drive.google.com/open?id=1xKzfXeS55fhWsb0xTlIUqTdIyPH2hbAB
+https://drive.google.com/open?id=1isF0-Mo4t-n1XmDhEMglwFXwQsJ8L7w5
 
 Extract the accountmy-tomcat.zip, and when done go inside the accountmy-tomcat folder, then into the bin folder, and run tomcat here.
 
@@ -11,7 +11,7 @@ Using windows: startup.bat
 
 Using linux: ./startup.sh
 
-Then type this url into your browser: http://localhost:8080/accountmy
+Then type this url into your browser: http://localhost:8181/accountmy
 
 Login: ali
 password: 123
