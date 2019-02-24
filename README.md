@@ -3,7 +3,8 @@ A simple double entry book-keeping accounting system.
 
 If you just want a quick try, just download the tomcat package here: 
 
-https://drive.google.com/open?id=1isF0-Mo4t-n1XmDhEMglwFXwQsJ8L7w5
+https://drive.google.com/open?id=1WZgMM0zZdbwhCm5IgkeHD3OFvq-qYTaU
+
 
 Extract the accountmy-tomcat.zip, and when done go inside the accountmy-tomcat folder, then into the bin folder, and run tomcat here.
 
