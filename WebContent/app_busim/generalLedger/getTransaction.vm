@@ -3,7 +3,7 @@ $('formTransaction').style.display="block";
 </script>
 
 <div style="float:right;padding:2px">
-	<a href="javascript:void(0)" class="round-button" onclick="$('formTransaction').style.display='none';">close</a>
+	<a href="javascript:void(0)" class="btn btn-primary" onclick="$('formTransaction').style.display='none';">OK</a>
 </div>
 
 <div class="subTitle">

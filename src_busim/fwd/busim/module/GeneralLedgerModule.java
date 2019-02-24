@@ -3,8 +3,10 @@ package fwd.busim.module;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 
 import fwd.busim.entity.Account;
 import fwd.busim.entity.AccountTransaction;
@@ -12,14 +14,9 @@ import fwd.busim.entity.Company;
 import fwd.busim.entity.JournalEntryItem;
 import lebah.portal.action.Command;
 
-/**
- * 
- * @author Shamsul Bahrin Abd Mutalib
- * @version 1
- */
-public class GeneralLedgerModule2 extends BusimAppModule {
+public class GeneralLedgerModule  extends BusimAppModule {
 	
-	private String dir = path + "/generalLedger2";
+	private String dir = path + "/generalLedger";
 	
 	@Override
 	public String start() {  
@@ -77,33 +74,6 @@ public class GeneralLedgerModule2 extends BusimAppModule {
 		Company company = db.find(Company.class, companyId);
 		context.put("company", company);
 		
-		Account account = null, account2 = null;
-		int no1 = 0, no2 = 0;
-		
-		String accountId = getParam("accountId");
-		String accountId2 = getParam("accountId2");
-		
-		if ( "".equals(accountId) ) {
-			no1 = 1000;
-			no2 = 1999;
-		}
-		else {
-			account = db.find(Account.class, accountId);
-			context.put("account", account);
-			account2 = account;
-			
-			if ( !"".equals(accountId2)) {
-				account2 = db.find(Account.class, accountId2);
-				context.put("account2", account2);
-			}
-			
-			no1 = account.getNumber();
-			no2 = account2.getNumber();
-			
-		}
-		
-
-		
 		int year = Integer.parseInt(getParam("year"));
 		context.put("year", year);
 		int day1 = 1;
@@ -132,26 +102,65 @@ public class GeneralLedgerModule2 extends BusimAppModule {
 		calendar2.set(Calendar.DAY_OF_MONTH, day2);
 		calendar2.add(Calendar.DAY_OF_MONTH, 1);
 		
+		
+		
+		Hashtable h2 = new Hashtable();
+		h2.put("date1", calendar1.getTime());
+		h2.put("date2", calendar2.getTime());
+		
+		
+		
+		//list all accounts involved in journal entry
+		List<Map<String, Object>> accountList = new ArrayList<Map<String, Object>>();
+		context.put("accountList", accountList);
+		System.out.println("List of Account:");
+		List<Account> accounts = db.list("select distinct a from JournalEntryItem i Join i.transactions t Join t.account a where i.date >= :date1 and i.date <= :date2", h2);
+		for ( Account acc : accounts ) {
+			System.out.println(acc.getNumber() + " - " + acc.getTitle());
+			int accountNumber = acc.getNumber();
+
+			Map<String, Object> map = getGLReport(calendar, h2, accountNumber);
+			map.put("account", acc);
+			accountList.add(map);
+			
+		}
+		
+		
+		System.out.println("====");
+		
+		
+		
+		return dir + "/getAccount.vm";
+	}
+
+
+	private Map<String, Object>  getGLReport(Calendar calendar, Hashtable params, int accountNumber) {
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
 		//balance brought forward
 		boolean includeBfw = getParam("includeBfw").equals("yes");
 		
 		String sql = "";
 		double fwdBalance = 0;
 		if ( includeBfw ) {
+			
+			Hashtable h = new Hashtable();
+			h.put("date", calendar.getTime());
+			
 			//calculate previous debits total
 			double debit = 0.0d;
 			sql = "select sum(t.amount) from JournalEntry j Join j.items i Join i.transactions t where 1 = 1 ";
-			sql += "and t.account.number >= " + no1 + " and t.account.number <= " + no2 + " ";
+			sql += "and t.account.number = " + accountNumber + " ";
 			sql += "and t.side = 0 and i.date < :date";
-			Hashtable h = new Hashtable();
-			h.put("date", calendar.getTime());
+			
 			List<Double> debits = db.list(sql, h);
 			if ( debits != null && debits.size() > 0 ) debit = debits.get(0) != null ? debits.get(0) : 0.0d;
 			
 			//calculate previos credits total
 			double credit = 0.0d;
 			sql = "select sum(t.amount) from JournalEntry j Join j.items i Join i.transactions t where 1 = 1 ";
-			sql += "and t.account.number >= " + no1 + " and t.account.number <= " + no2 + " ";
+			sql += "and t.account.number = " + accountNumber + " ";
 			sql += "and t.side = 1 and i.date < :date";
 			List<Double> credits = db.list(sql, h);
 			if (credits != null && credits.size() > 0 ) credit = credits.get(0) != null ? credits.get(0) : 0.0d;	
@@ -163,19 +172,16 @@ public class GeneralLedgerModule2 extends BusimAppModule {
 		
 		//list selected journal entries 
 		sql = "select t from JournalEntry j Join j.items i Join i.transactions t where 1 = 1 ";
-		sql += "and t.account.number >= " + no1 + " and t.account.number <= " + no2 + " ";
+		sql += "and t.account.number = " + accountNumber + " ";
 		sql += "and (i.date > :date1 and i.date < :date2) ";
 		sql += "order by i.date, i.id, t.sequence";
 		
-		Hashtable h2 = new Hashtable();
-		h2.put("date1", calendar1.getTime());
-		h2.put("date2", calendar2.getTime());
-		
-		List<AccountTransaction> transactions = db.list(sql, h2);
-		context.put("transactions", transactions);
+		List<AccountTransaction> transactions = db.list(sql, params);
+		//map.put("transactions", transactions);
 		
 		List<GLItem> items = new ArrayList<GLItem>();
-		context.put("items", items);
+		map.put("items", items);
+		
 		double balance = 0.0;
 		double totalDebit = 0.0;
 		double totalCredit = 0.0;
@@ -204,11 +210,11 @@ public class GeneralLedgerModule2 extends BusimAppModule {
 		}
 		
 		double total = totalDebit - totalCredit;
-		context.put("totalDebit", totalDebit);
-		context.put("totalCredit", totalCredit);
-		context.put("total", total);
+		map.put("totalDebit", totalDebit);
+		map.put("totalCredit", totalCredit);
+		map.put("total", total);
 		
-		return dir + "/getAccount.vm";
+		return map;
 	}
 	
 	@Command("getTransaction")

@@ -14,11 +14,6 @@ import fwd.busim.entity.JournalEntry;
 import fwd.busim.entity.JournalEntryItem;
 import lebah.portal.action.Command;
 
-/**
- * 
- * @author Shamsul Bahrin Abd Mutalib
- * @version 1
- */
 public class JournalEntryModule  extends BusimAppModule {
 	
 	private String dir = path + "/journalEntry";
@@ -198,6 +193,23 @@ public class JournalEntryModule  extends BusimAppModule {
 		return dir + "/transaction.vm";
 	}
 	
+	@Command("newSimpleTransaction")
+	public String newSimpleTransaction() throws Exception {
+		String companyId = getParam("companyId");
+		Company company = db.find(Company.class, companyId);
+		context.put("company", company);
+		
+		String journalId = getParam("journalId");
+		JournalEntry journal = db.find(JournalEntry.class, journalId);
+		context.put("journal", journal);
+		
+		context.remove("item");
+		
+		context.put("accounts", db.list("select c from Account c where c.company.id = '" + company.getId() + "' order by c.number"));
+
+		return dir + "/transaction_simple.vm";
+	}
+	
 	@Command("editTransaction")
 	public String editTransaction() throws Exception {
 		String companyId = getParam("companyId");
@@ -219,8 +231,6 @@ public class JournalEntryModule  extends BusimAppModule {
 	
 	@Command("addTransactions")
 	public String addTransactions() throws Exception {
-		
-		
 		
 		String companyId = getParam("companyId");
 		Company company = db.find(Company.class, companyId);
@@ -259,6 +269,84 @@ public class JournalEntryModule  extends BusimAppModule {
 		JournalEntryUtil util = new JournalEntryUtil(company);
 		util.addTransaction(journal, journalEntryItem, transactionDescription, transactions, date);
 		
+		
+		return dir + "/items.vm";
+	}
+	
+	@Command("addSimpleTransactions")
+	public String addSimpleTransactions() throws Exception {
+		
+		String companyId = getParam("companyId");
+		Company company = db.find(Company.class, companyId);
+		context.put("company", company);
+		
+		String journalId = getParam("journalId");
+		JournalEntry journal = db.find(JournalEntry.class, journalId);
+		context.put("journal", journal);
+		
+		String itemId = getParam("itemId");
+		JournalEntryItem journalEntryItem = null;
+		if ( !"".equals(itemId) ) journalEntryItem = db.find(JournalEntryItem.class, itemId);
+
+		String itemDate = getParam("itemDate");
+		Date date = new Date();
+		try {
+			date = new SimpleDateFormat("dd-MM-yyyy").parse(itemDate);
+		} catch ( Exception e ) { }
+		
+		String transactionType = getParam("transactionType");
+		System.out.println("Transaction Type = " + transactionType);
+		String transactionAmount = getParam("transactionAmount");
+		System.out.println("Transaction Amount = " + transactionAmount);
+		
+		List<Map> transactions = new ArrayList<Map>();
+		//one account is cash
+		Account account1 = (Account) db.get("select a from Account a where a.number = 1001");
+		Account account2 = null;
+		if ( "RV".equals(transactionType)) {
+			
+			Map<String, Object> transaction1 = new HashMap<String, Object>();
+			transaction1.put("account", account1);
+			transaction1.put("amountDebit", transactionAmount);
+			transaction1.put("amountCredit", "");
+			
+			
+			
+			account2 = db.find(Account.class, getParam("rv_accountId"));
+			
+			Map<String, Object> transaction2 = new HashMap<String, Object>();
+			transaction2.put("account", account2);
+			transaction2.put("amountDebit", "");
+			transaction2.put("amountCredit", transactionAmount);
+			
+			transactions.add(transaction1);
+			transactions.add(transaction2);
+
+			
+		} else {
+			
+			Map<String, Object> transaction1 = new HashMap<String, Object>();
+			transaction1.put("account", account1);
+			transaction1.put("amountDebit", "");
+			transaction1.put("amountCredit", transactionAmount);
+			
+			
+			
+			account2 = db.find(Account.class, getParam("ex_accountId"));
+			
+			Map<String, Object> transaction2 = new HashMap<String, Object>();
+			transaction2.put("account", account2);
+			transaction2.put("amountDebit", transactionAmount);
+			transaction2.put("amountCredit", "");
+			
+			transactions.add(transaction2);
+			transactions.add(transaction1);
+			
+		}
+	
+		String transactionDescription = getParam("itemDescription");
+		JournalEntryUtil util = new JournalEntryUtil(company);
+		util.addTransaction(journal, journalEntryItem, transactionDescription, transactions, date);
 		
 		return dir + "/items.vm";
 	}
