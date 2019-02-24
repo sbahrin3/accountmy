@@ -1,16 +1,16 @@
 
 <div style="float:right;padding:2px">
-	<a href="javascript:void(0)" class="btn btn-primary" onclick="doDivAjaxCall$formname('formData','list','companyId=$!company.id')">Back</a>
+	<a href="javascript:void(0)" class="btn btn-primary" onclick="doDivAjaxCall$formname('formData','list','companyId=$!company.id')">Done</a>
 </div>
 
 #if ( $journal )
     <div style="float:right;padding:2px">
-    	<a href="javascript:void(0)" class="btn btn-danger" onclick="if ( !confirm('Delete?') ) return; doDivAjaxCall$formname('formData','delete','companyId=$!company.id&journalId=$!journal.id')">Del</a>
+    	<a href="javascript:void(0)" class="btn btn-danger" onclick="if ( !confirm('Delete?') ) return; doDivAjaxCall$formname('formData','delete','companyId=$!company.id&journalId=$!journal.id')">Delete</a>
     </div>
 #end
 
 <div style="float:right;padding:2px">
-	<a href="javascript:void(0)" class="btn btn-success" onclick="if ( !checkField() ) return; doDivAjaxCall$formname('formData','save','companyId=$!company.id&journalId=$!journal.id')">Save</a>
+	<a href="javascript:void(0)" class="btn btn-success" onclick="if ( !checkField() ) return; doDivAjaxCall$formname('formData','save','companyId=$!company.id&journalId=$!journal.id')">Save Changes</a>
 </div>
 
 #if ( $dataSaved )

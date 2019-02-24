@@ -1,0 +1,107 @@
+<script>
+$('formTransaction').style.display="block";
+</script>
+
+
+<div style="float:right;padding:2px">
+	<a href="javascript:void(0)" class="btn btn-primary btn-sm" onclick="$('formTransaction').style.display='none';">Close</a>
+</div>
+#if ( $item )
+<div style="float:right;padding:2px;">
+	<a href="javascript:void(0)" class="btn btn-danger btn-sm" onclick="if ( !confirm('Delete?') ) return; doDivAjaxCall$formname('items','deleteTransaction','companyId=$!company.id&journalId=$!journal.id&itemId=$!item.id')">Delete</a>
+</div>
+#end
+<div style="float:right;padding:2px">
+	<a href="javascript:void(0)" class="btn btn-success btn-sm" onclick="doDivAjaxCall$formname('items','addSimpleTransactions','companyId=$!company.id&journalId=$!journal.id&itemId=$!item.id') ">Save</a>
+</div>
+
+<div id="divTitle">
+	#if ( $item )
+		Edit Transaction
+	#else
+		Add New Transaction
+	#end
+</div>
+
+<div id="unbalanceError" class="messageArea" style="display:none">
+	Amount entered are not balanced.
+</div>
+
+<div style="height:400px;overflow:auto;">
+<table style="width:100%">
+	<tr><td style="width:150px"></td><td style="width:20px"></td><td></td></tr>
+	<tr><td colspan="3">&nbsp;</td></tr>
+	
+	<tr>
+	<td>Date</td><td>:</td>
+	<td> 
+		<input class="form-control" style="width:100px;text-align:center" id="itemDate" name="itemDate" 
+		#if ( $item.date )
+			value="$df.format($item.date)"
+		#end
+		>
+	</td>
+	</tr>
+	<tr><td colspan="4"><br/></td></tr>
+	<tr><td>Description</td><td>:</td><td><textarea id="itemDescription" name="itemDescription">$!item.description</textarea></td></tr>
+	<tr><td colspan="4"><br/></td></tr>
+	<tr>
+		<td>Type</td><td>:</td>
+		<td>
+			
+			<input type="checkbox" id="checkEX" checked onclick="if ( this.checked ) { $('checkRV').checked = false; $('typeRV').style.display = 'none'; $('typeEX').style.display = 'block'; $('transactionType').value = 'EX'; }">&nbsp;Expense
+			&nbsp;&nbsp;&nbsp;
+			<input type="checkbox" id="checkRV" onclick="if ( this.checked ) { $('checkEX').checked = false; $('typeEX').style.display = 'none'; $('typeRV').style.display = 'block';  $('transactionType').value = 'RV';}">&nbsp;Income
+			
+			<input type="hidden" id="transactionType" name="transactionType" value="EX">
+		</td>
+	</tr>
+	<tr><td colspan="4"><br/></td></tr>
+	<tr>
+		<td>Account</td><td>:</td>
+		<td>
+			
+			<div id="typeRV" style="display:none">
+			<select class="form-control" id="rv_accountId" name="rv_accountId">
+				#foreach( $t in $accounts )
+					#if ( $t.type.code == "RV" || $t.type.code == "EQ" )
+					<option value="$t.id"
+						#if ( $tran_account_id == $t.id ) selected #end
+					>$t.title</option>
+					#end
+				#end
+			</select>
+			</div>
+			
+			<div id="typeEX" style="display:block">
+			<select class="form-control" id="ex_accountId" name="ex_accountId">
+				#foreach( $t in $accounts )
+					#if ( $t.type.code == "EX" )
+					<option value="$t.id"
+						#if ( $tran_account_id == $t.id ) selected #end
+					>$t.title</option>
+					#end
+				#end
+			</select>
+			</div>
+		</td>
+	</tr>
+	<tr><td colspan="4"><br/></td></tr>
+	<tr>
+		<td>Amount</td><td>:</td>
+		<td>
+			<input class="form-control" style="width:200px;text-align:left" id="transactionAmount" name="transactionAmount">
+		</td>
+	</tr>
+
+</table>
+
+</div>
+
+
+
+<script type="text/javascript">
+	new datepickr('itemDate', {
+		'dateFormat': 'd-m-Y'
+	});
+</script>
