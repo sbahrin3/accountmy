@@ -6,8 +6,8 @@
 			
 			<td class="menu" style="border-right:2px dotted #ccc" onclick="gourl2('../app/fwd.busim.module.JournalEntryModule');"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Journal Entry</td>
 			
-			<td class="menu" style="border-right:2px dotted #ccc" onclick="gourl2('../app/fwd.busim.module.GeneralLedgerModule2');"><i class="fa fa-money" aria-hidden="true"></i>&nbsp;General Ledger</td>
-			<td class="menu" style="border-right:2px dotted #ccc" onclick="gourl2('../app/fwd.busim.module.IncomeStatementModule');"><i class="fa fa-money" aria-hidden="true"></i>&nbsp;Income Statement (P&L)</td>
+			<td class="menu" style="border-right:2px dotted #ccc" onclick="gourl2('../app/fwd.busim.module.GeneralLedgerModule');"><i class="fa fa-money" aria-hidden="true"></i>&nbsp;General Ledger</td>
+			<td class="menu" style="border-right:2px dotted #ccc" onclick="gourl2('../app/fwd.busim.module.IncomeStatementModule');"><i class="fa fa-money" aria-hidden="true"></i>&nbsp;Income Statement</td>
 			
 			<td class="menu" style="border-right:2px dotted #ccc"  onclick="gourl2('../app/fwd.busim.module.SetupAccountChartModule');"><i class="fa fa-building" aria-hidden="true"></i>&nbsp;Chart of Accounts</td>
 			<td id="m_company" class="menu" style="border-right:2px dotted #ccc"><i class="fa fa-address-card" aria-hidden="true"></i>&nbsp;My Profile</a></td>
